@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Sobre", href: "#about" },
-  { label: "Experiência", href: "#experiencia" },
-  { label: "Projetos", href: "#projects" },
-  { label: "Contato", href: "#contact" },
+  { label: "Sobre", href: "#about", index: "01" },
+  { label: "Experiência", href: "#experiencia", index: "02" },
+  { label: "Projetos", href: "#projects", index: "03" },
+  { label: "Contato", href: "#contact", index: "04" },
 ];
 
 export default function Header() {
@@ -69,10 +69,10 @@ export default function Header() {
             {/* Logo */}
             <button
               onClick={() => scrollTo("#top")}
-              className="text-lg font-bold tracking-tight text-white transition-colors hover:text-emerald-400"
+              className="font-display text-lg font-bold tracking-tight text-[#F0EDE8] transition-colors hover:text-[#C8FF00]"
             >
               jv.
-              <span className="text-emerald-500">chaves</span>
+              <span className="text-[#C8FF00]">chaves</span>
             </button>
 
             {/* Desktop Nav */}
@@ -81,10 +81,13 @@ export default function Header() {
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className="relative text-sm font-medium text-gray-400 transition-colors hover:text-white"
+                  className="group relative text-sm font-medium text-[#8B8680] transition-colors hover:text-[#F0EDE8]"
                 >
+                  <span className="text-[10px] text-[#C8FF00]/60 mr-1.5 font-mono">
+                    {link.index}
+                  </span>
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-emerald-500 transition-all duration-300 group-hover:w-full hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#C8FF00] transition-all duration-300 ease-out group-hover:w-full" />
                 </button>
               ))}
             </nav>
@@ -92,48 +95,52 @@ export default function Header() {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="relative z-50 text-white md:hidden"
+              className="relative z-50 text-[#F0EDE8] md:hidden"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
 
-          {/* Mobile Drawer */}
+          {/* Mobile Full-Screen Menu */}
           <AnimatePresence>
             {isMobileMenuOpen && (
-              <>
-                {/* Backdrop */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                />
-
-                {/* Drawer */}
-                <motion.nav
-                  initial={{ x: "100%" }}
-                  animate={{ x: 0 }}
-                  exit={{ x: "100%" }}
-                  transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                  className="fixed right-0 top-0 z-40 flex h-full w-64 flex-col gap-2 border-l border-white/5 bg-[#0a0a0a]/95 px-6 pt-24 backdrop-blur-xl md:hidden"
-                >
+              <motion.nav
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="fixed inset-0 z-40 flex flex-col items-start justify-center bg-[#0a0a0a]/98 px-8 backdrop-blur-2xl md:hidden"
+              >
+                <div className="flex flex-col gap-2">
                   {navLinks.map((link, i) => (
                     <motion.button
                       key={link.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1 }}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ delay: i * 0.08, duration: 0.4 }}
                       onClick={() => scrollTo(link.href)}
-                      className="rounded-lg px-4 py-3 text-left text-lg font-medium text-gray-300 transition-colors hover:bg-emerald-500/10 hover:text-emerald-400"
+                      className="group flex items-baseline gap-4 py-3 text-left"
                     >
-                      {link.label}
+                      <span className="font-mono text-sm text-[#C8FF00]/50">
+                        {link.index}
+                      </span>
+                      <span className="font-display text-4xl font-bold text-[#F0EDE8] transition-colors group-hover:text-[#C8FF00]">
+                        {link.label}
+                      </span>
                     </motion.button>
                   ))}
-                </motion.nav>
-              </>
+                </div>
+
+                {/* Decorative line */}
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  className="mt-12 h-px w-full origin-left bg-gradient-to-r from-[#C8FF00]/40 to-transparent"
+                />
+              </motion.nav>
             )}
           </AnimatePresence>
         </motion.header>

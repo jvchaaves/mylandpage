@@ -33,8 +33,8 @@ const secondHalf = allTechs.slice(Math.ceil(allTechs.length / 2));
 
 function TechCard({ name, category }: { name: string; category: string }) {
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-white/5 bg-[#111111] px-4 py-3 transition-colors hover:border-emerald-500/20">
-      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10 text-xs font-bold text-emerald-400">
+    <div className="flex items-center gap-3 rounded-xl border border-white/5 bg-[#141414] px-4 py-3 transition-colors hover:border-[#C8FF00]/20">
+      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C8FF00]/10 text-xs font-bold text-[#C8FF00]">
         {name.slice(0, 2)}
       </div>
       <div>
@@ -69,70 +69,94 @@ export default function About() {
       className="relative px-6 py-24 sm:py-32"
       style={{ backgroundColor: "#0a0a0a" }}
     >
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-6xl">
         {/* Section title */}
-        <motion.h2
+        <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeUp}
           custom={0}
-          className="mb-12 text-3xl font-bold text-white sm:text-4xl"
+          className="mb-16 flex items-end gap-4"
         >
-          Sobre Mim
-          <span
-            className="mt-3 block h-1 w-16 rounded-full"
-            style={{ backgroundColor: "#10b981" }}
-          />
-        </motion.h2>
+          <span className="font-display text-7xl font-bold tracking-tighter text-[#8B8680]/30 sm:text-8xl">(02)</span>
+          <h2 className="font-display text-4xl font-bold uppercase tracking-wide text-[#F0EDE8] sm:text-5xl">SOBRE</h2>
+        </motion.div>
 
-        {/* Bio paragraphs */}
-        <motion.p
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={fadeUp}
-          custom={1}
-          className="mb-6 text-base leading-relaxed text-neutral-400 sm:text-lg"
-        >
-          Estudante de Ciência de Dados e Inteligência Artificial na UFPB, com
-          experiência como AI Engineer na{" "}
-          <span className="font-medium text-white">Zoox Smart Data</span> e
-          pesquisador no{" "}
-          <span className="font-medium text-white">TRIL Lab</span>. Construo
-          soluções que conectam IA a problemas reais — desde agentes
-          inteligentes e pipelines de dados até plataformas educacionais e
-          ferramentas de produtividade.
-        </motion.p>
+        {/* Asymmetric 2-column layout */}
+        <div className="grid gap-12 md:grid-cols-[1fr_0.4fr] md:gap-16">
+          <div>
+            {/* Bio paragraphs */}
+            <motion.p
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              variants={fadeUp}
+              custom={1}
+              className="mb-6 text-base leading-relaxed text-neutral-400 sm:text-lg"
+            >
+              Estudante de Ciência de Dados e Inteligência Artificial na UFPB, com
+              experiência como AI Engineer na{" "}
+              <span className="font-medium text-[#C8FF00]">Zoox Smart Data</span> e
+              pesquisador no{" "}
+              <span className="font-medium text-[#C8FF00]">TRIL Lab</span>. Construo
+              soluções que conectam IA a problemas reais — desde agentes
+              inteligentes e pipelines de dados até plataformas educacionais e
+              ferramentas de produtividade.
+            </motion.p>
 
-        <motion.p
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={fadeUp}
-          custom={2}
-          className="mb-6 text-base leading-relaxed text-neutral-400 sm:text-lg"
-        >
-          Pesquisador no{" "}
-          <span className="font-medium text-white">ARIA</span> — Laboratório de
-          Aplicações em Inteligência Artificial da UFPB, que desenvolve pesquisa
-          aplicada em NLP, computer vision, processamento de áudio e análise
-          preditiva. Também sou trainee na{" "}
-          <span className="font-medium text-white">TAIL</span> (Technology and
-          Artificial Intelligence League), a primeira liga acadêmica de IA da
-          Paraíba, vinculada ao ARIA.
-        </motion.p>
+            <motion.p
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              variants={fadeUp}
+              custom={2}
+              className="mb-6 text-base leading-relaxed text-neutral-400 sm:text-lg"
+            >
+              Pesquisador no{" "}
+              <span className="font-medium text-[#C8FF00]">ARIA</span> — Laboratório de
+              Aplicações em Inteligência Artificial da UFPB, que desenvolve pesquisa
+              aplicada em NLP, computer vision, processamento de áudio e análise
+              preditiva. Também sou trainee na{" "}
+              <span className="font-medium text-[#C8FF00]">TAIL</span> (Technology and
+              Artificial Intelligence League), a primeira liga acadêmica de IA da
+              Paraíba, vinculada ao ARIA.
+            </motion.p>
 
-        <motion.p
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={fadeUp}
-          custom={3}
-          className="mb-16 text-base leading-relaxed text-neutral-400 sm:text-lg"
-        >
-          Ex-trainee da{" "}
-          <span className="font-medium text-white">Trilha</span> na UFPB, onde
-          venci o hackathon com o projeto{" "}
-          <span className="font-medium text-emerald-400">PixelMind</span> —
-          editor de vídeo inteligente com IA. Bilíngue em Português e Inglês.
-        </motion.p>
+            <motion.p
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              variants={fadeUp}
+              custom={3}
+              className="mb-16 text-base leading-relaxed text-neutral-400 sm:text-lg"
+            >
+              Ex-trainee da{" "}
+              <span className="font-medium text-[#C8FF00]">Trilha</span> na UFPB, onde
+              venci o hackathon com o projeto{" "}
+              <span className="font-medium text-[#C8FF00]">PixelMind</span> —
+              editor de vídeo inteligente com IA. Bilíngue em Português e Inglês.
+            </motion.p>
+          </div>
+
+          {/* Right column — stats / decorative */}
+          <motion.div
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={fadeUp}
+            custom={2}
+            className="flex flex-col gap-6"
+          >
+            <div className="rounded-2xl border border-[#1F1F1F] bg-[#141414] p-6">
+              <p className="font-display text-4xl font-bold text-[#C8FF00]">3+</p>
+              <p className="mt-1 text-sm text-[#8B8680]">Labs & Empresas</p>
+            </div>
+            <div className="rounded-2xl border border-[#1F1F1F] bg-[#141414] p-6">
+              <p className="font-display text-4xl font-bold text-[#F0EDE8]">20+</p>
+              <p className="mt-1 text-sm text-[#8B8680]">Tecnologias</p>
+            </div>
+            <div className="rounded-2xl border border-[#1F1F1F] bg-[#141414] p-6">
+              <p className="font-display text-4xl font-bold text-[#C8FF00]">1º</p>
+              <p className="mt-1 text-sm text-[#8B8680]">Hackathon UFPB</p>
+            </div>
+          </motion.div>
+        </div>
 
         {/* Tech stack marquee */}
         <motion.div

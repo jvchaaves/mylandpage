@@ -35,15 +35,15 @@ export function Timeline({ data }: { data: TimelineEntry[] }) {
           <div key={index} className="flex justify-start pt-10 md:gap-10 md:pt-40">
             <div className="sticky top-40 z-40 flex max-w-xs flex-col items-center self-start md:w-full md:flex-row lg:max-w-sm">
               <div className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#0a0a0a] md:left-3">
-                <div className="h-4 w-4 rounded-full border border-neutral-700 bg-emerald-500/20 p-2" />
+                <div className="h-4 w-4 rounded-full border border-neutral-700 bg-[#C8FF00]/20 p-2" />
               </div>
-              <h3 className="hidden text-xl font-bold text-emerald-400 md:block md:pl-20 md:text-4xl">
+              <h3 className="hidden text-xl font-bold text-[#C8FF00] md:block md:pl-20 md:text-4xl">
                 {item.title}
               </h3>
             </div>
 
             <div className="relative w-full pl-20 pr-4 md:pl-4">
-              <h3 className="mb-4 block text-left text-2xl font-bold text-emerald-400 md:hidden">
+              <h3 className="mb-4 block text-left text-2xl font-bold text-[#C8FF00] md:hidden">
                 {item.title}
               </h3>
               {item.content}
@@ -61,7 +61,7 @@ export function Timeline({ data }: { data: TimelineEntry[] }) {
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0 w-full rounded-full bg-gradient-to-t from-emerald-500 via-emerald-300 to-transparent"
+            className="absolute inset-x-0 top-0 w-full rounded-full bg-gradient-to-t from-[#C8FF00] via-[#C8FF00]/60 to-transparent"
           />
         </div>
       </div>

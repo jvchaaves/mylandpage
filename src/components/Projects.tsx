@@ -117,7 +117,7 @@ function FeaturedCarousel() {
 
   return (
     <div className="mb-20">
-      <div className="relative overflow-hidden rounded-2xl border border-white/5 bg-[#111111]">
+      <div className="relative overflow-hidden rounded-2xl border border-[#1F1F1F] bg-[#141414]">
         <GlowingEffect
           spread={40}
           glow={true}
@@ -140,11 +140,11 @@ function FeaturedCarousel() {
             {/* Left – Info */}
             <div className="flex flex-1 flex-col justify-center p-8 lg:p-12">
               <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/10">
-                  <Icon className="h-5 w-5 text-emerald-400" />
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#C8FF00]/10">
+                  <Icon className="h-5 w-5 text-[#C8FF00]" />
                 </div>
                 {project.metrics && (
-                  <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400">
+                  <span className="rounded-full bg-[#C8FF00]/10 px-3 py-1 text-xs font-medium text-[#C8FF00]">
                     {project.metrics.split("•")[0].trim()}
                   </span>
                 )}
@@ -155,7 +155,7 @@ function FeaturedCarousel() {
               </h3>
 
               {project.role && (
-                <p className="mb-3 flex items-center gap-1.5 text-sm font-medium text-emerald-400/80">
+                <p className="mb-3 flex items-center gap-1.5 text-sm font-medium text-[#C8FF00]/80">
                   <Users className="h-3.5 w-3.5" />
                   {project.role}
                 </p>
@@ -188,7 +188,7 @@ function FeaturedCarousel() {
 
               <Link
                 href={`/projects/${project.slug}`}
-                className="group/link inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-emerald-400 transition-colors hover:text-emerald-300"
+                className="group/link inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-[#C8FF00] transition-colors hover:text-[#C8FF00]"
               >
                 Ver detalhes
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1" />
@@ -196,13 +196,13 @@ function FeaturedCarousel() {
             </div>
 
             {/* Right – Visual placeholder */}
-            <div className="relative flex flex-1 items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-500/10 via-emerald-600/5 to-transparent p-8 lg:p-12">
+            <div className="relative flex flex-1 items-center justify-center overflow-hidden bg-gradient-to-br from-[#C8FF00]/10 via-[#C8FF00]/5 to-transparent p-8 lg:p-12">
               {/* Decorative circles */}
-              <div className="absolute -right-12 -top-12 h-56 w-56 rounded-full bg-emerald-500/5 blur-3xl" />
-              <div className="absolute -bottom-8 -left-8 h-40 w-40 rounded-full bg-emerald-500/5 blur-2xl" />
+              <div className="absolute -right-12 -top-12 h-56 w-56 rounded-full bg-[#C8FF00]/5 blur-3xl" />
+              <div className="absolute -bottom-8 -left-8 h-40 w-40 rounded-full bg-[#C8FF00]/5 blur-2xl" />
 
               <div className="relative flex h-48 w-full max-w-sm items-center justify-center rounded-2xl border border-white/5 bg-[#0a0a0a]/60 shadow-2xl backdrop-blur-sm lg:h-64">
-                <Icon className="h-16 w-16 text-emerald-500/30" />
+                <Icon className="h-16 w-16 text-[#C8FF00]/30" />
                 <div className="absolute bottom-4 left-4 right-4 space-y-2">
                   <div className="h-2 w-3/4 rounded-full bg-white/5" />
                   <div className="h-2 w-1/2 rounded-full bg-white/5" />
@@ -216,14 +216,14 @@ function FeaturedCarousel() {
         <button
           onClick={() => go(-1)}
           aria-label="Projeto anterior"
-          className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-[#111111]/80 text-gray-400 backdrop-blur-sm transition-colors hover:border-emerald-500/30 hover:text-emerald-400"
+          className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-[#141414]/80 text-gray-400 backdrop-blur-sm transition-colors hover:border-[#C8FF00]/30 hover:text-[#C8FF00]"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
         <button
           onClick={() => go(1)}
           aria-label="Próximo projeto"
-          className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-[#111111]/80 text-gray-400 backdrop-blur-sm transition-colors hover:border-emerald-500/30 hover:text-emerald-400"
+          className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-[#141414]/80 text-gray-400 backdrop-blur-sm transition-colors hover:border-[#C8FF00]/30 hover:text-[#C8FF00]"
         >
           <ChevronRight className="h-4 w-4" />
         </button>
@@ -242,7 +242,7 @@ function FeaturedCarousel() {
             }}
             className={`h-2 rounded-full transition-all duration-300 ${
               i === active
-                ? "w-6 bg-emerald-500"
+                ? "w-6 bg-[#C8FF00]"
                 : "w-2 bg-white/20 hover:bg-white/40"
             }`}
           />
@@ -265,7 +265,7 @@ function SmallProjectCard({
     <motion.div
       variants={cardVariants}
       whileHover={{ scale: 1.02 }}
-      className="group relative flex flex-col justify-between rounded-2xl border border-white/5 bg-[#111111] p-6 transition-colors duration-300 hover:border-emerald-500/30"
+      className="group relative flex flex-col justify-between rounded-2xl border border-[#1F1F1F] bg-[#141414] p-6 transition-colors duration-300 hover:border-[#C8FF00]/30"
     >
       <GlowingEffect
         spread={40}
@@ -277,17 +277,17 @@ function SmallProjectCard({
       />
       {/* Glow effect on hover */}
       <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div className="absolute inset-0 rounded-2xl bg-emerald-500/5" />
+        <div className="absolute inset-0 rounded-2xl bg-[#C8FF00]/5" />
       </div>
 
       <div className="relative z-10">
         {/* Header */}
         <div className="mb-4 flex items-start justify-between">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <Icon className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#C8FF00]/10">
+            <Icon className="h-5 w-5 text-[#C8FF00]" />
           </div>
           {project.role && (
-            <span className="rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-400">
+            <span className="rounded-full bg-[#C8FF00]/10 px-2.5 py-1 text-xs font-medium text-[#C8FF00]">
               {project.role.split("—")[0].trim()}
             </span>
           )}
@@ -297,7 +297,7 @@ function SmallProjectCard({
         <h3 className="mb-1 text-lg font-bold text-white">{project.name}</h3>
 
         {project.role && (
-          <p className="mb-2 flex items-center gap-1.5 text-xs font-medium text-emerald-400/80">
+          <p className="mb-2 flex items-center gap-1.5 text-xs font-medium text-[#C8FF00]/80">
             <Users className="h-3 w-3" />
             {project.role}
           </p>
@@ -328,7 +328,7 @@ function SmallProjectCard({
 
         <Link
           href={`/projects/${project.slug}`}
-          className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 transition-colors hover:text-emerald-300"
+          className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-[#C8FF00] transition-colors hover:text-[#C8FF00]"
         >
           Ver detalhes
           <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1" />
@@ -360,10 +360,12 @@ export default function Projects() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-white md:text-4xl">
-            Projetos
-          </h2>
-          <div className="mt-2 h-1 w-12 rounded-full bg-emerald-500" />
+          <div className="flex items-end gap-4">
+            <span className="font-display text-6xl font-bold leading-none text-[#8B8680]/40 md:text-8xl">(04)</span>
+            <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-[#F0EDE8] md:text-5xl">
+              PROJETOS
+            </h2>
+          </div>
         </motion.div>
 
         {/* Featured Carousel */}
@@ -400,7 +402,7 @@ export default function Projects() {
             href="https://github.com/jvchaaves"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-6 py-3 text-sm font-medium text-emerald-400 transition-all duration-300 hover:border-emerald-500/40 hover:bg-emerald-500/10"
+            className="group inline-flex items-center gap-2 rounded-full border border-[#C8FF00]/20 bg-[#C8FF00]/5 px-6 py-3 text-sm font-medium text-[#C8FF00] transition-all duration-300 hover:border-[#C8FF00]/40 hover:bg-[#C8FF00]/10"
           >
             Ver todos no GitHub
             <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

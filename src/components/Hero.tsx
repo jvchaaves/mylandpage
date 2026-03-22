@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowRight } from "lucide-react";
 import { Spotlight } from "@/components/ui/spotlight";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
@@ -60,14 +60,14 @@ export default function Hero() {
   const typedSubtitle = useTypedText(
     "Construindo soluções inteligentes com IA aplicada à saúde, educação e produtividade.",
     40,
-    1800
+    2200
   );
 
   if (!mounted) {
     return (
       <section
         id="hero"
-        className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6"
+        className="relative flex min-h-screen flex-col justify-end overflow-hidden"
         style={{ backgroundColor: "#0a0a0a" }}
       />
     );
@@ -76,93 +76,145 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6"
+      className="relative flex min-h-screen flex-col justify-end overflow-hidden"
       style={{ backgroundColor: "#0a0a0a" }}
     >
       {/* Interactive Canvas Animation */}
       <CanvasAnimation />
 
       {/* Animated Grid Pattern Background */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.07]">
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.05]">
         <AnimatedGridPattern
           width={40}
           height={40}
           numSquares={30}
           maxOpacity={0.3}
           duration={3}
-          className="h-full w-full fill-emerald-500 stroke-emerald-500/20"
+          className="h-full w-full fill-lime-400 stroke-lime-400/20"
         />
       </div>
 
-      {/* Spotlight */}
+      {/* Spotlight — lime accent */}
       <Spotlight
         className="-top-40 left-0 md:-top-20 md:left-60"
-        fill="#10b981"
+        fill="#C8FF00"
       />
 
-      {/* Content */}
-      <div className="relative z-10 flex max-w-4xl flex-col items-center text-center">
-        {/* Name with TextGenerateEffect */}
-        <div className="mb-4 text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+      {/* Section number — decorative (Lusion-style) */}
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.04 }}
+        transition={{ duration: 1.5, delay: 0.3 }}
+        className="pointer-events-none absolute right-6 top-6 z-10 font-display text-[clamp(6rem,15vw,14rem)] font-bold leading-none md:right-12 md:top-12"
+        style={{ color: "#F0EDE8" }}
+      >
+        (01)
+      </motion.span>
+
+      {/* Horizontal rule that animates on load */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute left-0 top-[45%] z-10 h-px w-full origin-left"
+        style={{ backgroundColor: "rgba(200, 255, 0, 0.12)" }}
+      />
+
+      {/* Main content — asymmetric, bottom-aligned */}
+      <div className="relative z-10 flex w-full flex-col px-6 pb-32 pt-40 md:px-12 lg:px-20">
+        {/* Role — monospace uppercase, appears first */}
+        <motion.p
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.8 }}
+          className="mb-4 font-mono text-xs uppercase tracking-[0.35em] sm:text-sm"
+          style={{ color: "#C8FF00" }}
+        >
+          AI Engineer &mdash; Data Science Student
+        </motion.p>
+
+        {/* Name — MASSIVE, left-aligned, Syne display */}
+        <div className="mb-6">
           <TextGenerateEffect
-            words="João Vitor Chaves"
-            className="tracking-tight"
+            words="João Vitor"
+            className="font-display font-bold leading-[0.9] tracking-tight"
+            style={{ fontSize: "clamp(3rem, 8vw, 8rem)", color: "#F0EDE8" }}
+            duration={0.5}
+          />
+          <TextGenerateEffect
+            words="Chaves"
+            className="font-display font-bold leading-[0.9] tracking-tight"
+            style={{
+              fontSize: "clamp(3rem, 8vw, 8rem)",
+              color: "#F0EDE8",
+              WebkitTextStroke: "1px rgba(240, 237, 232, 0.3)",
+              WebkitTextFillColor: "transparent",
+            }}
             duration={0.5}
           />
         </div>
 
-        {/* Tagline with gradient text */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="mb-6 text-xl font-medium sm:text-2xl bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
-        >
-          AI Engineer &amp; Data Science Student
-        </motion.p>
-
-        {/* Typed subtitle */}
+        {/* Typed subtitle — right-aligned on desktop for asymmetry */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.6 }}
-          className="mb-10 h-14 max-w-2xl text-base text-neutral-400 sm:text-lg"
+          transition={{ duration: 0.6, delay: 1.8 }}
+          className="mb-10 max-w-md self-start md:max-w-lg md:self-end"
         >
-          <p>
+          <p className="text-sm leading-relaxed sm:text-base" style={{ color: "#8B8680" }}>
             {typedSubtitle}
-            <span className="inline-block w-[2px] h-[1em] bg-emerald-400 align-middle ml-0.5 animate-pulse" />
+            <span
+              className="ml-0.5 inline-block h-[1em] w-[2px] animate-pulse align-middle"
+              style={{ backgroundColor: "#C8FF00" }}
+            />
           </p>
         </motion.div>
 
-        {/* CTA Buttons with glow */}
+        {/* CTAs — pill border + text link */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 2.0 }}
-          className="mb-12 flex flex-col gap-4 sm:flex-row"
+          transition={{ duration: 0.6, delay: 2.2 }}
+          className="mb-10 flex flex-wrap items-center gap-6"
         >
           <a
             href="#projetos"
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 px-8 py-3 font-medium text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:scale-[1.02]"
+            className="group inline-flex items-center gap-3 rounded-full border px-7 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all duration-300 hover:shadow-[0_0_30px_rgba(200,255,0,0.15)]"
+            style={{
+              borderColor: "rgba(200, 255, 0, 0.4)",
+              color: "#F0EDE8",
+            }}
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <span className="relative">Ver Projetos</span>
+            Ver Projetos
+            <ArrowRight
+              size={14}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+              style={{ color: "#C8FF00" }}
+            />
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center rounded-lg border border-neutral-700 px-8 py-3 font-medium text-neutral-300 transition-all duration-300 hover:border-emerald-500/50 hover:text-white hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:scale-[1.02]"
+            className="group relative text-xs font-medium uppercase tracking-[0.2em] transition-colors duration-300"
+            style={{ color: "#8B8680" }}
           >
-            Contato
+            <span className="transition-colors duration-300 group-hover:text-[#F0EDE8]">
+              Contato
+            </span>
+            <span
+              className="absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full"
+              style={{ backgroundColor: "#C8FF00" }}
+            />
           </a>
         </motion.div>
 
-        {/* Social Dock (macOS-style) */}
+        {/* Social Dock — lime hover */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 2.3 }}
+          transition={{ duration: 0.6, delay: 2.5 }}
+          className="self-start"
         >
-          <Dock className="bg-neutral-900/60 border-neutral-800 backdrop-blur-md">
+          <Dock className="border-neutral-800 bg-neutral-900/60 backdrop-blur-md">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <DockIcon key={label}>
                 <a
@@ -170,7 +222,10 @@ export default function Hero() {
                   target={href.startsWith("mailto") ? undefined : "_blank"}
                   rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
                   aria-label={label}
-                  className="flex h-full w-full items-center justify-center text-neutral-400 transition-colors duration-200 hover:text-emerald-400"
+                  className="flex h-full w-full items-center justify-center transition-colors duration-200"
+                  style={{ color: "#8B8680" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#C8FF00")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#8B8680")}
                 >
                   <Icon size={20} />
                 </a>
@@ -180,28 +235,39 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator with bouncing chevron */}
+      {/* Scroll indicator — minimal vertical line that grows */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 2.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        transition={{ duration: 0.6, delay: 2.8 }}
+        className="absolute bottom-0 right-8 z-10 md:right-12"
       >
         <a
           href="#about"
           aria-label="Scroll down"
-          className="flex flex-col items-center gap-2 text-neutral-500 transition-colors duration-300 hover:text-emerald-400"
+          className="flex flex-col items-center"
         >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
           <motion.div
-            animate={{ y: [0, 8, 0] }}
+            initial={{ height: 0 }}
+            animate={{ height: 64 }}
             transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut",
+              duration: 1,
+              delay: 3,
+              ease: [0.22, 1, 0.36, 1],
             }}
+            className="w-px overflow-hidden"
+            style={{ backgroundColor: "rgba(200, 255, 0, 0.3)" }}
           >
-            <ChevronDown size={20} />
+            <motion.div
+              animate={{ y: ["-100%", "100%"] }}
+              transition={{
+                duration: 1.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="h-1/2 w-full"
+              style={{ backgroundColor: "#C8FF00" }}
+            />
           </motion.div>
         </a>
       </motion.div>

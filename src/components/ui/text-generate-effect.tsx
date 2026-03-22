@@ -8,11 +8,13 @@ export function TextGenerateEffect({
   className,
   filter = true,
   duration = 0.5,
+  style,
 }: {
   words: string;
   className?: string;
   filter?: boolean;
   duration?: number;
+  style?: React.CSSProperties;
 }) {
   const [scope, animate] = useAnimate();
   const wordsArray = words.split(" ");
@@ -26,7 +28,7 @@ export function TextGenerateEffect({
   }, [scope, animate, filter, duration]);
 
   return (
-    <div className={cn("font-bold", className)}>
+    <div className={cn("font-bold", className)} style={style}>
       <div className="mt-4">
         <div className="leading-snug tracking-wide text-white">
           <motion.div ref={scope}>
