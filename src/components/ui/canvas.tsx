@@ -17,7 +17,7 @@ interface Trail {
 
 const CONFIG = {
   friction: 0.5,
-  trails: 60,
+  trails: 20,
   size: 50,
   dampening: 0.025,
   tension: 0.99,
@@ -89,7 +89,6 @@ export function CanvasAnimation() {
   const posRef = useRef({ x: 0, y: 0 });
   const runningRef = useRef(true);
   const initializedRef = useRef(false);
-  const phaseRef = useRef(Math.random() * Math.PI * 2);
 
   const initTrails = useCallback(() => {
     const trails: Trail[] = [];
@@ -137,16 +136,16 @@ export function CanvasAnimation() {
     function render() {
       if (!runningRef.current || !ctx) return;
 
+      // Fade previous frame instead of clearing — eliminates flicker
       ctx.globalCompositeOperation = "source-over";
-      ctx.clearRect(0, 0, canvas!.width, canvas!.height);
+      ctx.fillStyle = "rgba(10, 10, 10, 0.15)";
+      ctx.fillRect(0, 0, canvas!.width, canvas!.height);
 
       if (initializedRef.current && trailsRef.current.length > 0) {
-        ctx.globalCompositeOperation = "lighter";
-
-        phaseRef.current += 0.0015;
-        const hue = 155 + Math.sin(phaseRef.current) * 15;
-        ctx.strokeStyle = `hsla(${Math.round(hue)},90%,50%,0.1)`;
-        ctx.lineWidth = 1;
+        // Use source-over instead of "lighter" to avoid additive brightness spikes
+        ctx.globalCompositeOperation = "source-over";
+        ctx.strokeStyle = "rgba(200, 255, 0, 0.12)";
+        ctx.lineWidth = 1.5;
 
         for (let i = 0; i < trailsRef.current.length; i++) {
           updateTrail(
