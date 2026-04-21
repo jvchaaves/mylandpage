@@ -23,15 +23,15 @@ function ContactCard({ icon, label, value, href, delay }: ContactCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay }}
-      className="group relative z-10 flex flex-col items-center gap-4 rounded-2xl border border-[#1F1F1F] bg-[#141414] p-8 transition-all duration-300 hover:border-[#C8FF00]/50 hover:shadow-lg hover:shadow-[#C8FF00]/5 cursor-pointer"
+      className="group relative z-10 flex flex-col items-center gap-4 rounded-2xl border border-[#1F1F1F] bg-[#141414] p-8 transition-all duration-300 hover:border-[#7EC8F5]/50 hover:shadow-lg hover:shadow-[#7EC8F5]/5 cursor-pointer"
     >
       {/* Animated gradient border on hover */}
       <div className="pointer-events-none absolute inset-0 z-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div className="pointer-events-none absolute inset-[-1px] rounded-2xl bg-gradient-to-r from-[#C8FF00]/20 via-[#C8FF00]/10 to-[#C8FF00]/20" />
+        <div className="pointer-events-none absolute inset-[-1px] rounded-2xl bg-gradient-to-r from-[#7EC8F5]/20 via-[#7EC8F5]/10 to-[#7EC8F5]/20" />
         <div className="pointer-events-none absolute inset-[1px] rounded-2xl bg-[#141414]" />
       </div>
 
-      <div className="relative flex h-14 w-14 items-center justify-center rounded-xl bg-[#C8FF00]/10 text-[#C8FF00] transition-colors duration-300 group-hover:bg-[#C8FF00]/20">
+      <div className="relative flex h-14 w-14 items-center justify-center rounded-xl bg-[#7EC8F5]/10 text-[#7EC8F5] transition-colors duration-300 group-hover:bg-[#7EC8F5]/20">
         {icon}
       </div>
 
@@ -73,7 +73,7 @@ export default function Contact() {
       className="relative overflow-hidden bg-[#0a0a0a] px-6 py-24 sm:py-32"
     >
       {/* Subtle background glow */}
-      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-64 w-full max-w-lg bg-[#C8FF00]/5 blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-64 w-full max-w-lg bg-[#7EC8F5]/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-4xl">
         {/* Section header */}
@@ -85,9 +85,8 @@ export default function Contact() {
           className="mb-16 text-center"
         >
           <div className="mb-4 flex items-end justify-center gap-4">
-            <span className="font-display text-6xl font-bold leading-none text-[#8B8680]/40 md:text-8xl">(05)</span>
             <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-[#F0EDE8] sm:text-5xl">
-              Vamos <span className="text-[#C8FF00]">Conversar</span>
+              Vamos <span className="text-[#7EC8F5]">Conversar</span>
             </h2>
           </div>
           <p className="mx-auto max-w-md text-gray-400">

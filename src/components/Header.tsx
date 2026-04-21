@@ -69,10 +69,10 @@ export default function Header() {
             {/* Logo */}
             <button
               onClick={() => scrollTo("#top")}
-              className="font-display text-lg font-bold tracking-tight text-[#F0EDE8] transition-colors hover:text-[#C8FF00]"
+              className="font-display text-lg font-bold tracking-tight text-[#F0EDE8] transition-colors hover:text-[#7EC8F5]"
             >
               jv.
-              <span className="text-[#C8FF00]">chaves</span>
+              <span className="text-[#7EC8F5]">chaves</span>
             </button>
 
             {/* Desktop Nav */}
@@ -83,11 +83,11 @@ export default function Header() {
                   onClick={() => scrollTo(link.href)}
                   className="group relative text-sm font-medium text-[#8B8680] transition-colors hover:text-[#F0EDE8]"
                 >
-                  <span className="text-[10px] text-[#C8FF00]/60 mr-1.5 font-mono">
+                  <span className="text-[10px] text-[#7EC8F5]/60 mr-1.5 font-mono">
                     {link.index}
                   </span>
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#C8FF00] transition-all duration-300 ease-out group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#7EC8F5] transition-all duration-300 ease-out group-hover:w-full" />
                 </button>
               ))}
             </nav>
@@ -123,10 +123,10 @@ export default function Header() {
                       onClick={() => scrollTo(link.href)}
                       className="group flex items-baseline gap-4 py-3 text-left"
                     >
-                      <span className="font-mono text-sm text-[#C8FF00]/50">
+                      <span className="font-mono text-sm text-[#7EC8F5]/50">
                         {link.index}
                       </span>
-                      <span className="font-display text-4xl font-bold text-[#F0EDE8] transition-colors group-hover:text-[#C8FF00]">
+                      <span className="font-display text-4xl font-bold text-[#F0EDE8] transition-colors group-hover:text-[#7EC8F5]">
                         {link.label}
                       </span>
                     </motion.button>
@@ -138,7 +138,7 @@ export default function Header() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
-                  className="mt-12 h-px w-full origin-left bg-gradient-to-r from-[#C8FF00]/40 to-transparent"
+                  className="mt-12 h-px w-full origin-left bg-gradient-to-r from-[#7EC8F5]/40 to-transparent"
                 />
               </motion.nav>
             )}

@@ -5,7 +5,7 @@
 :root {
   --background: #0A0A0A;
   --foreground: #F0EDE8;
-  --accent: #C8FF00;
+  --accent: #7EC8F5;
   --card: #141414;
   --card-border: #1F1F1F;
   --muted: #8B8680;
@@ -54,7 +54,7 @@ body::after {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C8FF00;
+  background: #7EC8F5;
 }
 
 /* Gradient orb animation for hero */
@@ -100,6 +100,6 @@ body::after {
 
 /* Selection color — electric lime */
 ::selection {
-  background-color: rgba(200, 255, 0, 0.3);
+  background-color: rgba(126, 200, 245, 0.3);
   color: #F0EDE8;
 }

@@ -144,7 +144,7 @@ export function CanvasAnimation() {
       if (initializedRef.current && trailsRef.current.length > 0) {
         // Use source-over instead of "lighter" to avoid additive brightness spikes
         ctx.globalCompositeOperation = "source-over";
-        ctx.strokeStyle = "rgba(200, 255, 0, 0.12)";
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
         ctx.lineWidth = 1.5;
 
         for (let i = 0; i < trailsRef.current.length; i++) {

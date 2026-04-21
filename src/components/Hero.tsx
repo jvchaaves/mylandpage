@@ -27,41 +27,12 @@ const socialLinks = [
   },
 ];
 
-function useTypedText(text: string, speed = 40, delay = 1800) {
-  const [displayed, setDisplayed] = useState("");
-  const [started, setStarted] = useState(false);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setStarted(true), delay);
-    return () => clearTimeout(timeout);
-  }, [delay]);
-
-  useEffect(() => {
-    if (!started) return;
-    if (displayed.length >= text.length) return;
-
-    const timer = setTimeout(() => {
-      setDisplayed(text.slice(0, displayed.length + 1));
-    }, speed);
-
-    return () => clearTimeout(timer);
-  }, [displayed, started, text, speed]);
-
-  return displayed;
-}
-
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const typedSubtitle = useTypedText(
-    "Construindo soluções inteligentes com IA aplicada à saúde, educação e produtividade.",
-    40,
-    2200
-  );
 
   if (!mounted) {
     return (
@@ -90,26 +61,15 @@ export default function Hero() {
           numSquares={30}
           maxOpacity={0.3}
           duration={3}
-          className="h-full w-full fill-lime-400 stroke-lime-400/20"
+          className="h-full w-full fill-sky-300 stroke-sky-300/20"
         />
       </div>
 
       {/* Spotlight — lime accent */}
       <Spotlight
         className="-top-40 left-0 md:-top-20 md:left-60"
-        fill="#C8FF00"
+        fill="#7EC8F5"
       />
-
-      {/* Section number — decorative (Lusion-style) */}
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.04 }}
-        transition={{ duration: 1.5, delay: 0.3 }}
-        className="pointer-events-none absolute right-6 top-6 z-10 font-display text-[clamp(6rem,15vw,14rem)] font-bold leading-none md:right-12 md:top-12"
-        style={{ color: "#F0EDE8" }}
-      >
-        (01)
-      </motion.span>
 
       {/* Horizontal rule that animates on load */}
       <motion.div
@@ -117,22 +77,11 @@ export default function Hero() {
         animate={{ scaleX: 1 }}
         transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="absolute left-0 top-[45%] z-10 h-px w-full origin-left"
-        style={{ backgroundColor: "rgba(200, 255, 0, 0.12)" }}
+        style={{ backgroundColor: "rgba(126, 200, 245, 0.12)" }}
       />
 
       {/* Main content — asymmetric, bottom-aligned */}
       <div className="relative z-10 flex w-full flex-col px-6 pb-32 pt-40 md:px-12 lg:px-20">
-        {/* Role — monospace uppercase, appears first */}
-        <motion.p
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.8 }}
-          className="mb-4 font-mono text-xs uppercase tracking-[0.35em] sm:text-sm"
-          style={{ color: "#C8FF00" }}
-        >
-          AI Engineer &mdash; Data Science Student
-        </motion.p>
-
         {/* Name — MASSIVE, left-aligned, Syne display */}
         <div className="mb-6">
           <TextGenerateEffect
@@ -154,22 +103,6 @@ export default function Hero() {
           />
         </div>
 
-        {/* Typed subtitle — right-aligned on desktop for asymmetry */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.8 }}
-          className="mb-10 max-w-md self-start md:max-w-lg md:self-end"
-        >
-          <p className="text-sm leading-relaxed sm:text-base" style={{ color: "#8B8680" }}>
-            {typedSubtitle}
-            <span
-              className="ml-0.5 inline-block h-[1em] w-[2px] animate-pulse align-middle"
-              style={{ backgroundColor: "#C8FF00" }}
-            />
-          </p>
-        </motion.div>
-
         {/* CTAs — pill border + text link */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -181,7 +114,7 @@ export default function Hero() {
             href="#projetos"
             className="group inline-flex items-center gap-3 rounded-full border px-7 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all duration-300 hover:shadow-[0_0_30px_rgba(200,255,0,0.15)]"
             style={{
-              borderColor: "rgba(200, 255, 0, 0.4)",
+              borderColor: "rgba(126, 200, 245, 0.4)",
               color: "#F0EDE8",
             }}
           >
@@ -189,7 +122,7 @@ export default function Hero() {
             <ArrowRight
               size={14}
               className="transition-transform duration-300 group-hover:translate-x-1"
-              style={{ color: "#C8FF00" }}
+              style={{ color: "#7EC8F5" }}
             />
           </a>
           <a
@@ -202,7 +135,7 @@ export default function Hero() {
             </span>
             <span
               className="absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full"
-              style={{ backgroundColor: "#C8FF00" }}
+              style={{ backgroundColor: "#7EC8F5" }}
             />
           </a>
         </motion.div>
@@ -224,7 +157,7 @@ export default function Hero() {
                   aria-label={label}
                   className="flex h-full w-full items-center justify-center transition-colors duration-200"
                   style={{ color: "#8B8680" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#C8FF00")}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#7EC8F5")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#8B8680")}
                 >
                   <Icon size={20} />
@@ -256,7 +189,7 @@ export default function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
             className="w-px overflow-hidden"
-            style={{ backgroundColor: "rgba(200, 255, 0, 0.3)" }}
+            style={{ backgroundColor: "rgba(126, 200, 245, 0.3)" }}
           >
             <motion.div
               animate={{ y: ["-100%", "100%"] }}
@@ -266,7 +199,7 @@ export default function Hero() {
                 ease: "easeInOut",
               }}
               className="h-1/2 w-full"
-              style={{ backgroundColor: "#C8FF00" }}
+              style={{ backgroundColor: "#7EC8F5" }}
             />
           </motion.div>
         </a>
