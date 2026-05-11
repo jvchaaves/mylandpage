@@ -26,6 +26,9 @@ const allTechs = [
   { name: "Airflow", category: "DevOps" },
   { name: "Scrapy", category: "DevOps" },
   { name: "FFmpeg", category: "DevOps" },
+  { name: "pgvector", category: "Data" },
+  { name: "Deepgram", category: "IA & ML" },
+  { name: "Whisper", category: "IA & ML" },
 ];
 
 const firstHalf = allTechs.slice(0, Math.ceil(allTechs.length / 2));
@@ -97,9 +100,9 @@ export default function About() {
               <span className="font-medium text-[#7EC8F5]">Zoox Smart Data</span> e
               pesquisador no{" "}
               <span className="font-medium text-[#7EC8F5]">TRIL Lab</span>. Construo
-              soluções que conectam IA a problemas reais — desde agentes
-              inteligentes e pipelines de dados até plataformas educacionais e
-              ferramentas de produtividade.
+              soluções que conectam IA a problemas reais — com foco em{" "}
+              <span className="font-medium text-[#7EC8F5]">IA aplicada à saúde</span>,
+              agentes autônomos, RAG e pipelines de dados.
             </motion.p>
 
             <motion.p
@@ -111,9 +114,9 @@ export default function About() {
             >
               Pesquisador no{" "}
               <span className="font-medium text-[#7EC8F5]">ARIA</span> — Laboratório de
-              Aplicações em Inteligência Artificial da UFPB, que desenvolve pesquisa
-              aplicada em NLP, computer vision, processamento de áudio e análise
-              preditiva. Também sou trainee na{" "}
+              Aplicações em Inteligência Artificial da UFPB — desenvolvendo pesquisa
+              em NLP clínico, triagem automatizada e sistemas de IA para telessaúde.
+              Também trainee na{" "}
               <span className="font-medium text-[#7EC8F5]">TAIL</span> (Technology and
               Artificial Intelligence League), a primeira liga acadêmica de IA da
               Paraíba, vinculada ao ARIA.
