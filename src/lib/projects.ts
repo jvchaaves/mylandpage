@@ -11,7 +11,6 @@ export interface Project {
   role: string;
   icon: string;
   featured: boolean;
-  images: string[];
   metrics?: string;
 }
 
@@ -57,11 +56,6 @@ export const projects: Project[] = [
     role: "Autor principal — 93% dos commits (158/170)",
     icon: "Brain",
     featured: true,
-    images: [
-      "/projects/lembreme/architecture.png",
-      "/projects/lembreme/demo.png",
-      "/projects/lembreme/features.png",
-    ],
     metrics: "93% dos commits • 4 microsserviços • Deploy AWS",
   },
   {
@@ -106,11 +100,6 @@ export const projects: Project[] = [
     role: "Autor principal — 85% dos commits (33/39)",
     icon: "Mic",
     featured: true,
-    images: [
-      "/projects/lembreme-copilot/screenshot-1.png",
-      "/projects/lembreme-copilot/screenshot-2.png",
-      "/projects/lembreme-copilot/screenshot-3.png",
-    ],
     metrics: "85% dos commits • Real-time ASR • Desktop App",
   },
   {
@@ -118,9 +107,9 @@ export const projects: Project[] = [
     name: "PixelMind",
     tagline: "Editor de vídeo inteligente com IA — 1º lugar hackathon",
     description:
-      "PixelMind é um editor de vídeo inteligente que permite edição através de comandos em linguagem natural. O projeto conquistou o 1º lugar entre 6 equipes no hackathon TRILHA, uma iniciativa do TRIL Lab (Laboratório de Tecnologias para Raciocínio, Interação e Linguagem) da UFPB.\n\nO sistema combina transcrição automática com Whisper, análise semântica com Gemini, corte inteligente com FFmpeg e redução de ruído espectral avançada. O usuário pode simplesmente digitar comandos como \"remova a parte onde falo sobre X\" e o sistema identifica e executa a edição automaticamente.\n\nDesenvolvido em apenas um mês, o projeto demonstra a viabilidade de interfaces de edição de vídeo baseadas em linguagem natural, tornando a edição acessível a usuários sem experiência técnica em ferramentas tradicionais.",
+      'PixelMind é um editor de vídeo inteligente que permite edição através de comandos em linguagem natural. O projeto conquistou o 1º lugar entre 6 equipes no hackathon TRILHA, uma iniciativa do TRIL Lab (Laboratório de Tecnologias para Raciocínio, Interação e Linguagem) da UFPB.\n\nO sistema combina transcrição automática com Whisper, análise semântica com Gemini, corte inteligente com FFmpeg e redução de ruído espectral avançada. O usuário pode simplesmente digitar comandos como "remova a parte onde falo sobre X" e o sistema identifica e executa a edição automaticamente.\n\nDesenvolvido em apenas um mês, o projeto demonstra a viabilidade de interfaces de edição de vídeo baseadas em linguagem natural, tornando a edição acessível a usuários sem experiência técnica em ferramentas tradicionais.',
     howItWorks:
-      "O usuário faz upload de um vídeo e o backend extrai o áudio utilizando FFmpeg. O Whisper transcreve o áudio gerando timestamps precisos para cada segmento. Em seguida, o Gemini 1.5 Flash realiza análise semântica do conteúdo transcrito, criando um mapa semântico do vídeo.\n\nQuando o usuário digita um comando em linguagem natural (por exemplo, \"remova a parte sobre X\"), o Gemini interpreta o comando e identifica os segmentos relevantes na transcrição. O FFmpeg então executa os cortes no vídeo com precisão baseada nos timestamps.\n\nPara melhoria de qualidade, um microsserviço Python com FastAPI aplica redução de ruído espectral utilizando librosa e noisereduce, processando o áudio para remover ruídos de fundo. O vídeo processado é então retornado ao usuário com todas as edições aplicadas.",
+      'O usuário faz upload de um vídeo e o backend extrai o áudio utilizando FFmpeg. O Whisper transcreve o áudio gerando timestamps precisos para cada segmento. Em seguida, o Gemini 1.5 Flash realiza análise semântica do conteúdo transcrito, criando um mapa semântico do vídeo.\n\nQuando o usuário digita um comando em linguagem natural (por exemplo, "remova a parte sobre X"), o Gemini interpreta o comando e identifica os segmentos relevantes na transcrição. O FFmpeg então executa os cortes no vídeo com precisão baseada nos timestamps.\n\nPara melhoria de qualidade, um microsserviço Python com FastAPI aplica redução de ruído espectral utilizando librosa e noisereduce, processando o áudio para remover ruídos de fundo. O vídeo processado é então retornado ao usuário com todas as edições aplicadas.',
     architecture: [
       "Frontend Next.js 15 — interface moderna com React 19",
       "Backend Express — upload, transcrição e orquestração",
@@ -153,17 +142,13 @@ export const projects: Project[] = [
     role: "Arquiteto Backend — Hackathon Winner",
     icon: "Video",
     featured: true,
-    images: [
-      "/projects/pixelmind/screenshot-1.png",
-      "/projects/pixelmind/screenshot-2.png",
-      "/projects/pixelmind/screenshot-3.png",
-    ],
     metrics: "1º lugar • 6 equipes • Desenvolvido em 1 mês",
   },
   {
     slug: "hipocrites-ai",
     name: "hipocrites.AI",
-    tagline: "Agente de IA multimodal para pré-consultas médicas via WhatsApp — triagem, anamnese e resumo clínico automático",
+    tagline:
+      "Agente de IA multimodal para pré-consultas médicas via WhatsApp — triagem, anamnese e resumo clínico automático",
     description:
       "hipocrites.AI é um agente de IA médico multimodal operando via WhatsApp, construído com LangChain sobre GPT-4o-mini. O sistema guia o paciente por todo o fluxo de pré-consulta de forma autônoma: coleta queixa principal, linha do tempo dos sintomas, alergias e medicamentos de uso contínuo, documentos e exames (imagens), e ao final gera um resumo clínico estruturado entregue diretamente ao médico responsável.\n\nO agente dispõe de 12 ferramentas LangChain especializadas por domínio clínico: pesquisa médica com RAG em base vetorial (pgvector via Supabase) + busca web restrita a fontes de alta confiança (Cochrane, PubMed, NEJM, Fiocruz, Einstein, Gov.br/ANVISA), protocolo de triagem para sintomas agudos com red flags, agendamento de consultas, lembretes de medicação, checklist pós-consulta, prontuário do paciente e escalação para atendimento humano.\n\nA arquitetura é composta por dois microsserviços Docker: um gateway Node.js com whatsapp-web.js que recebe e envia mensagens do WhatsApp, e um brain Python/FastAPI que executa o agente LangChain com memória de conversa persistida no Supabase. O sistema suporta inputs multimodais — mensagens de texto, áudios OGG (transcritos via Whisper-1) e imagens de exames (analisadas via GPT-4o visão) — e responde também em áudio via OpenAI TTS (voz nova) quando o paciente solicita.",
     howItWorks:
@@ -203,10 +188,6 @@ export const projects: Project[] = [
     role: "Autor principal — agente LangChain, ferramentas clínicas, pipeline multimodal e scheduler",
     icon: "HeartPulse",
     featured: true,
-    images: [
-      "/projects/hipocrites-ai/screenshot-1.png",
-      "/projects/hipocrites-ai/screenshot-2.png",
-    ],
     metrics: "12 ferramentas clínicas • RAG médico • WhatsApp multimodal",
   },
   {
@@ -248,10 +229,6 @@ export const projects: Project[] = [
     role: "",
     icon: "GraduationCap",
     featured: false,
-    images: [
-      "/projects/tutoria/screenshot-1.png",
-      "/projects/tutoria/screenshot-2.png",
-    ],
   },
   {
     slug: "lotep-data-pipeline",
@@ -288,15 +265,12 @@ export const projects: Project[] = [
     role: "",
     icon: "Database",
     featured: false,
-    images: [
-      "/projects/lotep-data-pipeline/screenshot-1.png",
-      "/projects/lotep-data-pipeline/screenshot-2.png",
-    ],
   },
   {
     slug: "plataforma-editorial-ia",
     name: "EditoraBP.AI",
-    tagline: "Resolução automática de provas de concursos para editoras, do PDF ao gabarito comentado",
+    tagline:
+      "Resolução automática de provas de concursos para editoras, do PDF ao gabarito comentado",
     description:
       "Sistema full-stack para produção editorial de gabaritos comentados de concursos públicos. O pipeline vai do upload do PDF até a exportação final: OCR extrai questões e alternativas, um agente classificador identifica disciplina e tema via OpenAI JSON Schema strict com enum de 289 temas em 6 disciplinas canônicas (Enfermagem, Legislação do SUS, Português, Informática, Raciocínio Lógico, EBSERH), e um segundo agente gera o comentário contextualizado com RAG.\n\nA restrição por enum no nível de geração de tokens — não por prompt — elimina alucinações na classificação. Um sistema de mapeamento converte 14 categorias legadas para as 6 canônicas, garantindo backward compatibility com provas anteriores sem reprocessamento.\n\nO painel de revisão permite que professores aprovem, editem ou rejeitem cada questão antes da publicação. A exportação é dual: modo externo (DOCX/XLSX/PDF/PPTX com markdown renderizado) para a editora, e modo interno (JSON/CSV sem markdown) para reimportação em sistemas. CI/CD via GitHub Actions com 206/206 testes passando.",
     howItWorks:
@@ -332,15 +306,12 @@ export const projects: Project[] = [
     role: "",
     icon: "FileQuestion",
     featured: false,
-    images: [
-      "/projects/plataforma-editorial-ia/screenshot-1.png",
-      "/projects/plataforma-editorial-ia/screenshot-2.png",
-    ],
   },
   {
     slug: "dashboard-saude-digital",
     name: "Copilot Médico",
-    tagline: "Plataforma clínica full-stack com IA — dashboard para médicos, transcrição de consultas e importação de documentos clínicos",
+    tagline:
+      "Plataforma clínica full-stack com IA — dashboard para médicos, transcrição de consultas e importação de documentos clínicos",
     description:
       "Copilot Médico é uma plataforma clínica full-stack em monorepo (pnpm workspaces) que centraliza o fluxo de trabalho do médico: dashboard com fila de pré-consultas processadas por IA, transcrição ao vivo de consultas via Deepgram, importação de documentos clínicos com OCR, e um microsserviço Python de LLM clínico com RAG para geração de resumos e anotações baseadas em evidências.\n\nO backend Node.js/TypeScript (Express) é organizado em módulos independentes: appointments (agendamentos com CRUD completo), consultations (sessões com transcript batcher para acumulação e análise de fala), dashboard (métricas e fila de atendimentos), doctors (perfis e vinculação paciente-médico), patients (prontuário unificado) e storage (upload via multer). A API é documentada com OpenAPI/Swagger gerado automaticamente via Zod schemas com @hipo/contracts compartilhado entre frontend e backend.\n\nO microsserviço Python clinical_llm (FastAPI + Docker) executa o pipeline de IA clínica: embeddings de documentos médicos no pgvector, busca vetorial por similaridade semântica e geração de resumos contextualizados por LLM. O microsserviço clinical_import complementa com OCR (PyMuPDF + pytesseract + pdf2image) e parsing estruturado de laudos, receitas e exames enviados como PDF ou imagem.",
     howItWorks:
@@ -385,10 +356,6 @@ export const projects: Project[] = [
     role: "Desenvolvedor — pipeline clinical_llm (RAG), integração Deepgram e módulo de importação clínica",
     icon: "Heart",
     featured: true,
-    images: [
-      "/projects/dashboard-saude-digital/screenshot-1.png",
-      "/projects/dashboard-saude-digital/screenshot-2.png",
-    ],
     metrics: "Deepgram ASR • RAG clínico • OCR de laudos • OpenAPI",
   },
 ];

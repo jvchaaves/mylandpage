@@ -81,11 +81,13 @@ export default function About() {
           custom={0}
           className="mb-16 flex items-end gap-4"
         >
-          <h2 className="font-display text-4xl font-bold uppercase tracking-wide text-[#F0EDE8] sm:text-5xl">SOBRE</h2>
+          <h2 className="font-display text-4xl font-bold uppercase tracking-wide text-[#F0EDE8] sm:text-5xl">
+            SOBRE
+          </h2>
         </motion.div>
 
         {/* Asymmetric 2-column layout */}
-        <div className="grid gap-12 md:grid-cols-[1fr_0.4fr] md:gap-16">
+        <div className="max-w-3xl">
           <div>
             {/* Bio paragraphs */}
             <motion.p
@@ -95,14 +97,14 @@ export default function About() {
               custom={1}
               className="mb-6 text-base leading-relaxed text-neutral-400 sm:text-lg"
             >
-              Estudante de Ciência de Dados e Inteligência Artificial na UFPB, com
-              experiência como AI Engineer na{" "}
-              <span className="font-medium text-[#7EC8F5]">Zoox Smart Data</span> e
-              pesquisador no{" "}
-              <span className="font-medium text-[#7EC8F5]">TRIL Lab</span>. Construo
-              soluções que conectam IA a problemas reais — com foco em{" "}
-              <span className="font-medium text-[#7EC8F5]">IA aplicada à saúde</span>,
-              agentes autônomos, RAG e pipelines de dados.
+              Sou estudante de{" "}
+              <span className="font-medium text-[#7EC8F5]">
+                Ciência de Dados e Inteligência Artificial
+              </span>{" "}
+              na UFPB, atualmente no{" "}
+              <span className="font-medium text-[#7EC8F5]">4º período</span>.
+              Tenho interesse em construir soluções que conectam IA a problemas
+              reais.
             </motion.p>
 
             <motion.p
@@ -113,13 +115,13 @@ export default function About() {
               className="mb-6 text-base leading-relaxed text-neutral-400 sm:text-lg"
             >
               Pesquisador no{" "}
-              <span className="font-medium text-[#7EC8F5]">ARIA</span> — Laboratório de
-              Aplicações em Inteligência Artificial da UFPB — desenvolvendo pesquisa
-              em NLP clínico, triagem automatizada e sistemas de IA para telessaúde.
-              Também trainee na{" "}
-              <span className="font-medium text-[#7EC8F5]">TAIL</span> (Technology and
-              Artificial Intelligence League), a primeira liga acadêmica de IA da
-              Paraíba, vinculada ao ARIA.
+              <span className="font-medium text-[#7EC8F5]">ARIA</span> —
+              Laboratório de Aplicações em Inteligência Artificial da UFPB —
+              desenvolvendo pesquisa em NLP clínico, triagem automatizada e
+              sistemas de IA para telessaúde. Também trainee na{" "}
+              <span className="font-medium text-[#7EC8F5]">TAIL</span>{" "}
+              (Technology and Artificial Intelligence League), a primeira liga
+              acadêmica de IA da Paraíba, vinculada ao ARIA.
             </motion.p>
 
             <motion.p
@@ -129,35 +131,14 @@ export default function About() {
               custom={3}
               className="mb-16 text-base leading-relaxed text-neutral-400 sm:text-lg"
             >
-              Ex-trainee da{" "}
-              <span className="font-medium text-[#7EC8F5]">Trilha</span> na UFPB, onde
-              venci o hackathon com o projeto{" "}
+              Ex-trainee do{" "}
+              <span className="font-medium text-[#7EC8F5]">Trilha</span> na
+              UFPB, onde venci o hackathon com o projeto{" "}
               <span className="font-medium text-[#7EC8F5]">PixelMind</span> —
-              editor de vídeo inteligente com IA. Bilíngue em Português e Inglês.
+              editor de vídeo inteligente com IA. Bilíngue em Português e
+              Inglês.
             </motion.p>
           </div>
-
-          {/* Right column — stats / decorative */}
-          <motion.div
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={fadeUp}
-            custom={2}
-            className="flex flex-col gap-6"
-          >
-            <div className="rounded-2xl border border-[#1F1F1F] bg-[#141414] p-6">
-              <p className="font-display text-4xl font-bold text-[#7EC8F5]">3+</p>
-              <p className="mt-1 text-sm text-[#8B8680]">Labs & Empresas</p>
-            </div>
-            <div className="rounded-2xl border border-[#1F1F1F] bg-[#141414] p-6">
-              <p className="font-display text-4xl font-bold text-[#F0EDE8]">20+</p>
-              <p className="mt-1 text-sm text-[#8B8680]">Tecnologias</p>
-            </div>
-            <div className="rounded-2xl border border-[#1F1F1F] bg-[#141414] p-6">
-              <p className="font-display text-4xl font-bold text-[#7EC8F5]">1º</p>
-              <p className="mt-1 text-sm text-[#8B8680]">Hackathon UFPB</p>
-            </div>
-          </motion.div>
         </div>
 
         {/* Tech stack marquee */}

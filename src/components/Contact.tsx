@@ -76,25 +76,6 @@ export default function Contact() {
       <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-64 w-full max-w-lg bg-[#7EC8F5]/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-4xl">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
-        >
-          <div className="mb-4 flex items-end justify-center gap-4">
-            <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-[#F0EDE8] sm:text-5xl">
-              Vamos <span className="text-[#7EC8F5]">Conversar</span>
-            </h2>
-          </div>
-          <p className="mx-auto max-w-md text-gray-400">
-            Tem um projeto interessante ou quer trocar uma ideia? Entre em
-            contato!
-          </p>
-        </motion.div>
-
         {/* Contact cards */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
           {contacts.map((contact, i) => (

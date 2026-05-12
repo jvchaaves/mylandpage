@@ -7,7 +7,6 @@ import {
   Layers,
   Cpu,
   Code2,
-  Image as ImageIcon,
 } from "lucide-react";
 import { getProjectBySlug, getAllProjects } from "@/lib/projects";
 import { AnimatedPage, AnimatedSection } from "@/components/ProjectDetail";
@@ -34,11 +33,7 @@ export async function generateMetadata({
   };
 }
 
-export default function ProjectPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = getProjectBySlug(params.slug);
 
   if (!project) {
@@ -53,7 +48,7 @@ export default function ProjectPage({
       acc[cat].push(t.name);
       return acc;
     },
-    {} as Record<string, string[]>
+    {} as Record<string, string[]>,
   );
 
   return (
@@ -113,7 +108,10 @@ export default function ProjectPage({
           {/* Divider helper */}
           {/* Sobre o Projeto */}
           <AnimatedSection index={2} className="mb-12">
-            <SectionTitle icon={<Layers className="h-5 w-5" />} title="Sobre o Projeto" />
+            <SectionTitle
+              icon={<Layers className="h-5 w-5" />}
+              title="Sobre o Projeto"
+            />
             <div className="prose-invert max-w-none">
               <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                 {project.description}
@@ -124,7 +122,10 @@ export default function ProjectPage({
           {/* Como Funciona */}
           {project.howItWorks && (
             <AnimatedSection index={3} className="mb-12">
-              <SectionTitle icon={<Cpu className="h-5 w-5" />} title="Como Funciona" />
+              <SectionTitle
+                icon={<Cpu className="h-5 w-5" />}
+                title="Como Funciona"
+              />
               <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                 {project.howItWorks}
               </p>
@@ -134,7 +135,10 @@ export default function ProjectPage({
           {/* Arquitetura */}
           {project.architecture && project.architecture.length > 0 && (
             <AnimatedSection index={4} className="mb-12">
-              <SectionTitle icon={<Layers className="h-5 w-5" />} title="Arquitetura" />
+              <SectionTitle
+                icon={<Layers className="h-5 w-5" />}
+                title="Arquitetura"
+              />
               <div className="grid gap-4 sm:grid-cols-2">
                 {project.architecture.map((step, i) => (
                   <div
@@ -156,7 +160,10 @@ export default function ProjectPage({
           {/* Funcionalidades */}
           {project.features && project.features.length > 0 && (
             <AnimatedSection index={5} className="mb-12">
-              <SectionTitle icon={<Check className="h-5 w-5" />} title="Funcionalidades" />
+              <SectionTitle
+                icon={<Check className="h-5 w-5" />}
+                title="Funcionalidades"
+              />
               <div className="grid gap-3 sm:grid-cols-2">
                 {project.features.map((feature, i) => (
                   <div
@@ -175,7 +182,10 @@ export default function ProjectPage({
 
           {/* Tecnologias */}
           <AnimatedSection index={6} className="mb-12">
-            <SectionTitle icon={<Code2 className="h-5 w-5" />} title="Tecnologias" />
+            <SectionTitle
+              icon={<Code2 className="h-5 w-5" />}
+              title="Tecnologias"
+            />
             <div className="space-y-6">
               {Object.entries(techByCategory).map(([category, techs]) => (
                 <div key={category}>
@@ -195,33 +205,6 @@ export default function ProjectPage({
                 </div>
               ))}
             </div>
-          </AnimatedSection>
-
-          {/* Galeria */}
-          <AnimatedSection index={7} className="mb-12">
-            <SectionTitle icon={<ImageIcon className="h-5 w-5" />} title="Galeria" />
-            {project.images && project.images.length > 0 ? (
-              <div className="grid gap-4 sm:grid-cols-2">
-                {project.images.map((src, i) => (
-                  <div
-                    key={i}
-                    className="overflow-hidden rounded-xl border border-white/5"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={src}
-                      alt={`${project.name} screenshot ${i + 1}`}
-                      className="w-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-white/10 bg-[#111111] py-16">
-                <ImageIcon className="mb-4 h-10 w-10 text-gray-600" />
-                <p className="text-sm text-gray-500">Screenshots em breve</p>
-              </div>
-            )}
           </AnimatedSection>
         </div>
       </AnimatedPage>
