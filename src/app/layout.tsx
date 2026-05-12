@@ -13,13 +13,22 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "João Vitor Chaves | AI Engineer & Full-Stack Developer",
-  description: "Estudante de Ciência da Computação na UFPB, construindo soluções inteligentes com IA aplicada à saúde, educação e produtividade.",
-  keywords: ["AI Engineer", "Full-Stack Developer", "Python", "LLM", "UFPB", "João Vitor Chaves"],
+  title: "João Vitor Chaves",
+  description:
+    "Estudante de Ciência de Dados e Inteligência Artificial na UFPB.",
+  keywords: [
+    "Ciência de Dados",
+    "Inteligência Artificial",
+    "Python",
+    "LLM",
+    "UFPB",
+    "João Vitor Chaves",
+  ],
   authors: [{ name: "João Vitor Chaves de Souza" }],
   openGraph: {
-    title: "João Vitor Chaves | AI Engineer & Full-Stack Developer",
-    description: "Construindo soluções inteligentes com IA aplicada à saúde, educação e produtividade.",
+    title: "João Vitor Chaves",
+    description:
+      "Estudante de Ciência de Dados e Inteligência Artificial na UFPB.",
     url: "https://jvchaaves.dev",
     siteName: "João Vitor Chaves",
     locale: "pt_BR",
@@ -34,7 +43,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="dark">
-      <body className={`${syne.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
+      <body
+        className={`${syne.variable} ${spaceGrotesk.variable} font-sans antialiased`}
+      >
         {children}
       </body>
     </html>
