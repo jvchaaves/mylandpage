@@ -115,10 +115,11 @@ export default function About() {
               className="mb-6 text-base leading-relaxed text-neutral-400 sm:text-lg"
             >
               Pesquisador no{" "}
-              <span className="font-medium text-[#7EC8F5]">ARIA</span> —
-              Laboratório de Aplicações em Inteligência Artificial da UFPB —
-              desenvolvendo pesquisa em NLP clínico, triagem automatizada e
-              sistemas de IA para telessaúde. Também trainee na{" "}
+              <span className="font-medium text-[#7EC8F5]">TRIL Lab</span> e no{" "}
+              <span className="font-medium text-[#7EC8F5]">ARIA</span>, ambos
+              vinculados ao Centro de Informática da UFPB, atuando em projetos
+              de P&D em parceria com empresas — com foco em agentes baseados em
+              LLMs, NLP aplicado e visão computacional. Também trainee na{" "}
               <span className="font-medium text-[#7EC8F5]">TAIL</span>{" "}
               (Technology and Artificial Intelligence League), a primeira liga
               acadêmica de IA da Paraíba, vinculada ao ARIA.

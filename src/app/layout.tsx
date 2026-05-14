@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "João Vitor Chaves",
     description:
       "Estudante de Ciência de Dados e Inteligência Artificial na UFPB.",
-    url: "https://jvchaaves.dev",
+    url: "https://mylandpage.vercel.app",
     siteName: "João Vitor Chaves",
     locale: "pt_BR",
     type: "website",

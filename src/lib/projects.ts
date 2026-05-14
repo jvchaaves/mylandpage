@@ -268,7 +268,7 @@ export const projects: Project[] = [
   },
   {
     slug: "plataforma-editorial-ia",
-    name: "EditoraBP.AI",
+    name: "Editora BP — Rômulo Passos",
     tagline:
       "Resolução automática de provas de concursos para editoras, do PDF ao gabarito comentado",
     description:

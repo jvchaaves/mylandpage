@@ -50,7 +50,7 @@ export default function Experience() {
               </div>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed ml-12">
-              Estágio de pesquisa em IA aplicada e engenharia de dados em parceria com empresas. Projetos envolvendo computer vision, OCR e sistemas de business intelligence.
+              Pesquisa, Desenvolvimento e Inovação (P&D) em parceria com empresas: ZOOX Smart Data (2025) e Plataforma de Educação Rômulo Passos (atual). Foco em agentes baseados em LLMs, computer vision, OCR e business intelligence.
             </p>
           </div>
         </div>
