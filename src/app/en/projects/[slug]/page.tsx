@@ -11,10 +11,10 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const project = getLocalizedProject(params.slug, "pt");
+  const project = getLocalizedProject(params.slug, "en");
 
   if (!project) {
-    return { title: dict.pt.project.notFound };
+    return { title: dict.en.project.notFound };
   }
 
   return {
@@ -23,10 +23,11 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.name} | João Vitor Chaves`,
       description: project.tagline,
+      locale: "en_US",
     },
   };
 }
 
 export default function Page({ params }: { params: { slug: string } }) {
-  return <ProjectPage slug={params.slug} lang="pt" />;
+  return <ProjectPage slug={params.slug} lang="en" />;
 }

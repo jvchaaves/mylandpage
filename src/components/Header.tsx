@@ -1,24 +1,27 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Menu, X } from "lucide-react";
+import { t, type Lang } from "@/lib/i18n";
 
-const navLinks = [
-  { label: "Sobre", href: "#about", index: "01" },
-  { label: "Experiência", href: "#experiencia", index: "02" },
-  { label: "Projetos", href: "#projects", index: "03" },
-  { label: "Contato", href: "#contact", index: "04" },
-];
+export default function Header({ lang }: { lang: Lang }) {
+  const copy = t(lang).nav;
+  const navLinks = [
+    { label: copy.about, href: "#about" },
+    { label: copy.experience, href: "#experiencia" },
+    { label: copy.projects, href: "#projetos" },
+    { label: copy.contact, href: "#contato" },
+  ];
 
-export default function Header() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const menuRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight = window.innerHeight * 0.6;
-      setIsVisible(window.scrollY > heroHeight);
+      setIsVisible(window.scrollY > window.innerHeight * 0.7);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -27,124 +30,148 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /* Seção ativa: marca no menu onde a pessoa está na página. */
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMobileMenuOpen]);
+    const sections = ["#about", "#experiencia", "#projetos", "#contato"]
+      .map((href) => document.querySelector(href))
+      .filter((el): el is Element => el !== null);
 
-  const scrollTo = useCallback(
-    (href: string) => {
-      setIsMobileMenuOpen(false);
+    if (!sections.length) return;
 
-      if (href === "#top") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible) setActiveSection(`#${visible.target.id}`);
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: [0, 0.25, 0.5] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  /* Menu mobile: trava o scroll, fecha no Esc e mantém o foco dentro. */
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+
+    if (!isMenuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+        toggleRef.current?.focus();
         return;
       }
 
-      const el = document.querySelector(href);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
+      if (event.key !== "Tab" || !menuRef.current) return;
+
+      const focusable = [
+        toggleRef.current,
+        ...Array.from(menuRef.current.querySelectorAll("button")),
+      ].filter((el): el is HTMLButtonElement => el !== null);
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
-    },
-    []
-  );
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    menuRef.current?.querySelector("button")?.focus();
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  const scrollTo = useCallback((href: string) => {
+    setIsMenuOpen(false);
+
+    if (href === "#top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.header
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -100, opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#0a0a0a]/70 backdrop-blur-xl"
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b bg-bg/80 backdrop-blur-md transition-all duration-300 ease-smooth ${
+        isVisible
+          ? "translate-y-0 border-line opacity-100"
+          : "pointer-events-none -translate-y-full border-transparent opacity-0"
+      }`}
+    >
+      <div className="mx-auto flex max-w-content items-center justify-between px-6 py-4 pr-32">
+        <button
+          onClick={() => scrollTo("#top")}
+          className="font-display text-sm font-semibold tracking-tight text-ink transition-colors duration-200 hover:text-accent"
         >
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-            {/* Logo */}
-            <button
-              onClick={() => scrollTo("#top")}
-              className="font-display text-lg font-bold tracking-tight text-[#F0EDE8] transition-colors hover:text-[#7EC8F5]"
-            >
-              jv.
-              <span className="text-[#7EC8F5]">chaves</span>
-            </button>
+          João Vitor Chaves
+        </button>
 
-            {/* Desktop Nav */}
-            <nav className="hidden items-center gap-8 md:flex">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollTo(link.href)}
-                  className="group relative text-sm font-medium text-[#8B8680] transition-colors hover:text-[#F0EDE8]"
-                >
-                  <span className="text-[10px] text-[#7EC8F5]/60 mr-1.5 font-mono">
-                    {link.index}
-                  </span>
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#7EC8F5] transition-all duration-300 ease-out group-hover:w-full" />
-                </button>
-              ))}
-            </nav>
+        <nav aria-label={copy.projects} className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href;
 
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="relative z-50 text-[#F0EDE8] md:hidden"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-
-          {/* Mobile Full-Screen Menu */}
-          <AnimatePresence>
-            {isMobileMenuOpen && (
-              <motion.nav
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="fixed inset-0 z-40 flex flex-col items-start justify-center bg-[#0a0a0a]/98 px-8 backdrop-blur-2xl md:hidden"
+            return (
+              <button
+                key={link.href}
+                onClick={() => scrollTo(link.href)}
+                aria-current={isActive ? "true" : undefined}
+                className={`relative text-sm transition-colors duration-200 hover:text-ink ${
+                  isActive ? "text-ink" : "text-ink-muted"
+                }`}
               >
-                <div className="flex flex-col gap-2">
-                  {navLinks.map((link, i) => (
-                    <motion.button
-                      key={link.href}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ delay: i * 0.08, duration: 0.4 }}
-                      onClick={() => scrollTo(link.href)}
-                      className="group flex items-baseline gap-4 py-3 text-left"
-                    >
-                      <span className="font-mono text-sm text-[#7EC8F5]/50">
-                        {link.index}
-                      </span>
-                      <span className="font-display text-4xl font-bold text-[#F0EDE8] transition-colors group-hover:text-[#7EC8F5]">
-                        {link.label}
-                      </span>
-                    </motion.button>
-                  ))}
-                </div>
-
-                {/* Decorative line */}
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.4, duration: 0.6 }}
-                  className="mt-12 h-px w-full origin-left bg-gradient-to-r from-[#7EC8F5]/40 to-transparent"
+                {link.label}
+                <span
+                  className={`absolute -bottom-1.5 left-0 h-px bg-accent transition-all duration-300 ease-smooth ${
+                    isActive ? "w-full" : "w-0"
+                  }`}
                 />
-              </motion.nav>
-            )}
-          </AnimatePresence>
-        </motion.header>
+              </button>
+            );
+          })}
+        </nav>
+
+        <button
+          ref={toggleRef}
+          onClick={() => setIsMenuOpen((open) => !open)}
+          className="relative z-50 text-ink md:hidden"
+          aria-label={isMenuOpen ? "Fechar menu" : "Menu"}
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
+
+      {isMenuOpen && (
+        <nav
+          ref={menuRef}
+          className="fixed inset-0 z-40 flex flex-col justify-center gap-2 bg-bg px-8 md:hidden"
+        >
+          {navLinks.map((link) => (
+            <button
+              key={link.href}
+              onClick={() => scrollTo(link.href)}
+              className="py-3 text-left font-display text-3xl font-semibold tracking-tight text-ink transition-colors duration-200 hover:text-accent"
+            >
+              {link.label}
+            </button>
+          ))}
+        </nav>
       )}
-    </AnimatePresence>
+    </header>
   );
 }

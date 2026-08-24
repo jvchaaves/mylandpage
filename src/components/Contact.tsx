@@ -1,95 +1,65 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Mail, Github, Linkedin } from "lucide-react";
-import { type ReactNode } from "react";
+import { Section, SectionHeading } from "@/components/ui/section";
+import CopyEmail from "@/components/CopyEmail";
+import { t, type Lang } from "@/lib/i18n";
 
-interface ContactCardProps {
-  icon: ReactNode;
-  label: string;
-  value: string;
-  href: string;
-  delay: number;
-}
+const EMAIL = "joaovitorchavesdesouza@gmail.com";
 
-function ContactCard({ icon, label, value, href, delay }: ContactCardProps) {
-  const isMailto = href.startsWith("mailto:");
-  return (
-    <motion.a
-      href={href}
-      target={isMailto ? "_self" : "_blank"}
-      rel={isMailto ? undefined : "noopener noreferrer"}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay }}
-      className="group relative z-10 flex flex-col items-center gap-4 rounded-2xl border border-[#1F1F1F] bg-[#141414] p-8 transition-all duration-300 hover:border-[#7EC8F5]/50 hover:shadow-lg hover:shadow-[#7EC8F5]/5 cursor-pointer"
-    >
-      {/* Animated gradient border on hover */}
-      <div className="pointer-events-none absolute inset-0 z-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div className="pointer-events-none absolute inset-[-1px] rounded-2xl bg-gradient-to-r from-[#7EC8F5]/20 via-[#7EC8F5]/10 to-[#7EC8F5]/20" />
-        <div className="pointer-events-none absolute inset-[1px] rounded-2xl bg-[#141414]" />
-      </div>
-
-      <div className="relative flex h-14 w-14 items-center justify-center rounded-xl bg-[#7EC8F5]/10 text-[#7EC8F5] transition-colors duration-300 group-hover:bg-[#7EC8F5]/20">
-        {icon}
-      </div>
-
-      <div className="relative text-center">
-        <p className="mb-1 text-sm font-medium text-gray-500">{label}</p>
-        <p className="text-sm text-gray-300 transition-colors duration-300 group-hover:text-white">
-          {value}
-        </p>
-      </div>
-    </motion.a>
-  );
-}
-
-const contacts = [
+const channels = [
+  { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}` },
   {
-    icon: <Mail size={24} />,
-    label: "Email",
-    value: "joaovitorchavesdesouza@gmail.com",
-    href: "mailto:joaovitorchavesdesouza@gmail.com",
-  },
-  {
-    icon: <Github size={24} />,
+    icon: Github,
     label: "GitHub",
     value: "github.com/jvchaaves",
     href: "https://github.com/jvchaaves",
   },
   {
-    icon: <Linkedin size={24} />,
+    icon: Linkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/jvchaaves",
     href: "https://linkedin.com/in/jvchaaves",
   },
 ];
 
-export default function Contact() {
-  return (
-    <section
-      id="contact"
-      className="relative overflow-hidden bg-[#0a0a0a] px-6 py-24 sm:py-32"
-    >
-      {/* Subtle background glow */}
-      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-64 w-full max-w-lg bg-[#7EC8F5]/5 blur-3xl" />
+export default function Contact({ lang }: { lang: Lang }) {
+  const copy = t(lang).contact;
 
-      <div className="relative mx-auto max-w-4xl">
-        {/* Contact cards */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {contacts.map((contact, i) => (
-            <ContactCard
-              key={contact.label}
-              icon={contact.icon}
-              label={contact.label}
-              value={contact.value}
-              href={contact.href}
-              delay={i * 0.15}
-            />
-          ))}
-        </div>
+  return (
+    <Section id="contato">
+      <SectionHeading label={copy.label} title={copy.title} />
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        {channels.map(({ icon: Icon, label, value, href }) => {
+          const isMail = href.startsWith("mailto:");
+
+          return (
+            <a
+              key={label}
+              href={href}
+              target={isMail ? undefined : "_blank"}
+              rel={isMail ? undefined : "noopener noreferrer"}
+              className="group flex flex-col items-center gap-4 rounded-xl border border-line bg-surface px-6 py-8 text-center transition-colors duration-200 hover:border-line-strong"
+            >
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-surface-2 text-accent transition-colors duration-200 group-hover:bg-accent/10">
+                <Icon size={20} />
+              </span>
+
+              <span>
+                <span className="mb-1.5 block font-mono text-label uppercase text-ink-muted">
+                  {label}
+                </span>
+                <span className="block break-all text-sm text-ink-secondary transition-colors duration-200 group-hover:text-ink">
+                  {value}
+                </span>
+              </span>
+            </a>
+          );
+        })}
       </div>
-    </section>
+
+      <div className="mt-6 flex justify-center sm:justify-start">
+        <CopyEmail email={EMAIL} copyLabel={copy.copy} copiedLabel={copy.copied} />
+      </div>
+    </Section>
   );
 }

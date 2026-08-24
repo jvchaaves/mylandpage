@@ -9,53 +9,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0A0A0A",
-        foreground: "#F0EDE8",
-        accent: "#7EC8F5",
-        card: "#141414",
-        "card-border": "#1F1F1F",
-        muted: "#8B8680",
+        bg: "var(--bg)",
+        surface: "var(--surface)",
+        "surface-2": "var(--surface-2)",
+        line: "var(--border)",
+        "line-strong": "var(--border-strong)",
+        ink: "var(--text)",
+        "ink-secondary": "var(--text-secondary)",
+        "ink-muted": "var(--text-muted)",
+        accent: "var(--accent)",
       },
       fontFamily: {
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "system-ui", "sans-serif"],
-        mono: ["monospace"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
-      animation: {
-        spotlight: "spotlight 2s ease .75s 1 forwards",
-        marquee: "marquee var(--duration) linear infinite",
-        "marquee-vertical":
-          "marquee-vertical var(--duration) linear infinite",
-        "reveal-up": "reveal-up 0.7s ease-out forwards",
-        "text-reveal": "text-reveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards",
+      fontSize: {
+        label: ["0.6875rem", { lineHeight: "1", letterSpacing: "0.14em" }],
       },
-      keyframes: {
-        spotlight: {
-          "0%": {
-            opacity: "0",
-            transform: "translate(-72%, -62%) scale(0.5)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translate(-50%, -40%) scale(1)",
-          },
-        },
-        marquee: {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(calc(-100% - var(--gap)))" },
-        },
-        "marquee-vertical": {
-          from: { transform: "translateY(0)" },
-          to: { transform: "translateY(calc(-100% - var(--gap)))" },
-        },
-        "reveal-up": {
-          "0%": { opacity: "0", transform: "translateY(30px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        "text-reveal": {
-          "0%": { clipPath: "inset(0 100% 0 0)" },
-          "100%": { clipPath: "inset(0 0 0 0)" },
-        },
+      maxWidth: {
+        content: "68rem",
+        prose: "42rem",
+      },
+      transitionTimingFunction: {
+        smooth: "cubic-bezier(0.22, 1, 0.36, 1)",
       },
     },
   },

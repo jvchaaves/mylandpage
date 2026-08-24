@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <rect width="180" height="180" fill="#0A0A0A"/>
+  <text x="90" y="120" text-anchor="middle"
+        font-family="Syne, Space Grotesk, Helvetica, Arial, sans-serif"
+        font-size="84" font-weight="700" letter-spacing="-4" fill="#F0EDE8">jv</text>
+  <circle cx="132" cy="56" r="10" fill="#7EC8F5"/>
+</svg>
