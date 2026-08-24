@@ -26,7 +26,7 @@ export default function Home({ lang }: { lang: Lang }) {
         <Projects lang={lang} />
         <Contact lang={lang} />
       </main>
-      <Footer lang={lang} />
+      <Footer />
     </>
   );
 }

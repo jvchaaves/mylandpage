@@ -119,7 +119,6 @@ export const dict = {
       copy: "Copiar endereço",
       copied: "Copiado",
     },
-    footer: { madeWith: "Feito com Next.js" },
     project: {
       back: "Voltar",
       about: "Sobre o projeto",
@@ -272,7 +271,6 @@ export const dict = {
       copy: "Copy address",
       copied: "Copied",
     },
-    footer: { madeWith: "Built with Next.js" },
     project: {
       back: "Back",
       about: "About the project",
