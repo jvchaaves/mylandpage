@@ -34,3 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# artefatos locais de ferramentas
+/.playwright-mcp/
+/.code-review-graph/
+AGENTS.md
