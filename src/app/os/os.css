@@ -240,3 +240,23 @@
   box-shadow: 0 0 0 3px rgba(127, 178, 240, 0.75);
   border-radius: 4px;
 }
+
+/* Reflexo dos ícones no dock: espelhado, esmaecido e cortado por máscara. */
+.os-dock-reflexo {
+  transform: scaleY(-1);
+  opacity: 0.22;
+  margin-top: -2px;
+  filter: blur(0.4px);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 62%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 62%);
+  pointer-events: none;
+}
+
+/* Nebulosa no fundo: dá textura ao azul chapado. */
+.os-nebulosa {
+  background:
+    radial-gradient(38% 26% at 22% 28%, rgba(96, 148, 226, 0.24), transparent 70%),
+    radial-gradient(30% 22% at 78% 18%, rgba(150, 110, 220, 0.16), transparent 72%),
+    radial-gradient(46% 30% at 62% 74%, rgba(60, 170, 220, 0.14), transparent 70%);
+  filter: blur(6px);
+}

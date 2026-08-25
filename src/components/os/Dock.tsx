@@ -67,6 +67,8 @@ export default function Dock({
               </span>
             )}
             <app.Icone className="os-icone-img h-12 w-12" />
+            {/* Reflexo no "chão" do dock: cópia espelhada, esmaecida. */}
+            <app.Icone className="os-dock-reflexo h-12 w-12" />
           </button>
         ))}
 

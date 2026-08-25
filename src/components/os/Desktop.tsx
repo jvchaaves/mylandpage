@@ -8,16 +8,22 @@ import Window, { type WindowState } from "@/components/os/Window";
 import DesktopIcon from "@/components/os/DesktopIcon";
 import Terminal from "@/components/os/Terminal";
 import Paint from "@/components/os/Paint";
+import SobreMim from "@/components/os/SobreMim";
+import Randori from "@/components/os/Randori";
 import { SobreEsteMac, Projetos, CurriculoPDF, Notas } from "@/components/os/apps";
 import {
   DiscoIcon, FinderIcon, PastaIcon, PaintIcon,
-  TerminalIcon, DocumentoIcon, PerfilIcon, LixeiraIcon,
+  TerminalIcon, DocumentoIcon, PerfilIcon, FaixaIcon, LixeiraIcon,
 } from "@/components/os/icons";
 
-type AppId = "sobre" | "projetos" | "curriculo" | "notas" | "paint" | "terminal";
+type AppId =
+  | "sobre" | "sobremim" | "projetos" | "curriculo"
+  | "notas" | "randori" | "paint" | "terminal";
 
 const APPS: Record<AppId, { titulo: string; largura: number; conteudo: React.ReactNode }> = {
   sobre: { titulo: "Sobre este Mac", largura: 400, conteudo: <SobreEsteMac /> },
+  sobremim: { titulo: "Sobre mim", largura: 430, conteudo: <SobreMim /> },
+  randori: { titulo: "Randori", largura: 380, conteudo: <Randori /> },
   projetos: { titulo: "Projetos", largura: 520, conteudo: <Projetos /> },
   curriculo: { titulo: "Currículo", largura: 560, conteudo: <CurriculoPDF /> },
   notas: { titulo: "Notas", largura: 330, conteudo: <Notas /> },
@@ -30,20 +36,22 @@ const NA_MESA: { id: AppId; label: string; Icone: (p: { className?: string }) =>
   { id: "projetos", label: "Projetos", Icone: PastaIcon },
   { id: "curriculo", label: "Currículo.pdf", Icone: DocumentoIcon },
   { id: "paint", label: "Paint", Icone: PaintIcon },
+  { id: "randori", label: "Randori", Icone: FaixaIcon },
 ];
 
 const NO_DOCK: { id: AppId; label: string; Icone: (p: { className?: string }) => JSX.Element }[] = [
-  { id: "sobre", label: "Sobre este Mac", Icone: PerfilIcon },
+  { id: "sobremim", label: "Sobre mim", Icone: PerfilIcon },
   { id: "projetos", label: "Projetos", Icone: FinderIcon },
   { id: "curriculo", label: "Currículo", Icone: DocumentoIcon },
   { id: "notas", label: "Notas", Icone: PastaIcon },
+  { id: "randori", label: "Randori", Icone: FaixaIcon },
   { id: "paint", label: "Paint", Icone: PaintIcon },
   { id: "terminal", label: "Terminal", Icone: TerminalIcon },
 ];
 
 export default function Desktop() {
   const [janelas, setJanelas] = useState<WindowState[]>([
-    { id: "sobre", title: APPS.sobre.titulo, x: 120, y: 84, width: APPS.sobre.largura, z: 1 },
+    { id: "sobremim", title: APPS.sobremim.titulo, x: 128, y: 86, width: APPS.sobremim.largura, z: 1 },
   ]);
   const [selecionado, setSelecionado] = useState<string | null>(null);
   const [topo, setTopo] = useState(1);
@@ -91,6 +99,7 @@ export default function Desktop() {
       className="os-root os-wallpaper relative h-screen w-full overflow-hidden"
       onClick={() => setSelecionado(null)}
     >
+      <div className="os-nebulosa pointer-events-none absolute inset-0" aria-hidden />
       <div className="os-stars pointer-events-none absolute inset-0" aria-hidden />
       <div className="os-atmosfera pointer-events-none absolute inset-0" aria-hidden />
 

@@ -14,7 +14,7 @@ function Maca({ className = "h-[15px] w-[13px]" }) {
   );
 }
 
-const MENUS = ["Arquivo", "Editar", "Visualizar", "Janela"];
+const MENUS = ["Arquivo", "Editar", "Visualizar"];
 
 export default function MenuBar({
   appAtivo,
@@ -84,6 +84,34 @@ export default function MenuBar({
           {menu}
         </span>
       ))}
+
+      <div className="relative">
+        <button
+          data-open={aberto === "especial"}
+          onClick={(event) => {
+            event.stopPropagation();
+            setAberto(aberto === "especial" ? null : "especial");
+          }}
+          className="os-menu-item px-2 py-[2px]"
+        >
+          Especial
+        </button>
+
+        {aberto === "especial" && (
+          <div className="os-menu-drop absolute left-0 top-[22px] w-[196px] py-1">
+            <button
+              onClick={onFecharTudo}
+              className="os-menu-item block w-full px-3 py-[3px] text-left"
+            >
+              Bater — fecha tudo
+            </button>
+            <div className="my-1 border-t border-black/10" />
+            <a href="/cv" className="os-menu-item block w-full px-3 py-[3px] text-left">
+              Currículo em PDF
+            </a>
+          </div>
+        )}
+      </div>
 
       <span className="ml-auto flex items-center gap-3 pr-1">
         <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 text-black/55" aria-hidden>
