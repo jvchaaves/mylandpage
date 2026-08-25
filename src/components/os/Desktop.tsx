@@ -1,11 +1,12 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import BootScreen from "@/components/os/BootScreen";
 import MenuBar from "@/components/os/MenuBar";
 import Window, { type WindowState } from "@/components/os/Window";
 import DesktopIcon from "@/components/os/DesktopIcon";
 import Terminal from "@/components/os/Terminal";
-import { SobreEsteMac, Projetos, Curriculo, BlocoDeNotas } from "@/components/os/apps";
+import { SobreEsteMac, Projetos, CurriculoPDF, BlocoDeNotas } from "@/components/os/apps";
 import { DiscoIcon, PastaIcon, DocumentoIcon, TerminalIcon, NotasIcon, LixeiraIcon } from "@/components/os/icons";
 
 type AppId = "sobre" | "projetos" | "curriculo" | "notas" | "terminal";
@@ -13,7 +14,7 @@ type AppId = "sobre" | "projetos" | "curriculo" | "notas" | "terminal";
 const APPS: Record<AppId, { titulo: string; largura: number; conteudo: React.ReactNode }> = {
   sobre: { titulo: "Sobre este Macintosh", largura: 400, conteudo: <SobreEsteMac /> },
   projetos: { titulo: "Projetos", largura: 460, conteudo: <Projetos /> },
-  curriculo: { titulo: "Trajetória", largura: 440, conteudo: <Curriculo /> },
+  curriculo: { titulo: "Currículo", largura: 540, conteudo: <CurriculoPDF /> },
   notas: { titulo: "Bloco de Notas", largura: 340, conteudo: <BlocoDeNotas /> },
   terminal: { titulo: "Terminal", largura: 536, conteudo: <Terminal /> },
 };
@@ -21,7 +22,7 @@ const APPS: Record<AppId, { titulo: string; largura: number; conteudo: React.Rea
 const ICONES: { id: AppId; label: string; Glyph: () => JSX.Element }[] = [
   { id: "sobre", label: "Macintosh HD", Glyph: DiscoIcon },
   { id: "projetos", label: "Projetos", Glyph: PastaIcon },
-  { id: "curriculo", label: "Trajetória", Glyph: DocumentoIcon },
+  { id: "curriculo", label: "Currículo.pdf", Glyph: DocumentoIcon },
   { id: "notas", label: "Bloco de Notas", Glyph: NotasIcon },
   { id: "terminal", label: "Terminal", Glyph: TerminalIcon },
 ];
@@ -33,6 +34,7 @@ export default function Desktop() {
   ]);
   const [selecionado, setSelecionado] = useState<string | null>(null);
   const [topo, setTopo] = useState(1);
+  const [ligado, setLigado] = useState(false);
 
   const focar = useCallback(
     (id: string) => {
@@ -95,7 +97,9 @@ export default function Desktop() {
           </a>
         </div>
       </div>
-      <MenuBar onSobre={() => abrir("sobre")} />
+      {!ligado && <BootScreen onPronto={() => setLigado(true)} />}
+
+      <MenuBar onSobre={() => abrir("sobre")} onBater={() => setJanelas([])} />
 
       <div className="absolute right-6 top-8 flex flex-col items-center gap-4">
         {ICONES.map(({ id, label, Glyph }) => (

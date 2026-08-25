@@ -1,5 +1,5 @@
 import { getAllProjects } from "@/lib/projects";
-import { experience } from "@/lib/experience";
+import { DocumentoMini } from "@/components/os/icons";
 
 /* Réplica da "Sobre este Macintosh" — as especificações são as da pessoa. */
 export function SobreEsteMac() {
@@ -78,9 +78,12 @@ export function Projetos() {
           <li key={projeto.slug} className="border-b border-dotted border-neutral-400 last:border-0">
             <a
               href={`/projects/${projeto.slug}`}
-              className="grid grid-cols-[1fr_60px_96px] items-center gap-2 px-3 py-[5px] text-[10px] hover:bg-black hover:text-white"
+              className="os-row grid grid-cols-[1fr_60px_96px] items-center gap-2 px-3 py-[5px] text-[10px]"
             >
-              <span className="truncate">{projeto.name}</span>
+              <span className="flex items-center gap-2 truncate">
+                <DocumentoMini />
+                {projeto.name}
+              </span>
               <span className="text-right tabular-nums">
                 {Math.round(projeto.description.length / 7)}K
               </span>
@@ -95,37 +98,41 @@ export function Projetos() {
   );
 }
 
-/* Trajetória em texto corrido, com atalho para o currículo completo. */
-export function Curriculo() {
-  const { current, past } = experience.pt;
+/* Visualizador de PDF: o currículo de verdade, aberto dentro da janela. */
+export function CurriculoPDF() {
+  const arquivo = "/curriculo-joao-vitor-chaves.pdf";
+  /* A barra do leitor do navegador é cinza e moderna: destoa de tudo aqui.
+     Os parâmetros escondem toolbar e painel lateral, sobrando só a página. */
+  const embutido = `${arquivo}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`;
 
   return (
-    <div className="w-[420px] p-4">
-      <p className="mb-3 border-b border-black pb-2 text-[11px]">Trajetória</p>
+    <div className="w-[540px]">
+      <div className="flex items-center justify-between gap-2 border-b border-black px-2 py-1">
+        <span className="text-[10px]">curriculo-joao-vitor-chaves.pdf</span>
+        <span className="flex gap-2">
+          <a className="os-button text-[10px]" href={arquivo} target="_blank" rel="noreferrer">
+            Abrir à parte
+          </a>
+          <a className="os-button text-[10px]" href={arquivo} download>
+            Baixar
+          </a>
+        </span>
+      </div>
 
-      {[
-        { titulo: "Agora", lista: current },
-        { titulo: "Antes", lista: past },
-      ].map((bloco) => (
-        <div key={bloco.titulo} className="mb-4 last:mb-0">
-          <p className="mb-2 text-[9px] uppercase tracking-wider text-neutral-600">
-            {bloco.titulo}
-          </p>
-          <ul className="space-y-2">
-            {bloco.lista.map((papel) => (
-              <li key={papel.title + papel.period} className="text-[10px] leading-[1.6]">
-                <span className="text-neutral-600">{papel.period}</span>
-                <br />
-                {papel.title} — {papel.org}
-              </li>
-            ))}
-          </ul>
+      <object data={embutido} type="application/pdf" className="block h-[460px] w-full bg-white">
+        {/* Sem leitor embutido — navegador antigo ou móvel */}
+        <div className="p-4 text-[10px] leading-[1.7]">
+          Este Macintosh não conseguiu abrir o PDF aqui dentro.{" "}
+          <a className="underline" href={arquivo} target="_blank" rel="noreferrer">
+            Abra em outra janela
+          </a>{" "}
+          ou{" "}
+          <a className="underline" href="/cv">
+            veja a versão em página
+          </a>
+          .
         </div>
-      ))}
-
-      <a className="os-button mt-2 inline-block text-[10px]" href="/cv">
-        Abrir currículo completo
-      </a>
+      </object>
     </div>
   );
 }
@@ -133,15 +140,16 @@ export function Curriculo() {
 /* Bloco de Notas: o acessório de mesa clássico, aqui com o lado pessoal. */
 export function BlocoDeNotas() {
   const notas = [
-    "acordo cedo, mas só funciono de verdade depois do segundo café.",
-    "aprendo construindo. leio a documentação depois que já quebrei.",
-    "treino jiu-jitsu. faixa azul. a guarda é o melhor lugar para pensar.",
-    "gosto de problema com dado bagunçado — o limpo já foi resolvido.",
-    "prefiro terminar do que deixar bonito pela metade.",
+    "aprendo construindo. leio a documentação depois de já ter quebrado.",
+    "treino jiu-jitsu. faixa azul — o suficiente para saber o tamanho do que falta.",
+    "no tatame e no código o método é o mesmo: posição antes de submissão.",
+    "gosto de problema com dado bagunçado. o limpo já foi resolvido por alguém.",
+    "prefiro entregar terminado a deixar bonito pela metade.",
+    "bater cedo faz parte. o erro é insistir numa posição perdida.",
   ];
 
   return (
-    <div className="w-[340px]">
+    <div className="w-[360px]">
       <div className="border-b border-black px-3 py-1 text-[9px] text-neutral-600">
         página 1 de 1
       </div>

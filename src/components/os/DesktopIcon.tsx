@@ -20,7 +20,7 @@ export default function DesktopIcon({
         onSelect();
       }}
       onDoubleClick={onOpen}
-      className={`flex w-[84px] flex-col items-center gap-1 p-1 ${
+      className={`flex w-[88px] flex-col items-center gap-1.5 p-1 ${
         selecionado ? "os-icon-selected" : ""
       }`}
     >

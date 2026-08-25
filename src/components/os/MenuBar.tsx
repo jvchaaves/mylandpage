@@ -15,9 +15,15 @@ function MacaGlyph() {
   );
 }
 
-const MENUS = ["Arquivo", "Editar", "Visualizar", "Especial"];
+const MENUS = ["Arquivo", "Editar", "Visualizar"];
 
-export default function MenuBar({ onSobre }: { onSobre: () => void }) {
+export default function MenuBar({
+  onSobre,
+  onBater,
+}: {
+  onSobre: () => void;
+  onBater: () => void;
+}) {
   const [aberto, setAberto] = useState<string | null>(null);
   const [relogio, setRelogio] = useState("");
 
@@ -41,7 +47,7 @@ export default function MenuBar({ onSobre }: { onSobre: () => void }) {
   }, [aberto]);
 
   return (
-    <div className="os-chrome relative z-[1000] flex h-[20px] items-center gap-1 border-b border-black bg-white px-2 text-[9px] leading-none">
+    <div className="os-chrome os-menubar relative z-[1000] flex h-[20px] items-center gap-1 border-b border-black bg-white px-2 text-[9px] leading-none">
       <div className="relative">
         <button
           data-open={aberto === "maca"}
@@ -75,6 +81,37 @@ export default function MenuBar({ onSobre }: { onSobre: () => void }) {
           {menu}
         </span>
       ))}
+
+      <div className="relative">
+        <button
+          data-open={aberto === "especial"}
+          onClick={(event) => {
+            event.stopPropagation();
+            setAberto(aberto === "especial" ? null : "especial");
+          }}
+          className="os-menu-item px-2 py-[3px]"
+        >
+          Especial
+        </button>
+
+        {aberto === "especial" && (
+          <div className="os-window absolute left-0 top-[20px] w-[168px] py-1">
+            <button
+              onClick={onBater}
+              className="os-menu-item block w-full px-3 py-[3px] text-left text-[9px]"
+            >
+              Bater — fecha tudo
+            </button>
+            <div className="my-1 border-t border-dotted border-black" />
+            <a
+              href="/"
+              className="os-menu-item block w-full px-3 py-[3px] text-left text-[9px]"
+            >
+              Desligar e voltar ao site
+            </a>
+          </div>
+        )}
+      </div>
 
       <span className="ml-auto px-1 tabular-nums">{relogio}</span>
     </div>
