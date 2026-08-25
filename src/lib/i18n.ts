@@ -17,6 +17,7 @@ export const dict = {
         "Desenvolvedor full-stack no LAVID/UFPB, no V4H, plataforma de telessaúde utilizada no SUS, e pesquisador em IA aplicada no TRIL Lab. Graduando em Ciência de Dados e Inteligência Artificial na UFPB.",
     },
     skipLink: "Pular para o conteúdo",
+    macCorner: "Abrir a versão Macintosh",
     nav: {
       about: "Sobre",
       experience: "Experiência",
@@ -105,6 +106,8 @@ export const dict = {
       title: "Trajetória",
       now: "Agora",
       before: "Antes",
+      more: "Ler mais",
+      less: "Recolher",
     },
     projects: {
       label: "Projetos",
@@ -166,6 +169,7 @@ export const dict = {
         "Full-stack developer at LAVID/UFPB, working on V4H, a telehealth platform used by Brazil's public health system, and a researcher in applied AI at TRIL Lab. Undergraduate in Data Science and Artificial Intelligence at UFPB.",
     },
     skipLink: "Skip to content",
+    macCorner: "Open the Macintosh version",
     nav: {
       about: "About",
       experience: "Experience",
@@ -257,6 +261,8 @@ export const dict = {
       title: "Career",
       now: "Now",
       before: "Before",
+      more: "Read more",
+      less: "Collapse",
     },
     projects: {
       label: "Projects",
