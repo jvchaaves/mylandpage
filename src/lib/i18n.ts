@@ -12,7 +12,7 @@ export const dict = {
   pt: {
     htmlLang: "pt-BR",
     meta: {
-      title: "João Vitor Chaves | Desenvolvedor Full-Stack e IA aplicada",
+      title: "João Vitor Chaves",
       description:
         "Desenvolvedor full-stack no LAVID/UFPB, no V4H, plataforma de telessaúde utilizada no SUS, e pesquisador em IA aplicada no TRIL Lab. Graduando em Ciência de Dados e Inteligência Artificial na UFPB.",
     },
@@ -161,7 +161,7 @@ export const dict = {
   en: {
     htmlLang: "en",
     meta: {
-      title: "João Vitor Chaves | Full-Stack Developer and Applied AI",
+      title: "João Vitor Chaves",
       description:
         "Full-stack developer at LAVID/UFPB, working on V4H, a telehealth platform used by Brazil's public health system, and a researcher in applied AI at TRIL Lab. Undergraduate in Data Science and Artificial Intelligence at UFPB.",
     },
