@@ -5,7 +5,6 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import TopControls from "@/components/TopControls";
 import { t, type Lang } from "@/lib/i18n";
 
 export default function Home({ lang }: { lang: Lang }) {
@@ -17,7 +16,6 @@ export default function Home({ lang }: { lang: Lang }) {
       >
         {t(lang).skipLink}
       </a>
-      <TopControls lang={lang} />
       <Header lang={lang} />
       <main className="min-h-screen">
         <Hero lang={lang} />
