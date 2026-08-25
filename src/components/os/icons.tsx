@@ -1,116 +1,211 @@
 /**
- * Ícones na grade de 32×32 do System 7. O "cinza" é sempre dithering — um
- * xadrez de 1px declarado como pattern SVG — porque a tela do Macintosh não
- * tinha meio-tom: cada pixel era preto ou branco.
+ * Ícones no idioma do Aqua: volume arredondado, gradiente vertical, reflexo
+ * elíptico branco no topo e sombra na base. Desenhados aqui em SVG em vez de
+ * usar os PNGs da Apple, que são arte proprietária.
  */
 
-function Dither({ id }: { id: string }) {
+type Props = { className?: string };
+const padrao = "os-icone-img h-14 w-14";
+
+/** Reflexo de vidro reaproveitado por vários ícones. */
+function Brilho({ rx = 34, ry = 14, cx = 64, cy = 34 }) {
+  return (
+    <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="url(#g-brilho)" opacity="0.75" />
+  );
+}
+
+function Defs() {
   return (
     <defs>
-      <pattern id={id} width="2" height="2" patternUnits="userSpaceOnUse">
-        <rect width="2" height="2" fill="#fff" />
-        <rect width="1" height="1" fill="#000" />
-        <rect x="1" y="1" width="1" height="1" fill="#000" />
-      </pattern>
+      <linearGradient id="g-brilho" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#fff" stopOpacity="0.95" />
+        <stop offset="100%" stopColor="#fff" stopOpacity="0" />
+      </linearGradient>
     </defs>
   );
 }
 
-const svg = "os-glyph h-10 w-10";
-const traco = { stroke: "#000", strokeWidth: 1 } as const;
-
-export function DiscoIcon() {
+export function DiscoIcon({ className = padrao }: Props) {
   return (
-    <svg viewBox="0 0 32 32" className={svg} aria-hidden>
-      <Dither id="d-hd" />
-      {/* volume em perspectiva: topo dithered, frente branca */}
-      <path d="M4 11l4-3h18l2 3v13l-2 2H6l-2-2V11Z" fill="#fff" {...traco} />
-      <path d="M4 11l4-3h18l2 3H4Z" fill="url(#d-hd)" {...traco} />
-      <path d="M4 11h22v15" fill="none" {...traco} />
-      <rect x="7" y="16" width="9" height="2" fill="#000" />
-      <circle cx="22" cy="21" r="1.6" fill="#000" />
-      <path d="M7 21h9" fill="none" {...traco} />
+    <svg viewBox="0 0 128 128" className={className} aria-hidden>
+      <Defs />
+      <defs>
+        <linearGradient id="g-hd-topo" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#c9d0d6" />
+          <stop offset="22%" stopColor="#fbfdfe" />
+          <stop offset="52%" stopColor="#c2cad1" />
+          <stop offset="78%" stopColor="#eef2f5" />
+          <stop offset="100%" stopColor="#b4bcc3" />
+        </linearGradient>
+        <linearGradient id="g-hd-frente" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#eef2f5" />
+          <stop offset="55%" stopColor="#b9c1c8" />
+          <stop offset="100%" stopColor="#8e979f" />
+        </linearGradient>
+      </defs>
+      {/* corpo em perspectiva: tampa clara, frente mais escura */}
+      <path d="M18 44l12-10h68l12 10v34l-12 12H30L18 78Z" fill="url(#g-hd-frente)" stroke="#79828a" />
+      <path d="M18 44l12-10h68l12 10-12 8H30Z" fill="url(#g-hd-topo)" stroke="#79828a" />
+      <rect x="30" y="58" width="52" height="7" rx="3.5" fill="#7d868e" opacity="0.5" />
+      <circle cx="98" cy="70" r="6" fill="#6f787f" />
+      <circle cx="98" cy="70" r="2.4" fill="#39c25a" />
+      <ellipse cx="64" cy="42" rx="40" ry="6" fill="url(#g-brilho)" opacity="0.55" />
     </svg>
   );
 }
 
-export function PastaIcon() {
+export function FinderIcon({ className = padrao }: Props) {
   return (
-    <svg viewBox="0 0 32 32" className={svg} aria-hidden>
-      <Dither id="d-pasta" />
-      <path d="M3 8h9l3 3h14v16H3V8Z" fill="#fff" {...traco} />
-      <path d="M3 8h9l3 3H3V8Z" fill="url(#d-pasta)" {...traco} />
-      <path d="M3 13h26" fill="none" {...traco} />
-      <path d="M26 13v14" fill="none" {...traco} />
-      <path d="M26 27l3-3V13" fill="url(#d-pasta)" {...traco} />
+    <svg viewBox="0 0 128 128" className={className} aria-hidden>
+      <Defs />
+      <defs>
+        <linearGradient id="g-finder" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#8fd0ff" />
+          <stop offset="50%" stopColor="#3f8fe0" />
+          <stop offset="100%" stopColor="#1f5fb0" />
+        </linearGradient>
+      </defs>
+      <rect x="16" y="12" width="96" height="104" rx="16" fill="url(#g-finder)" stroke="#1a4f96" />
+      {/* meio-rosto claro à esquerda, como o Finder */}
+      <path d="M16 28a16 16 0 0 1 16-16h32v104H32a16 16 0 0 1-16-16Z" fill="#dbeaf8" opacity="0.92" />
+      <Brilho cx={64} cy={30} rx={40} ry={13} />
+      <ellipse cx="46" cy="52" rx="4" ry="7" fill="#123a6b" />
+      <ellipse cx="84" cy="52" rx="4" ry="7" fill="#123a6b" />
+      <path d="M40 78q24 16 48 0" stroke="#123a6b" strokeWidth="5" fill="none" strokeLinecap="round" />
     </svg>
   );
 }
 
-export function DocumentoIcon() {
+export function PastaIcon({ className = padrao }: Props) {
   return (
-    <svg viewBox="0 0 32 32" className={svg} aria-hidden>
-      <Dither id="d-doc" />
-      {/* canto dobrado, a marca do ícone de documento */}
-      <path d="M7 3h12l6 6v20H7V3Z" fill="#fff" {...traco} />
-      <path d="M19 3l6 6h-6V3Z" fill="url(#d-doc)" {...traco} />
-      {[14, 17, 20, 23].map((y) => (
-        <path key={y} d={`M10 ${y}h${y === 23 ? 8 : 12}`} fill="none" {...traco} />
+    <svg viewBox="0 0 128 128" className={className} aria-hidden>
+      <Defs />
+      <defs>
+        <linearGradient id="g-pasta" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#bfe0fb" />
+          <stop offset="55%" stopColor="#7cb6ec" />
+          <stop offset="100%" stopColor="#4a8ed4" />
+        </linearGradient>
+        <linearGradient id="g-aba" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#d6ecfd" />
+          <stop offset="100%" stopColor="#8ec2ef" />
+        </linearGradient>
+      </defs>
+      <path d="M10 34h38l12 12h58a8 8 0 0 1 8 8v10H10Z" fill="url(#g-aba)" stroke="#4f92d6" />
+      <path d="M10 52h108a6 6 0 0 1 6 6v40a8 8 0 0 1-8 8H12a8 8 0 0 1-8-8V58a6 6 0 0 1 6-6Z" fill="url(#g-pasta)" stroke="#3f7fc4" />
+      <Brilho cx={64} cy={64} rx={48} ry={12} />
+    </svg>
+  );
+}
+
+export function PaintIcon({ className = padrao }: Props) {
+  const cores = ["#e14b3c", "#f0a32e", "#f5d431", "#5cb85c", "#3f8fe0", "#9b59d0"];
+  return (
+    <svg viewBox="0 0 128 128" className={className} aria-hidden>
+      <Defs />
+      <defs>
+        <linearGradient id="g-paleta" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#fff" />
+          <stop offset="100%" stopColor="#dfe3e7" />
+        </linearGradient>
+        <linearGradient id="g-cabo" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#c78a4a" />
+          <stop offset="100%" stopColor="#8a5a28" />
+        </linearGradient>
+      </defs>
+      <path d="M62 16c30 0 50 18 50 38 0 14-12 18-22 18-8 0-12 4-12 10 0 8-8 14-18 14-24 0-44-18-44-40S34 16 62 16Z"
+            fill="url(#g-paleta)" stroke="#a9b0b6" />
+      <circle cx="52" cy="30" r="1" fill="none" />
+      {cores.map((cor, i) => {
+        const ang = (-140 + i * 30) * (Math.PI / 180);
+        return <circle key={cor} cx={64 + Math.cos(ang) * 30} cy={62 + Math.sin(ang) * 26} r="7.5" fill={cor} stroke="rgba(0,0,0,0.18)" />;
+      })}
+      <circle cx="46" cy="86" r="10" fill="#f3f5f7" stroke="#b3b9be" />
+      {/* pincel na diagonal */}
+      <rect x="78" y="18" width="9" height="52" rx="4" transform="rotate(28 82 44)" fill="url(#g-cabo)" />
+      <path d="M96 82l10 16-16-6Z" fill="#e14b3c" />
+      <Brilho cx={62} cy={34} rx={34} ry={12} />
+    </svg>
+  );
+}
+
+export function TerminalIcon({ className = padrao }: Props) {
+  return (
+    <svg viewBox="0 0 128 128" className={className} aria-hidden>
+      <Defs />
+      <defs>
+        <linearGradient id="g-term" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#3a3f45" />
+          <stop offset="8%" stopColor="#15181c" />
+          <stop offset="100%" stopColor="#0a0c0f" />
+        </linearGradient>
+      </defs>
+      <rect x="14" y="18" width="100" height="92" rx="10" fill="url(#g-term)" stroke="#4b5158" />
+      <rect x="14" y="18" width="100" height="14" rx="10" fill="#5b6068" opacity="0.55" />
+      <path d="M30 52l16 12-16 12" stroke="#8de08d" strokeWidth="6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M56 78h34" stroke="#8de08d" strokeWidth="6" strokeLinecap="round" />
+      <ellipse cx="64" cy="26" rx="34" ry="6" fill="url(#g-brilho)" opacity="0.35" />
+    </svg>
+  );
+}
+
+export function DocumentoIcon({ className = padrao }: Props) {
+  return (
+    <svg viewBox="0 0 128 128" className={className} aria-hidden>
+      <Defs />
+      <defs>
+        <linearGradient id="g-doc" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#fff" />
+          <stop offset="100%" stopColor="#e8eaec" />
+        </linearGradient>
+      </defs>
+      <path d="M26 8h56l24 24v82a6 6 0 0 1-6 6H26a6 6 0 0 1-6-6V14a6 6 0 0 1 6-6Z" fill="url(#g-doc)" stroke="#a8adb2" />
+      <path d="M82 8l24 24H88a6 6 0 0 1-6-6Z" fill="#cfd4d8" stroke="#a8adb2" />
+      {[46, 58, 70, 82, 94].map((y, i) => (
+        <rect key={y} x="34" y={y} width={i === 4 ? 34 : 60} height="5" rx="2.5" fill="#b9c0c6" />
       ))}
+      <rect x="34" y="30" width="34" height="6" rx="3" fill="#d13a2c" opacity="0.75" />
     </svg>
   );
 }
 
-export function NotasIcon() {
+export function PerfilIcon({ className = padrao }: Props) {
   return (
-    <svg viewBox="0 0 32 32" className={svg} aria-hidden>
-      <Dither id="d-notas" />
-      <rect x="4" y="6" width="24" height="22" fill="#fff" {...traco} />
-      <rect x="4" y="6" width="24" height="5" fill="url(#d-notas)" {...traco} />
-      {[10, 16, 22].map((x) => (
-        <path key={x} d={`M${x} 2v7`} stroke="#000" strokeWidth="2" />
-      ))}
-      {[16, 19, 22, 25].map((y) => (
-        <path key={y} d={`M8 ${y}h16`} fill="none" {...traco} />
-      ))}
+    <svg viewBox="0 0 128 128" className={className} aria-hidden>
+      <Defs />
+      <defs>
+        <linearGradient id="g-card" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#fdf6e3" />
+          <stop offset="100%" stopColor="#e6d9b8" />
+        </linearGradient>
+      </defs>
+      <rect x="14" y="20" width="100" height="88" rx="8" fill="url(#g-card)" stroke="#b8a781" />
+      <rect x="14" y="20" width="18" height="88" fill="#8a6f3f" opacity="0.5" />
+      <circle cx="66" cy="52" r="15" fill="#c9a86a" stroke="#9c7f4d" />
+      <path d="M44 92q22-22 44 0Z" fill="#c9a86a" stroke="#9c7f4d" />
+      <Brilho cx={70} cy={32} rx={34} ry={10} />
     </svg>
   );
 }
 
-export function TerminalIcon() {
+export function LixeiraIcon({ className = padrao }: Props) {
   return (
-    <svg viewBox="0 0 32 32" className={svg} aria-hidden>
-      <rect x="3" y="5" width="26" height="22" fill="#fff" {...traco} />
-      <rect x="5" y="10" width="22" height="15" fill="#000" />
-      <path d="M3 5h26v5H3z" fill="#fff" {...traco} />
-      <path d="M8 14l3 2.5-3 2.5" stroke="#fff" strokeWidth="1.4" fill="none" />
-      <path d="M13 19.5h6" stroke="#fff" strokeWidth="1.4" />
-    </svg>
-  );
-}
-
-export function LixeiraIcon() {
-  return (
-    <svg viewBox="0 0 32 32" className={svg} aria-hidden>
-      <Dither id="d-lixo" />
-      <rect x="11" y="4" width="10" height="2.5" fill="url(#d-lixo)" {...traco} />
-      <path d="M9 8h14l-1.5 20h-11L9 8Z" fill="#fff" {...traco} />
-      <path d="M9 8h14" stroke="#000" strokeWidth="1.4" />
-      {[13.5, 16, 18.5].map((x) => (
-        <path key={x} d={`M${x} 11v14`} fill="none" {...traco} />
-      ))}
-    </svg>
-  );
-}
-
-/** Versões 16×16 para as linhas do Finder. */
-export function DocumentoMini() {
-  return (
-    <svg viewBox="0 0 16 16" className="os-glyph h-3.5 w-3.5 shrink-0" aria-hidden>
-      <path d="M3 1h7l3 3v11H3V1Z" fill="#fff" stroke="#000" />
-      <path d="M10 1l3 3h-3V1Z" fill="#000" />
-      {[7, 9.5, 12].map((y) => (
-        <path key={y} d={`M5 ${y}h6`} stroke="#000" />
+    <svg viewBox="0 0 128 128" className={className} aria-hidden>
+      <Defs />
+      <defs>
+        <linearGradient id="g-lixo" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#cfd6dc" />
+          <stop offset="18%" stopColor="#f4f7fa" />
+          <stop offset="50%" stopColor="#c3cbd2" />
+          <stop offset="82%" stopColor="#eef2f5" />
+          <stop offset="100%" stopColor="#b9c1c8" />
+        </linearGradient>
+      </defs>
+      <path d="M34 36h60l-7 76a8 8 0 0 1-8 7H49a8 8 0 0 1-8-7Z" fill="url(#g-lixo)" stroke="#8b939a" />
+      <ellipse cx="64" cy="36" rx="30" ry="7" fill="#e7ecf0" stroke="#8b939a" />
+      <ellipse cx="64" cy="34" rx="21" ry="4.5" fill="#9aa2a9" opacity="0.55" />
+      {[52, 64, 76].map((x) => (
+        <path key={x} d={`M${x} 50v58`} stroke="#96a0a8" strokeWidth="2.5" opacity="0.7" />
       ))}
     </svg>
   );

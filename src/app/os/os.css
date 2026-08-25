@@ -1,193 +1,242 @@
 /*
- * System 7 (1991): 1-bit puro. Não existe cinza — o que parece cinza é
- * dithering, um xadrez de pixels pretos e brancos. Todo "tom" aqui é padrão,
- * nunca cor, e é isso que separa a estética Macintosh clássica do Aqua.
+ * Aqua (Mac OS X 10.1–10.4). O oposto do System 7: tudo tem gradiente,
+ * brilho e profundidade. Três coisas definem a linguagem — o azul saturado
+ * dos controles, as listras finas (pinstripes) nas superfícies, e o reflexo
+ * branco no topo de cada elemento, como se houvesse vidro por cima.
  */
 
 .os-root {
-  --preto: #000;
-  --branco: #fff;
-  color: var(--preto);
-  font-family: Geneva, Verdana, "DejaVu Sans", sans-serif;
-  -webkit-font-smoothing: none;
-  font-smooth: never;
-  image-rendering: pixelated;
+  --azul: #3b7dd8;
+  --azul-claro: #7fb2f0;
+  --azul-escuro: #1e5cb3;
+  --grafite: #8a9299;
+  --texto: #1a1a1a;
+
+  font-family: "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: var(--texto);
   user-select: none;
-
-  /* Seta do Mac clássico: contorno preto, miolo branco, ponto quente no topo. */
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='24' viewBox='0 0 16 24'%3E%3Cpath d='M1 0v17l4-4 3 7 3-1-3-7h5L1 0z' fill='%23fff' stroke='%23000' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 1 1, default;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Sobre texto, o Mac trocava para o I-beam; em links, para a mãozinha. */
-.os-root a,
-.os-root button {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='24' viewBox='0 0 16 24'%3E%3Cpath d='M1 0v17l4-4 3 7 3-1-3-7h5L1 0z' fill='%23fff' stroke='%23000' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 1 1, pointer;
-}
-.os-root input {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='20' viewBox='0 0 12 20'%3E%3Cpath d='M3 1h6M6 1v18M3 19h6' stroke='%23fff' stroke-width='3'/%3E%3Cpath d='M3 1h6M6 1v18M3 19h6' stroke='%23000'/%3E%3C/svg%3E") 6 10, text;
+/* ---------- área de trabalho ---------- */
+
+.os-wallpaper {
+  background:
+    radial-gradient(120% 90% at 50% 120%, #1a4f9c 0%, #0b2a5c 45%, #04122c 100%),
+    #04122c;
 }
 
-/* Xadrez 50%: o padrão de desktop do System 7. */
-/* Chrome do sistema: menu bar, títulos e botões. */
-.os-chrome {
-  font-family: var(--font-pixel), Chicago, Geneva, sans-serif;
-  letter-spacing: 0.02em;
-}
-
-.os-desktop-pattern {
-  background-color: #fff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2'%3E%3Crect width='1' height='1' fill='%23000'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%23000'/%3E%3C/svg%3E");
-  background-size: 2px 2px;
-}
-
-/* Listras da barra de título de janela ativa. */
-.os-titlebar-active {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    #000 0px, #000 1px,
-    #fff 1px, #fff 2px
-  );
-  background-position: 0 3px;
-  background-size: 100% 13px;
-  background-repeat: repeat-x;
-}
-
-/* Caixas de fechar e zoom: quadrado com relevo desenhado à mão. */
-.os-box {
-  width: 11px;
-  height: 11px;
-  border: 1px solid var(--preto);
-  background: var(--branco);
-  box-shadow: inset -1px -1px 0 0 var(--preto);
-  flex: none;
-}
-.os-box:active { background: var(--preto); }
-.os-box--zoom::after {
-  content: "";
-  display: block;
-  width: 5px;
-  height: 5px;
-  border: 1px solid var(--preto);
-  border-right: 0;
-  border-bottom: 0;
-  margin: 0 0 0 0;
-}
-
-/* Canto de redimensionar, com as duas linhas diagonais do Finder. */
-.os-grow {
-  width: 15px;
-  height: 15px;
-  border-left: 1px solid var(--preto);
-  border-top: 1px solid var(--preto);
-  background: var(--branco);
+/* Estrelas: três camadas de pontos com deriva lenta e independente. */
+.os-stars {
   background-image:
-    linear-gradient(135deg, transparent 44%, #000 44%, #000 52%, transparent 52%),
-    linear-gradient(135deg, transparent 64%, #000 64%, #000 72%, transparent 72%);
+    radial-gradient(1px 1px at 12% 22%, #fff 50%, transparent 50%),
+    radial-gradient(1px 1px at 68% 14%, #cfe3ff 50%, transparent 50%),
+    radial-gradient(1.4px 1.4px at 34% 61%, #fff 50%, transparent 50%),
+    radial-gradient(1px 1px at 82% 47%, #fff 50%, transparent 50%),
+    radial-gradient(1px 1px at 24% 84%, #dbe9ff 50%, transparent 50%),
+    radial-gradient(1.2px 1.2px at 91% 76%, #fff 50%, transparent 50%),
+    radial-gradient(1px 1px at 53% 33%, #fff 50%, transparent 50%);
+  background-size: 420px 420px;
+  animation: os-deriva 180s linear infinite;
+  opacity: 0.85;
+}
+@keyframes os-deriva {
+  to { background-position: 420px 420px; }
 }
 
-/* Dithering claro, para áreas "desabilitadas" e trilho de scrollbar. */
-.os-dither-light {
-  background-color: #fff;
-  background-image:
-    linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%),
-    linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%);
-  background-size: 2px 2px;
-  background-position: 0 0, 1px 1px;
-  opacity: 0.35;
+/* Brilho atmosférico na borda inferior, o "planeta" fora de quadro. */
+.os-atmosfera {
+  background: radial-gradient(120% 60% at 50% 118%, rgba(120, 190, 255, 0.55) 0%, rgba(60, 130, 220, 0.18) 40%, transparent 70%);
 }
 
-/* Janela: borda preta simples e sombra dura de 1px — sem blur, que não existia. */
-.os-window {
-  background: var(--branco);
-  border: 1px solid var(--preto);
-  /* linha branca interna + segunda borda preta: a moldura de duas camadas */
-  box-shadow:
-    inset 0 0 0 1px var(--branco),
-    inset 0 0 0 2px var(--preto);
-}
+/* ---------- menu bar ---------- */
 
-/* Botão System 7: cantos levemente arredondados, borda preta, sem gradiente. */
-.os-button {
-  background: var(--branco);
-  border: 1px solid var(--preto);
-  border-radius: 4px;
-  padding: 2px 12px;
-  line-height: 1.4;
+.os-menubar {
+  background: linear-gradient(to bottom, #fdfdfd 0%, #f0f0f0 50%, #e2e2e2 51%, #e9e9e9 100%);
+  border-bottom: 1px solid #9a9a9a;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  border-radius: 6px 6px 0 0;
 }
-.os-button:active { background: var(--preto); color: var(--branco); }
-.os-button--default { box-shadow: 0 0 0 2px var(--branco), 0 0 0 3px var(--preto); }
-
-/* Ícone selecionado: o Mac clássico invertia os pixels. */
-.os-icon-selected img,
-.os-icon-selected .os-glyph { filter: invert(1); }
-.os-icon-selected .os-icon-label {
-  background: var(--preto);
-  color: var(--branco);
-}
-
+.os-menu-item { border-radius: 3px; }
 .os-menu-item:hover,
 .os-menu-item[data-open="true"] {
-  background: var(--preto);
-  color: var(--branco);
+  background: linear-gradient(to bottom, var(--azul-claro), var(--azul));
+  color: #fff;
 }
 
-/* Barra de rolagem com trilho pontilhado, como no Finder. */
+/* Menu suspenso: branco translúcido com sombra profunda. */
+.os-menu-drop {
+  background: rgba(250, 250, 250, 0.96);
+  border: 1px solid #b0b0b0;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+/* ---------- janelas ---------- */
+
+.os-window {
+  background: #ececec;
+  border: 1px solid #6f6f6f;
+  border-radius: 8px 8px 6px 6px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset,
+    0 18px 44px rgba(0, 0, 0, 0.5),
+    0 3px 10px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+/* Barra de título com as listras finas do Aqua. */
+.os-titlebar {
+  background:
+    repeating-linear-gradient(to bottom, rgba(0,0,0,0.045) 0 1px, transparent 1px 2px),
+    linear-gradient(to bottom, #f6f6f6 0%, #e2e2e2 50%, #d2d2d2 51%, #dedede 100%);
+  border-bottom: 1px solid #a8a8a8;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.os-titlebar--inativa {
+  background: linear-gradient(to bottom, #f4f4f4, #e8e8e8);
+  color: #999;
+}
+
+/* Semáforo: cada botão é uma esfera com reflexo no topo. */
+.os-traffic {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: inset 0 -2px 3px rgba(0, 0, 0, 0.2);
+}
+.os-traffic::after {
+  content: "";
+  position: absolute;
+  inset: 1px 2px auto 2px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+}
+.os-traffic--fechar { background: radial-gradient(circle at 50% 120%, #d13a2c, #ff6259); }
+.os-traffic--min    { background: radial-gradient(circle at 50% 120%, #d99a13, #ffbd2e); }
+.os-traffic--zoom   { background: radial-gradient(circle at 50% 120%, #1a9c2c, #28c940); }
+.os-traffic--off    { background: linear-gradient(to bottom, #dcdcdc, #c6c6c6); box-shadow: none; }
+.os-traffic--off::after { display: none; }
+/* O glifo só aparece quando o mouse passa sobre o grupo, como no original. */
+.os-traffic-glifo { opacity: 0; transition: opacity 120ms ease; }
+.os-traffic-grupo:hover .os-traffic-glifo { opacity: 0.55; }
+
+/* Corpo da janela: pinstripes claríssimas. */
+.os-body {
+  overflow-x: hidden;
+  background:
+    repeating-linear-gradient(to bottom, rgba(0,0,0,0.022) 0 1px, transparent 1px 4px),
+    #fbfbfb;
+}
+
+/* Abertura de janela: cresce a partir do centro, como no Mac OS X. */
+@keyframes os-abrir {
+  from { opacity: 0; transform: scale(0.86); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.os-window--abrindo { animation: os-abrir 180ms cubic-bezier(0.2, 0.9, 0.3, 1.2) both; }
+
+/* ---------- controles ---------- */
+
+.os-btn {
+  border: 1px solid #9a9a9a;
+  border-radius: 14px;
+  padding: 3px 14px;
+  font-size: 12px;
+  background: linear-gradient(to bottom, #fff 0%, #f2f2f2 48%, #e4e4e4 52%, #f4f4f4 100%);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+}
+.os-btn:active { background: linear-gradient(to bottom, #d8d8d8, #ececec); }
+.os-btn--azul {
+  border-color: var(--azul-escuro);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to bottom, var(--azul-claro) 0%, var(--azul) 48%, var(--azul-escuro) 52%, #3f83dd 100%);
+  animation: os-pulsar 2.4s ease-in-out infinite;
+}
+/* O botão padrão pulsava sozinho, chamando o Enter. */
+@keyframes os-pulsar {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.16); }
+}
+
+/* ---------- ícones da área de trabalho ---------- */
+
+.os-icone-label {
+  border-radius: 3px;
+  padding: 1px 5px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+.os-icone-sel .os-icone-label { background: var(--azul); text-shadow: none; }
+.os-icone-sel .os-icone-img { filter: brightness(0.86) saturate(1.25); }
+.os-icone-img {
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45));
+  transition: transform 120ms ease;
+}
+
+/* ---------- dock ---------- */
+
+.os-dock {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.42), rgba(215,232,255,0.28));
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 14px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px) saturate(140%);
+}
+/* Magnificação: o ícone sob o cursor cresce e empurra os vizinhos. */
+.os-dock-item {
+  transition: transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: bottom center;
+}
+.os-dock-aberto::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  margin: 2px auto 0;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.7);
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+/* Balão com o nome do app, acima do dock. */
+.os-dock-tip {
+  background: rgba(250, 250, 250, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- barra de rolagem ---------- */
+
 .os-scroll::-webkit-scrollbar { width: 15px; height: 15px; }
 .os-scroll::-webkit-scrollbar-track {
-  background-color: #fff;
-  background-image:
-    linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%),
-    linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%);
-  background-size: 2px 2px;
-  background-position: 0 0, 1px 1px;
-  border-left: 1px solid #000;
+  background: linear-gradient(to right, #e9e9e9, #f4f4f4);
+  border-left: 1px solid #cfcfcf;
 }
 .os-scroll::-webkit-scrollbar-thumb {
-  background: #fff;
-  border: 1px solid #000;
+  border-radius: 8px;
+  border: 1px solid #6f9ad6;
+  background: linear-gradient(to right, var(--azul-claro), var(--azul));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-/* O label precisa de fundo sólido: texto fino sobre xadrez fica ilegível. */
-.os-icon-label {
-  background: var(--branco);
-  max-width: 74px;
-  overflow-wrap: anywhere;
-}
-
-/* O anel de foco azul do navegador não existe em 1991. */
+/* O anel de foco padrão do navegador não pertence ao Aqua. */
 .os-root input:focus,
 .os-root input:focus-visible,
-.os-root button:focus-visible {
+.os-root button:focus-visible,
+.os-root canvas:focus {
   outline: none;
   box-shadow: none;
 }
-/* Foco visível sem cor: inverte, como o Mac clássico fazia. */
-.os-root button:focus-visible .os-icon-label {
-  background: #000;
-  color: #fff;
-}
-
-/* Durante o arrasto, a seta continua sendo a seta. */
-.os-arrastando, .os-arrastando * {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='24' viewBox='0 0 16 24'%3E%3Cpath d='M1 0v17l4-4 3 7 3-1-3-7h5L1 0z' fill='%23fff' stroke='%23000' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 1 1, default !important;
-}
-
-/* Menu bar arredondada nas pontas, como a moldura da tela do Macintosh. */
-.os-menubar {
-  border-radius: 5px 5px 0 0;
-}
-
-/* Linha do Finder selecionada: inversão, não realce colorido. */
-.os-row:hover {
-  background: #000;
-  color: #fff;
-}
-.os-row:hover .os-glyph { filter: invert(1); }
-
-/* Setas das barras de rolagem. */
-.os-scroll::-webkit-scrollbar-button:single-button {
-  background: #fff;
-  border: 1px solid #000;
-  height: 15px;
-  display: block;
+/* Foco de teclado visível, no azul da casa. */
+.os-root button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(127, 178, 240, 0.75);
+  border-radius: 4px;
 }

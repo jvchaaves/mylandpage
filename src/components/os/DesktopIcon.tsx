@@ -20,12 +20,10 @@ export default function DesktopIcon({
         onSelect();
       }}
       onDoubleClick={onOpen}
-      className={`flex w-[88px] flex-col items-center gap-1.5 p-1 ${
-        selecionado ? "os-icon-selected" : ""
-      }`}
+      className={`flex w-[86px] flex-col items-center gap-1 p-1 ${selecionado ? "os-icone-sel" : ""}`}
     >
       {children}
-      <span className="os-icon-label os-chrome px-1 text-[8px] leading-[1.4]">{label}</span>
+      <span className="os-icone-label text-center text-[11px] leading-tight">{label}</span>
     </button>
   );
 }

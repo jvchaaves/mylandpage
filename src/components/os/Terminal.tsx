@@ -28,7 +28,7 @@ const POSICOES = [
 
 export default function Terminal() {
   const [linhas, setLinhas] = useState<string[]>([
-    "João OS 7.1 — console",
+    "João OS X 10.4 — bash",
     "digite 'help' para começar.",
     "",
   ]);
@@ -116,7 +116,7 @@ export default function Terminal() {
 
   return (
     <div
-      className="min-h-[240px] w-[520px] bg-black p-2 font-mono text-[11px] leading-[1.5] text-white"
+      className="min-h-[300px] w-full bg-[#0d0f12] p-3 font-mono text-[12px] leading-[1.55] text-[#e8e8e8]"
       onClick={() => input.current?.focus()}
     >
       {linhas.map((linha, i) => (

@@ -3,66 +3,74 @@
 import { useCallback, useState } from "react";
 import BootScreen from "@/components/os/BootScreen";
 import MenuBar from "@/components/os/MenuBar";
+import Dock from "@/components/os/Dock";
 import Window, { type WindowState } from "@/components/os/Window";
 import DesktopIcon from "@/components/os/DesktopIcon";
 import Terminal from "@/components/os/Terminal";
-import { SobreEsteMac, Projetos, CurriculoPDF, BlocoDeNotas } from "@/components/os/apps";
-import { DiscoIcon, PastaIcon, DocumentoIcon, TerminalIcon, NotasIcon, LixeiraIcon } from "@/components/os/icons";
+import Paint from "@/components/os/Paint";
+import { SobreEsteMac, Projetos, CurriculoPDF, Notas } from "@/components/os/apps";
+import {
+  DiscoIcon, FinderIcon, PastaIcon, PaintIcon,
+  TerminalIcon, DocumentoIcon, PerfilIcon, LixeiraIcon,
+} from "@/components/os/icons";
 
-type AppId = "sobre" | "projetos" | "curriculo" | "notas" | "terminal";
+type AppId = "sobre" | "projetos" | "curriculo" | "notas" | "paint" | "terminal";
 
 const APPS: Record<AppId, { titulo: string; largura: number; conteudo: React.ReactNode }> = {
-  sobre: { titulo: "Sobre este Macintosh", largura: 400, conteudo: <SobreEsteMac /> },
-  projetos: { titulo: "Projetos", largura: 460, conteudo: <Projetos /> },
-  curriculo: { titulo: "Currículo", largura: 540, conteudo: <CurriculoPDF /> },
-  notas: { titulo: "Bloco de Notas", largura: 340, conteudo: <BlocoDeNotas /> },
+  sobre: { titulo: "Sobre este Mac", largura: 400, conteudo: <SobreEsteMac /> },
+  projetos: { titulo: "Projetos", largura: 520, conteudo: <Projetos /> },
+  curriculo: { titulo: "Currículo", largura: 560, conteudo: <CurriculoPDF /> },
+  notas: { titulo: "Notas", largura: 330, conteudo: <Notas /> },
+  paint: { titulo: "Paint", largura: 560, conteudo: <Paint /> },
   terminal: { titulo: "Terminal", largura: 536, conteudo: <Terminal /> },
 };
 
-const ICONES: { id: AppId; label: string; Glyph: () => JSX.Element }[] = [
-  { id: "sobre", label: "Macintosh HD", Glyph: DiscoIcon },
-  { id: "projetos", label: "Projetos", Glyph: PastaIcon },
-  { id: "curriculo", label: "Currículo.pdf", Glyph: DocumentoIcon },
-  { id: "notas", label: "Bloco de Notas", Glyph: NotasIcon },
-  { id: "terminal", label: "Terminal", Glyph: TerminalIcon },
+const NA_MESA: { id: AppId; label: string; Icone: (p: { className?: string }) => JSX.Element }[] = [
+  { id: "sobre", label: "Macintosh HD", Icone: DiscoIcon },
+  { id: "projetos", label: "Projetos", Icone: PastaIcon },
+  { id: "curriculo", label: "Currículo.pdf", Icone: DocumentoIcon },
+  { id: "paint", label: "Paint", Icone: PaintIcon },
+];
+
+const NO_DOCK: { id: AppId; label: string; Icone: (p: { className?: string }) => JSX.Element }[] = [
+  { id: "sobre", label: "Sobre este Mac", Icone: PerfilIcon },
+  { id: "projetos", label: "Projetos", Icone: FinderIcon },
+  { id: "curriculo", label: "Currículo", Icone: DocumentoIcon },
+  { id: "notas", label: "Notas", Icone: PastaIcon },
+  { id: "paint", label: "Paint", Icone: PaintIcon },
+  { id: "terminal", label: "Terminal", Icone: TerminalIcon },
 ];
 
 export default function Desktop() {
-  /* Abre com a "Sobre este Macintosh", como um Mac recém-ligado. */
   const [janelas, setJanelas] = useState<WindowState[]>([
-    { id: "sobre", title: APPS.sobre.titulo, x: 96, y: 68, width: APPS.sobre.largura, z: 1 },
+    { id: "sobre", title: APPS.sobre.titulo, x: 120, y: 84, width: APPS.sobre.largura, z: 1 },
   ]);
   const [selecionado, setSelecionado] = useState<string | null>(null);
   const [topo, setTopo] = useState(1);
   const [ligado, setLigado] = useState(false);
 
-  const focar = useCallback(
-    (id: string) => {
-      setTopo((z) => {
-        const proximo = z + 1;
-        setJanelas((atual) =>
-          atual.map((j) => (j.id === id ? { ...j, z: proximo } : j)),
-        );
-        return proximo;
-      });
-    },
-    [],
-  );
+  const focar = useCallback((id: string) => {
+    setTopo((z) => {
+      const proximo = z + 1;
+      setJanelas((atual) => atual.map((j) => (j.id === id ? { ...j, z: proximo } : j)));
+      return proximo;
+    });
+  }, []);
 
   const abrir = useCallback(
-    (id: AppId) => {
-      const app = APPS[id];
+    (id: string) => {
+      const app = APPS[id as AppId];
+      if (!app) return;
       setJanelas((atual) => {
         if (atual.some((j) => j.id === id)) return atual;
-        /* Cascata: cada janela nova nasce deslocada da anterior. */
-        const deslocamento = atual.length * 22;
+        const deslocamento = atual.length * 26;
         return [
           ...atual,
           {
             id,
             title: app.titulo,
-            x: 96 + deslocamento,
-            y: 68 + deslocamento,
+            x: 120 + deslocamento,
+            y: 84 + deslocamento,
             width: app.largura,
             z: topo + 1,
           },
@@ -80,29 +88,34 @@ export default function Desktop() {
 
   return (
     <div
-      className="os-root os-desktop-pattern relative h-screen w-full overflow-hidden"
+      className="os-root os-wallpaper relative h-screen w-full overflow-hidden"
       onClick={() => setSelecionado(null)}
     >
-      {/* Arrastar janelas em tela de telefone não funciona; melhor dizer isso
-          do que entregar um desktop quebrado. */}
-      <div className="absolute inset-0 z-[2000] flex items-center justify-center bg-white p-8 sm:hidden">
-        <div className="os-window max-w-[280px] p-4 text-center">
-          <p className="os-chrome mb-3 text-[10px]">João OS 7.1</p>
-          <p className="text-[11px] leading-[1.6]">
-            Este Macintosh precisa de uma tela maior. Abra em um computador — ou
-            volte para o site, que funciona em qualquer tamanho.
+      <div className="os-stars pointer-events-none absolute inset-0" aria-hidden />
+      <div className="os-atmosfera pointer-events-none absolute inset-0" aria-hidden />
+
+      {/* Um gerenciador de janelas não cabe num telefone. */}
+      <div className="absolute inset-0 z-[2000] flex items-center justify-center bg-[#0b2a5c] p-8 sm:hidden">
+        <div className="os-window max-w-[290px] p-5 text-center">
+          <p className="text-[15px] font-semibold">João OS X</p>
+          <p className="mt-2 text-[12px] leading-[1.6] text-black/70">
+            Este Mac precisa de uma tela maior. Abra em um computador — ou volte
+            para o site, que funciona em qualquer tamanho.
           </p>
-          <a className="os-button os-button--default mt-4 inline-block text-[10px]" href="/">
-            Ir para o site
-          </a>
+          <a className="os-btn os-btn--azul mt-4 inline-block" href="/">Ir para o site</a>
         </div>
       </div>
+
       {!ligado && <BootScreen onPronto={() => setLigado(true)} />}
 
-      <MenuBar onSobre={() => abrir("sobre")} onBater={() => setJanelas([])} />
+      <MenuBar
+        appAtivo={ativa ? APPS[ativa.id as AppId].titulo : "Finder"}
+        onSobre={() => abrir("sobre")}
+        onFecharTudo={() => setJanelas([])}
+      />
 
-      <div className="absolute right-6 top-8 flex flex-col items-center gap-4">
-        {ICONES.map(({ id, label, Glyph }) => (
+      <div className="absolute right-5 top-8 flex flex-col items-center gap-3">
+        {NA_MESA.map(({ id, label, Icone }) => (
           <DesktopIcon
             key={id}
             label={label}
@@ -110,7 +123,7 @@ export default function Desktop() {
             onSelect={() => setSelecionado(id)}
             onOpen={() => abrir(id)}
           >
-            <Glyph />
+            <Icone className="os-icone-img h-14 w-14" />
           </DesktopIcon>
         ))}
 
@@ -121,7 +134,7 @@ export default function Desktop() {
             onSelect={() => setSelecionado("lixo")}
             onOpen={() => undefined}
           >
-            <LixeiraIcon />
+            <LixeiraIcon className="os-icone-img h-14 w-14" />
           </DesktopIcon>
         </div>
       </div>
@@ -134,18 +147,19 @@ export default function Desktop() {
           onFocus={() => focar(janela.id)}
           onClose={() => setJanelas((atual) => atual.filter((j) => j.id !== janela.id))}
           onMove={(x, y) =>
-            setJanelas((atual) =>
-              atual.map((j) => (j.id === janela.id ? { ...j, x, y } : j)),
-            )
+            setJanelas((atual) => atual.map((j) => (j.id === janela.id ? { ...j, x, y } : j)))
           }
         >
           {APPS[janela.id as AppId].conteudo}
         </Window>
       ))}
 
-      <p className="os-chrome pointer-events-none absolute bottom-3 left-3 border border-black bg-white px-2 py-1 text-[8px]">
-        clique duplo nos ícones
-      </p>
+      <Dock
+        apps={NO_DOCK}
+        abertos={janelas.map((j) => j.id)}
+        onAbrir={abrir}
+        Lixeira={LixeiraIcon}
+      />
     </div>
   );
 }
