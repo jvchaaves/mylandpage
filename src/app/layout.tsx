@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Syne, Space_Grotesk } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 import { dict } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const syne = Syne({
@@ -16,10 +17,8 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const url = "https://mylandpage.vercel.app";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(url),
+  metadataBase: new URL(SITE_URL),
   title: dict.pt.meta.title,
   description: dict.pt.meta.description,
   keywords: [
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: dict.pt.meta.title,
     description: dict.pt.meta.description,
-    url,
+    url: SITE_URL,
     siteName: "João Vitor Chaves",
     locale: "pt_BR",
     type: "website",
@@ -65,7 +64,7 @@ const personSchema = {
   "@type": "Person",
   name: "João Vitor Chaves de Souza",
   alternateName: "João Vitor Chaves",
-  url,
+  url: SITE_URL,
   jobTitle: "Desenvolvedor Full-Stack",
   description: dict.pt.meta.description,
   email: "mailto:joaovitorchavesdesouza@gmail.com",

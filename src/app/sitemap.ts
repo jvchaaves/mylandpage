@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getAllProjects } from "@/lib/projects";
+import { SITE_URL } from "@/lib/site";
 
-const baseUrl = "https://mylandpage.vercel.app";
+const baseUrl = SITE_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const slugs = getAllProjects().map((project) => project.slug);

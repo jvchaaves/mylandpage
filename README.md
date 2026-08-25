@@ -4,7 +4,7 @@
 
 **Portfólio pessoal.** Desenvolvedor full-stack e pesquisador em IA aplicada.
 
-[**mylandpage.vercel.app**](https://mylandpage.vercel.app) · [English version](https://mylandpage.vercel.app/en) · [Currículo](https://mylandpage.vercel.app/cv)
+[**joaovitorchaves.com.br**](https://joaovitorchaves.com.br) · [English version](https://joaovitorchaves.com.br/en) · [Currículo](https://joaovitorchaves.com.br/cv)
 
 ![Next.js](https://img.shields.io/badge/Next.js_14-0A0A0A?style=flat-square&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React_18-0A0A0A?style=flat-square&logo=react&logoColor=7EC8F5)
