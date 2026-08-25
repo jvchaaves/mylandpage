@@ -44,7 +44,14 @@ export default function LanguageSwitch({ lang }: { lang: Lang }) {
 
   const choose = (code: Lang) => {
     setOpen(false);
-    if (code !== lang) router.push(localizePath(pathname, code));
+    if (code === lang) return;
+
+    /* O reset de scroll do App Router não é confiável quando só o prefixo de
+       idioma muda — a página traduzida chega a abrir no rodapé. Zerar antes de
+       navegar torna o comportamento igual em dev e em produção. O instant é
+       necessário porque o html usa scroll-behavior: smooth. */
+    window.scrollTo({ top: 0, behavior: "instant" });
+    router.push(localizePath(pathname, code));
   };
 
   return (
