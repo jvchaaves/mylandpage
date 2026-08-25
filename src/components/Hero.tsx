@@ -1,15 +1,12 @@
 import { Link } from "next-view-transitions";
 import { ArrowDownRight } from "lucide-react";
+import ContactHover from "@/components/ContactHover";
+import { canais } from "@/lib/contatos";
 import { t, path, type Lang } from "@/lib/i18n";
 
-const links = [
-  { label: "GitHub", href: "https://github.com/jvchaaves" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/jvchaaves" },
-  { label: "Email", href: "mailto:joaovitorchavesdesouza@gmail.com" },
-];
-
-export default function Hero({ lang }: { lang: Lang }) {
+export default async function Hero({ lang }: { lang: Lang }) {
   const copy = t(lang).hero;
+  const contatos = await canais(lang);
 
   return (
     <section
@@ -89,17 +86,12 @@ export default function Hero({ lang }: { lang: Lang }) {
 
           <span aria-hidden className="h-4 w-px bg-line-strong" />
 
-          {links.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              target={href.startsWith("mailto") ? undefined : "_blank"}
-              rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-              className="text-sm text-ink-muted transition-colors duration-200 hover:text-ink"
-            >
-              {label}
-            </a>
-          ))}
+          {/* Contatos com prévia do perfil, na primeira tela. */}
+          <div className="flex items-center gap-2">
+            {contatos.map((canal) => (
+              <ContactHover key={canal.label} canal={canal} tamanho={18} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
