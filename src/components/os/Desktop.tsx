@@ -26,7 +26,7 @@ const APPS: Record<AppId, { titulo: string; largura: number; conteudo: React.Rea
   curriculo: { titulo: "Currículo", largura: 560, conteudo: <CurriculoPDF /> },
   notas: { titulo: "Notas", largura: 330, conteudo: <Notas /> },
   paint: { titulo: "Paint", largura: 560, conteudo: <Paint /> },
-  terminal: { titulo: "Terminal", largura: 536, conteudo: <Terminal /> },
+  terminal: { titulo: "Terminal", largura: 560, conteudo: null },
 };
 
 const NA_MESA: { id: AppId; label: string; Icone: (p: { className?: string }) => JSX.Element }[] = [
@@ -156,7 +156,11 @@ export default function Desktop() {
             setJanelas((atual) => atual.map((j) => (j.id === janela.id ? { ...j, x, y } : j)))
           }
         >
-          {APPS[janela.id as AppId].conteudo}
+          {janela.id === "terminal" ? (
+            <Terminal onAbrirApp={abrir} />
+          ) : (
+            APPS[janela.id as AppId].conteudo
+          )}
         </Window>
       ))}
 
