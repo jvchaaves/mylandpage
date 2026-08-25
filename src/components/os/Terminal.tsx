@@ -11,20 +11,9 @@ const AJUDA = [
   "  stack      linguagens e ferramentas",
   "  cv         trajetória resumida",
   "  contato    onde me achar",
-  "  randori    sorteia uma posição de jiu-jitsu",
-  "  cafe       consulta o nível de cafeína",
   "  clear      limpa a tela",
 ];
 
-const POSICOES = [
-  "guarda fechada — paciência e quadril",
-  "meia-guarda — o joelho decide tudo",
-  "cem quilos — respirar já é vantagem",
-  "montada — não perca a base",
-  "raspagem da borboleta — timing, não força",
-  "pegada nas costas — ganchos primeiro",
-  "guarda De La Riva — a que mais gosto",
-];
 
 export default function Terminal() {
   const [linhas, setLinhas] = useState<string[]>([
@@ -83,20 +72,6 @@ export default function Terminal() {
             "github     github.com/jvchaaves",
             "linkedin   linkedin.com/in/jvchaaves",
           ];
-        case "guarda":
-          return [
-            "faixa azul. a guarda continua sendo o lugar mais confortável",
-            "para resolver um problema difícil — no tatame e fora dele.",
-          ];
-        case "randori":
-          return [POSICOES[Math.floor(Math.random() * POSICOES.length)], "bom treino."];
-        case "cafe": {
-          const nivel = 2 + Math.floor(Math.random() * 4);
-          return [
-            `cafeína: ${"█".repeat(nivel)}${"░".repeat(6 - nivel)} ${nivel}/6`,
-            nivel > 4 ? "produtivo e levemente acelerado." : "aceitável. considere o próximo.",
-          ];
-        }
         case "cv":
           window.setTimeout(() => (window.location.href = "/cv"), 700);
           return ["abrindo currículo…"];

@@ -9,21 +9,19 @@ import DesktopIcon from "@/components/os/DesktopIcon";
 import Terminal from "@/components/os/Terminal";
 import Paint from "@/components/os/Paint";
 import SobreMim from "@/components/os/SobreMim";
-import Randori from "@/components/os/Randori";
 import { SobreEsteMac, Projetos, CurriculoPDF, Notas } from "@/components/os/apps";
 import {
   DiscoIcon, FinderIcon, PastaIcon, PaintIcon,
-  TerminalIcon, DocumentoIcon, PerfilIcon, FaixaIcon, LixeiraIcon,
+  TerminalIcon, DocumentoIcon, PerfilIcon, LixeiraIcon,
 } from "@/components/os/icons";
 
 type AppId =
   | "sobre" | "sobremim" | "projetos" | "curriculo"
-  | "notas" | "randori" | "paint" | "terminal";
+  | "notas" | "paint" | "terminal";
 
 const APPS: Record<AppId, { titulo: string; largura: number; conteudo: React.ReactNode }> = {
   sobre: { titulo: "Sobre este Mac", largura: 400, conteudo: <SobreEsteMac /> },
   sobremim: { titulo: "Sobre mim", largura: 430, conteudo: <SobreMim /> },
-  randori: { titulo: "Randori", largura: 380, conteudo: <Randori /> },
   projetos: { titulo: "Projetos", largura: 520, conteudo: <Projetos /> },
   curriculo: { titulo: "Currículo", largura: 560, conteudo: <CurriculoPDF /> },
   notas: { titulo: "Notas", largura: 330, conteudo: <Notas /> },
@@ -36,7 +34,6 @@ const NA_MESA: { id: AppId; label: string; Icone: (p: { className?: string }) =>
   { id: "projetos", label: "Projetos", Icone: PastaIcon },
   { id: "curriculo", label: "Currículo.pdf", Icone: DocumentoIcon },
   { id: "paint", label: "Paint", Icone: PaintIcon },
-  { id: "randori", label: "Randori", Icone: FaixaIcon },
 ];
 
 const NO_DOCK: { id: AppId; label: string; Icone: (p: { className?: string }) => JSX.Element }[] = [
@@ -44,7 +41,6 @@ const NO_DOCK: { id: AppId; label: string; Icone: (p: { className?: string }) =>
   { id: "projetos", label: "Projetos", Icone: FinderIcon },
   { id: "curriculo", label: "Currículo", Icone: DocumentoIcon },
   { id: "notas", label: "Notas", Icone: PastaIcon },
-  { id: "randori", label: "Randori", Icone: FaixaIcon },
   { id: "paint", label: "Paint", Icone: PaintIcon },
   { id: "terminal", label: "Terminal", Icone: TerminalIcon },
 ];

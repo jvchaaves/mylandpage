@@ -210,30 +210,3 @@ export function LixeiraIcon({ className = padrao }: Props) {
     </svg>
   );
 }
-
-export function FaixaIcon({ className = padrao }: Props) {
-  return (
-    <svg viewBox="0 0 128 128" className={className} aria-hidden>
-      <Defs />
-      <defs>
-        <linearGradient id="g-belt" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#7cb0ea" />
-          <stop offset="45%" stopColor="#2f63b6" />
-          <stop offset="100%" stopColor="#17407f" />
-        </linearGradient>
-      </defs>
-      {/* faixa enrolada, vista de frente: anéis concêntricos e a ponta preta */}
-      <circle cx="60" cy="66" r="44" fill="url(#g-belt)" stroke="#12336a" strokeWidth="2" />
-      <circle cx="60" cy="66" r="33" fill="none" stroke="#12336a" strokeWidth="1.5" opacity="0.55" />
-      <circle cx="60" cy="66" r="22" fill="none" stroke="#12336a" strokeWidth="1.5" opacity="0.55" />
-      <circle cx="60" cy="66" r="11" fill="#1d4a92" stroke="#12336a" strokeWidth="1.5" />
-      {/* ponta que sai do rolo, com os graus */}
-      <path d="M96 42l26-12 8 17-26 13Z" fill="#161616" stroke="#0a0a0a" strokeWidth="1.5" />
-      {[104, 112, 120].map((x, i) => (
-        <rect key={x} x={x} y={31 + i * 2.6} width="3.5" height="13" rx="1.4" fill="#f4f4f4" opacity="0.9" transform={`rotate(-24 ${x} ${37 + i * 2.6})`} />
-      ))}
-      <path d="M88 46l14-6" stroke="url(#g-belt)" strokeWidth="14" strokeLinecap="round" />
-      <ellipse cx="52" cy="36" rx="24" ry="8" fill="url(#g-brilho)" opacity="0.5" />
-    </svg>
-  );
-}

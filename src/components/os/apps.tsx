@@ -8,7 +8,6 @@ export function SobreEsteMac() {
     { label: "Processador", valor: "Ciência de Dados e IA · UFPB" },
     { label: "Memória", valor: "TypeScript · Python · React · FastAPI" },
     { label: "Localização", valor: "João Pessoa, Paraíba" },
-    { label: "Faixa", valor: "azul · jiu-jitsu" },
   ];
 
   return (
@@ -119,11 +118,10 @@ export function CurriculoPDF() {
 export function Notas() {
   const notas = [
     "aprendo construindo. leio a documentação depois de já ter quebrado.",
-    "treino jiu-jitsu. faixa azul — o suficiente para saber o tamanho do que falta.",
-    "no tatame e no código o método é o mesmo: posição antes de submissão.",
+    "leio o código dos outros antes de escrever o meu. quase sempre já existe.",
     "gosto de problema com dado bagunçado. o limpo já foi resolvido por alguém.",
     "prefiro entregar terminado a deixar bonito pela metade.",
-    "bater cedo faz parte. o erro é insistir numa posição perdida.",
+    "abandonar uma abordagem cedo é barato. insistir na errada é que custa caro.",
   ];
 
   return (

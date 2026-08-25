@@ -103,7 +103,7 @@ export default function MenuBar({
               onClick={onFecharTudo}
               className="os-menu-item block w-full px-3 py-[3px] text-left"
             >
-              Bater — fecha tudo
+              Fechar todas as janelas
             </button>
             <div className="my-1 border-t border-black/10" />
             <a href="/cv" className="os-menu-item block w-full px-3 py-[3px] text-left">

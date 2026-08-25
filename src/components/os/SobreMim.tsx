@@ -14,7 +14,7 @@ const CAMPOS = [
   { rotulo: "github", valor: "github.com/jvchaaves", link: "https://github.com/jvchaaves" },
   { rotulo: "linkedin", valor: "in/jvchaaves", link: "https://linkedin.com/in/jvchaaves" },
   { rotulo: "onde", valor: "João Pessoa, Paraíba", link: null },
-  { rotulo: "tatame", valor: "faixa azul · jiu-jitsu", link: null },
+  { rotulo: "foco", valor: "agentes, dados e sistemas em produção", link: null },
 ];
 
 export default function SobreMim() {
