@@ -25,7 +25,7 @@ export default function Home({ lang }: { lang: Lang }) {
         <Projects lang={lang} />
         <Contact lang={lang} />
       </main>
-      <Footer />
+      <Footer lang={lang} />
       <MacCorner label={t(lang).macCorner} />
     </>
   );

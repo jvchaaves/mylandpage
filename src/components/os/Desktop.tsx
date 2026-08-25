@@ -34,6 +34,7 @@ const NA_MESA: { id: AppId; label: string; Icone: (p: { className?: string }) =>
   { id: "projetos", label: "Projetos", Icone: PastaIcon },
   { id: "curriculo", label: "Currículo.pdf", Icone: DocumentoIcon },
   { id: "paint", label: "Paint", Icone: PaintIcon },
+  { id: "terminal", label: "Terminal", Icone: TerminalIcon },
 ];
 
 const NO_DOCK: { id: AppId; label: string; Icone: (p: { className?: string }) => JSX.Element }[] = [
