@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Cartão de contato no espírito do Address Book: retrato à esquerda, campos
+ * Cartão de contato no espírito do Address Book: avatar à esquerda, campos
  * rotulados à direita. É o app que responde "quem é essa pessoa e como falo
  * com ela" sem precisar sair para o site.
  */
@@ -20,12 +20,12 @@ export default function SobreMim() {
   return (
     <div className="w-full">
       <div className="flex gap-4 border-b border-black/12 bg-gradient-to-b from-[#fbfbfb] to-[#eef1f4] p-4">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/retrato.jpg"
-          alt="João Vitor Chaves"
-          className="h-[92px] w-[92px] shrink-0 rounded-lg border border-black/25 object-cover shadow-md"
-        />
+        {/* O avatar em pixel art, o mesmo do favicon: é ele que identifica
+            o site. Fundo próprio porque o PNG é transparente. */}
+        <div className="grid h-[92px] w-[92px] shrink-0 place-items-center rounded-lg border border-black/20 bg-gradient-to-b from-[#f2f6fb] to-[#dbe6f4] shadow-md">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/icon.png" alt="João Vitor Chaves" className="h-[84px] w-[84px]" />
+        </div>
         <div className="min-w-0 pt-1">
           <p className="text-[19px] font-semibold leading-tight tracking-tight">João Vitor Chaves</p>
           <p className="mt-0.5 text-[12px] text-black/55">desenvolvedor full-stack e IA aplicada</p>
