@@ -29,14 +29,6 @@ const pt: { current: Role[]; past: Role[] } = {
       tags: ["Computer Vision", "PyTorch", "Python"],
     },
     {
-      period: "Jan 2026 — Presente",
-      title: "Data Engineer",
-      org: "LOTEP · Loteria do Estado da Paraíba",
-      description:
-        "Sistema de engenharia de dados que ingere relatórios heterogêneos de operadores de apostas esportivas por um pipeline configurável: metadados em JSON, limpeza vetorizada e validações antifraude, e carrega os dados em um data warehouse PostgreSQL. O fluxo é orquestrado por arquitetura event-driven em Kafka, com gateway FastAPI validado por JSON e em conformidade com a LGPD.",
-      tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
-    },
-    {
       period: "Mar 2025 — Presente",
       title: "Pesquisador",
       org: "TRIL Lab · UFPB",
@@ -46,6 +38,14 @@ const pt: { current: Role[]; past: Role[] } = {
     },
   ],
   past: [
+    {
+      period: "Jan 2026 — Jun 2026",
+      title: "Data Engineer",
+      org: "LOTEP · Loteria do Estado da Paraíba",
+      description:
+        "Sistema de engenharia de dados que ingere relatórios heterogêneos de operadores de apostas esportivas por um pipeline configurável: metadados em JSON, limpeza vetorizada e validações antifraude, e carrega os dados em um data warehouse PostgreSQL. O fluxo é orquestrado por arquitetura event-driven em Kafka, com gateway FastAPI validado por JSON e em conformidade com a LGPD.",
+      tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
+    },
     {
       period: "Jan 2026 — Mai 2026",
       title: "Software Engineer",
@@ -108,14 +108,6 @@ const en: { current: Role[]; past: Role[] } = {
       tags: ["Computer Vision", "PyTorch", "Python"],
     },
     {
-      period: "Jan 2026 — Present",
-      title: "Data Engineer",
-      org: "LOTEP · Paraíba State Lottery",
-      description:
-        "Data engineering system that ingests heterogeneous reports from sports betting operators through a configurable pipeline: JSON metadata, vectorized cleaning and anti-fraud validation, loading everything into a PostgreSQL data warehouse. The flow is orchestrated by an event-driven architecture on Kafka, with a FastAPI gateway validated by JSON and compliant with the Brazilian data protection law.",
-      tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
-    },
-    {
       period: "Mar 2025 — Present",
       title: "Researcher",
       org: "TRIL Lab · UFPB",
@@ -125,6 +117,14 @@ const en: { current: Role[]; past: Role[] } = {
     },
   ],
   past: [
+    {
+      period: "Jan 2026 — Jun 2026",
+      title: "Data Engineer",
+      org: "LOTEP · Paraíba State Lottery",
+      description:
+        "Data engineering system that ingests heterogeneous reports from sports betting operators through a configurable pipeline: JSON metadata, vectorized cleaning and anti-fraud validation, loading everything into a PostgreSQL data warehouse. The flow is orchestrated by an event-driven architecture on Kafka, with a FastAPI gateway validated by JSON and compliant with the Brazilian data protection law.",
+      tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
+    },
     {
       period: "Jan 2026 — May 2026",
       title: "Software Engineer",
