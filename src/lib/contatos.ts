@@ -1,3 +1,4 @@
+import avatar from "@/assets/avatar.png";
 import { perfilGitHub } from "@/lib/github";
 import type { Lang } from "@/lib/i18n";
 
@@ -71,7 +72,7 @@ export async function canais(lang: Lang): Promise<Canal[]> {
       valor: EMAIL,
       href: `mailto:${EMAIL}`,
       previa: {
-        avatar: "/icon.png",
+        avatar: avatar.src,
         avatarQuadrado: true,
         titulo: "João Vitor Chaves",
         subtitulo: EMAIL,

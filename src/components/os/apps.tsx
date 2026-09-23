@@ -1,3 +1,4 @@
+import avatar from "@/assets/avatar.png";
 import { getAllProjects } from "@/lib/projects";
 import { PastaIcon, DocumentoIcon } from "@/components/os/icons";
 
@@ -13,7 +14,7 @@ export function SobreEsteMac() {
   return (
     <div className="w-full px-6 py-5 text-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/icon.png" alt="" width={72} height={72} className="mx-auto" />
+      <img src={avatar.src} alt="" width={72} height={72} className="mx-auto" />
       <p className="mt-3 text-[22px] font-semibold tracking-tight">João Vitor Chaves</p>
       <p className="text-[12px] text-black/55">Versão 10.4 — construído em João Pessoa</p>
 

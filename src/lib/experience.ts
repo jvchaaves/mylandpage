@@ -33,7 +33,7 @@ const pt: { current: Role[]; past: Role[] } = {
       title: "Pesquisador",
       org: "TRIL Lab · UFPB",
       description:
-        "Pesquisa, Desenvolvimento e Inovação em parceria com empresas: ZOOX Smart Data (2025) e Plataforma de Educação Rômulo Passos (atual). Foco em agentes baseados em LLMs, visão computacional, OCR e business intelligence.",
+        "Pesquisa, Desenvolvimento e Inovação em parceria com empresas, com foco em agentes baseados em LLMs, visão computacional, OCR e business intelligence.",
       tags: ["LLMs", "OCR", "Python", "BI"],
     },
   ],
@@ -47,7 +47,7 @@ const pt: { current: Role[]; past: Role[] } = {
       tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
     },
     {
-      period: "Jan 2026 — Mai 2026",
+      period: "Jan 2026 — Ago 2026",
       title: "Software Engineer",
       org: "Editora BP",
       description:
@@ -112,7 +112,7 @@ const en: { current: Role[]; past: Role[] } = {
       title: "Researcher",
       org: "TRIL Lab · UFPB",
       description:
-        "Research, development and innovation with industry partners: ZOOX Smart Data (2025) and the Rômulo Passos education platform (current). Focused on LLM-based agents, computer vision, OCR and business intelligence.",
+        "Research, development and innovation with industry partners, focused on LLM-based agents, computer vision, OCR and business intelligence.",
       tags: ["LLMs", "OCR", "Python", "BI"],
     },
   ],
@@ -126,7 +126,7 @@ const en: { current: Role[]; past: Role[] } = {
       tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
     },
     {
-      period: "Jan 2026 — May 2026",
+      period: "Jan 2026 — Aug 2026",
       title: "Software Engineer",
       org: "Editora BP",
       description:

@@ -1,5 +1,7 @@
 "use client";
 
+import avatar from "@/assets/avatar.png";
+
 /**
  * Cartão de contato no espírito do Address Book: avatar à esquerda, campos
  * rotulados à direita. É o app que responde "quem é essa pessoa e como falo
@@ -24,7 +26,7 @@ export default function SobreMim() {
             o site. Fundo próprio porque o PNG é transparente. */}
         <div className="grid h-[92px] w-[92px] shrink-0 place-items-center rounded-lg border border-black/20 bg-gradient-to-b from-[#f2f6fb] to-[#dbe6f4] shadow-md">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/icon.png" alt="João Vitor Chaves" className="h-[84px] w-[84px]" />
+          <img src={avatar.src} alt="João Vitor Chaves" className="h-[84px] w-[84px]" />
         </div>
         <div className="min-w-0 pt-1">
           <p className="text-[19px] font-semibold leading-tight tracking-tight">João Vitor Chaves</p>
