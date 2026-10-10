@@ -56,7 +56,7 @@ const pt: { current: Role[]; past: Role[] } = {
     },
     {
       period: "Nov 2024 — Jun 2025",
-      title: "Participante (turma 2025.1)",
+      title: "Participante (turma 2024.2)",
       org: "Trilha · UFPB",
       description:
         "Programa gratuito de programação, projetos e mentoria da UFPB, feito por estudantes, com aulas de Python, web e dados.",
@@ -112,7 +112,7 @@ const en: { current: Role[]; past: Role[] } = {
     },
     {
       period: "Nov 2024 — Jun 2025",
-      title: "Participant (cohort 2025.1)",
+      title: "Participant (cohort 2024.2)",
       org: "Trilha · UFPB",
       description:
         "Free programming, projects and mentoring program at UFPB, run by students, with classes in Python, web and data.",
