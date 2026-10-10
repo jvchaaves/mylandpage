@@ -9,8 +9,8 @@ import avatar from "@/assets/avatar.png";
  */
 
 const CAMPOS = [
-  { rotulo: "trabalho", valor: "Desenvolvedor full-stack · LAVID/UFPB", link: null },
-  { rotulo: "pesquisa", valor: "IA aplicada · TRIL Lab", link: null },
+  { rotulo: "trabalho", valor: "Full-stack e AI engineer · LAVID/UFPB", link: null },
+  { rotulo: "pesquisa", valor: "LLMs e visão computacional · TRIL Lab, TAIL", link: null },
   { rotulo: "formação", valor: "Ciência de Dados e IA · UFPB", link: null },
   { rotulo: "e-mail", valor: "joaovitorchavesdesouza@gmail.com", link: "mailto:joaovitorchavesdesouza@gmail.com" },
   { rotulo: "github", valor: "github.com/jvchaaves", link: "https://github.com/jvchaaves" },

@@ -61,8 +61,8 @@ export async function canais(lang: Lang): Promise<Canal[]> {
         titulo: "João Vitor Chaves",
         subtitulo: "@jvchaaves",
         descricao: pt
-          ? "Desenvolvedor full-stack no LAVID/UFPB e pesquisador em IA aplicada no TRIL Lab."
-          : "Full-stack developer at LAVID/UFPB and applied AI researcher at TRIL Lab.",
+          ? "Desenvolvedor full-stack e AI engineer no LAVID/UFPB (V4H, telessaúde no SUS) e pesquisador no TRIL Lab."
+          : "Full-stack developer and AI engineer at LAVID/UFPB (V4H, SUS telehealth) and researcher at TRIL Lab.",
         metricas: [{ valor: "UFPB", rotulo: pt ? "graduando" : "undergraduate" }],
       },
     },

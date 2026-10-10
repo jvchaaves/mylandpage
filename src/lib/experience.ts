@@ -13,64 +13,41 @@ export interface Role {
 const pt: { current: Role[]; past: Role[] } = {
   current: [
     {
-      period: "Jul 2026 — Presente",
-      title: "Desenvolvedor Full-Stack",
+      period: "Jun 2026 — Presente",
+      title: "Desenvolvedor Full-Stack e AI Engineer",
       org: "LAVID · UFPB",
       description:
-        "Desenvolvimento do V4H, plataforma de telessaúde da Wisecare utilizada no SUS. Atuo no backend em Node e TypeScript (Express, TypeORM, injeção de dependências com InversifyJS, filas com BullMQ e RabbitMQ, tempo real com Socket.IO) e no frontend React com Redux-Saga, além da integração com o CNES e da autenticação via Keycloak.",
-      tags: ["TypeScript", "Node.js", "React", "PostgreSQL", "RabbitMQ", "Docker"],
-    },
-    {
-      period: "Ago 2026 — Presente",
-      title: "Diretoria de Visão Computacional / Sports",
-      org: "TAIL",
-      description:
-        "Conduzo a frente de visão computacional aplicada a esportes na Technology and Artificial Intelligence League, primeira liga acadêmica de IA da Paraíba: definição dos projetos da área, acompanhamento técnico e formação de novos membros. Na liga desde dez/2025, como trainee.",
-      tags: ["Computer Vision", "PyTorch", "Python"],
+        "Desenvolvimento do V4H, plataforma de telessaúde da Wisecare utilizada no SUS, integrada ao prontuário AGHUse, ao CNES e à autenticação via Keycloak. Construí o processamento e a persistência das transcrições das consultas e uma camada de IA sobre elas: busca com citações, identificação de fatos clínicos por participante e rascunhos de evolução SOAP. Atuo no backend em Node e TypeScript (Express, TypeORM, InversifyJS, BullMQ e RabbitMQ, Socket.IO) e no frontend React com Redux-Saga, e estou reconstruindo a camada de sessões e videochamadas para substituir a dependência do Jitsi por uma solução própria.",
+      tags: ["TypeScript", "Node.js", "React", "PostgreSQL", "RabbitMQ", "LLMs", "Docker"],
     },
     {
       period: "Mar 2025 — Presente",
       title: "Pesquisador",
       org: "TRIL Lab · UFPB",
       description:
-        "Pesquisa, Desenvolvimento e Inovação em parceria com empresas, com foco em agentes baseados em LLMs, visão computacional, OCR e business intelligence.",
-      tags: ["LLMs", "OCR", "Python", "BI"],
+        "Pesquisa, desenvolvimento e inovação em parceria com empresas, com foco em agentes baseados em LLMs, OCR e visão computacional. Projetos: Editora BP (mai 2026 — presente), plataforma de IA para produção de provas comentadas, com fluxo de 10 etapas em LangGraph, RAG sobre fontes curadas e revisão por especialistas, que reduziu a primeira versão de uma prova de 1 a 2 dias para cerca de 10 minutos e o custo por questão em 10 vezes; e TutorIA (dez 2025 — mar 2026), tutoria para o ENEM no WhatsApp, com resolução de questões por foto, correção de redação e dúvidas com RAG.",
+      tags: ["LLMs", "LangGraph", "RAG", "FastAPI", "OCR", "Python"],
+    },
+    {
+      period: "Nov 2025 — Presente",
+      title: "Pesquisador em Visão Computacional",
+      org: "TAIL",
+      description:
+        "Na Technology and Artificial Intelligence League, primeira liga acadêmica de IA da Paraíba, entrei como trainee e hoje integro a diretoria de Visão Computacional/Sports. Em equipe, desenvolvo um sistema de scouting automatizado para o basquete 3x3 que extrai métricas de jogadores de vídeos de transmissão, adaptando para meia quadra um pipeline de 5x5 (detecção, segmentação, keypoints de quadra e pose) e avaliando a generalização dos modelos. Projeto em andamento.",
+      tags: ["Computer Vision", "PyTorch", "Python", "YOLO"],
     },
   ],
   past: [
     {
-      period: "Jan 2026 — Jun 2026",
-      title: "Data Engineer",
-      org: "LOTEP · Loteria do Estado da Paraíba",
+      period: "Nov 2025 — Jun 2026",
+      title: "Pesquisador, engenharia de dados",
+      org: "ARIA · UFPB",
       description:
-        "Sistema de engenharia de dados que ingere relatórios heterogêneos de operadores de apostas esportivas por um pipeline configurável: metadados em JSON, limpeza vetorizada e validações antifraude, e carrega os dados em um data warehouse PostgreSQL. O fluxo é orquestrado por arquitetura event-driven em Kafka, com gateway FastAPI validado por JSON e em conformidade com a LGPD.",
+        "No projeto da LOTEP (Loteria do Estado da Paraíba), construí o pipeline de ingestão que detecta planilhas novas de todos os operadores legalizados do estado, identifica o padrão correspondente ou infere e registra um novo automaticamente, e executa auditoria e limpeza vetorizada até a carga em um data warehouse PostgreSQL. Metadados em JSON, validações antifraude, arquitetura event-driven em Kafka e gateway FastAPI validado por JSON, em conformidade com a LGPD. Reduziu de 6 horas para 40 minutos o preparo dos dados consumidos pelo time de dados.",
       tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
     },
     {
-      period: "Jan 2026 — Ago 2026",
-      title: "Software Engineer",
-      org: "Editora BP",
-      description:
-        "Plataforma de IA que reduziu a produção de provas comentadas de 1 a 2 dias para cerca de 10 minutos. O sistema extrai dados de PDFs automaticamente e usa agentes RAG para gerar comentários ancorados em material curado, com chat interativo e revisão de especialistas (human-in-the-loop) alimentando a melhoria contínua.",
-      tags: ["RAG", "Agentes", "Python", "OCR"],
-    },
-    {
-      period: "Nov 2025 — Jul 2026",
-      title: "Pesquisador",
-      org: "ARIA · UFPB",
-      description:
-        "Pesquisa em inteligência artificial aplicada, com contribuição em projetos do grupo no Centro de Informática da UFPB.",
-    },
-    {
-      period: "Set 2025 — Mar 2026",
-      title: "AI Engineer",
-      org: "LembreMe",
-      description:
-        "Liderei a engenharia de IA do LembreMe, assistente conversacional que unifica lembretes, finanças, metas, tarefas e notas em linguagem natural, com integração de calendário, scraping próprio para buscas de viagens, recomendações contextuais e ligações automatizadas. O núcleo usa LLMs para roteamento de intenção e geração de resposta. No mesmo ecossistema, o módulo de reuniões transcreve em tempo real via Deepgram e extrai tarefas, decisões, insights e perguntas em aberto, entregando notas e resumo executivo assim que a call termina.",
-      tags: ["LLMs", "LangChain", "Deepgram", "Python", "FastAPI"],
-    },
-    {
-      period: "Jun 2025 — Nov 2025",
+      period: "Jun 2025 — Dez 2025",
       title: "AI Engineer (estágio)",
       org: "Zoox Smart Data",
       description:
@@ -78,11 +55,11 @@ const pt: { current: Role[]; past: Role[] } = {
       tags: ["CrewAI", "Python", "LLMs"],
     },
     {
-      period: "Nov 2024 — Abr 2025",
-      title: "Trainee",
+      period: "Dez 2024 — Jun 2025",
+      title: "Participante (turma 2025.1)",
       org: "Trilha · UFPB",
       description:
-        "Programa imersivo presencial em Ciência da Computação, com workshops e mentorias em desenvolvimento de software.",
+        "Programa gratuito de programação, projetos e mentoria da UFPB, feito por estudantes, com aulas de Python, web e dados.",
       highlight:
         "1º lugar entre 6 equipes no hackathon do programa, com o PixelMind",
     },
@@ -92,76 +69,53 @@ const pt: { current: Role[]; past: Role[] } = {
 const en: { current: Role[]; past: Role[] } = {
   current: [
     {
-      period: "Jul 2026 — Present",
-      title: "Full-Stack Developer",
+      period: "Jun 2026 — Present",
+      title: "Full-Stack Developer and AI Engineer",
       org: "LAVID · UFPB",
       description:
-        "Building V4H, Wisecare's telehealth platform used by SUS, Brazil's public health system. I work on the Node and TypeScript backend (Express, TypeORM, dependency injection with InversifyJS, queues with BullMQ and RabbitMQ, real time with Socket.IO) and on the React frontend with Redux-Saga, plus the integration with CNES, the national registry of health facilities, and authentication through Keycloak.",
-      tags: ["TypeScript", "Node.js", "React", "PostgreSQL", "RabbitMQ", "Docker"],
-    },
-    {
-      period: "Aug 2026 — Present",
-      title: "Computer Vision / Sports board member",
-      org: "TAIL",
-      description:
-        "I lead the computer vision applied to sports track at the Technology and Artificial Intelligence League, the first academic AI league in Paraíba: defining the projects in that area, following them technically and training new members. Part of the league since December 2025, first as a trainee.",
-      tags: ["Computer Vision", "PyTorch", "Python"],
+        "Building V4H, Wisecare's telehealth platform used by SUS, Brazil's public health system, integrated with the AGHUse health record, CNES, the national registry of health facilities, and Keycloak authentication. I built the processing and persistence of consultation transcripts and an AI layer on top of them: citation-grounded search, clinical fact extraction per participant and SOAP progress-note drafts. I work on the Node and TypeScript backend (Express, TypeORM, InversifyJS, BullMQ and RabbitMQ, Socket.IO) and on the React frontend with Redux-Saga, and I am rebuilding session and video-call management to replace the Jitsi dependency with an in-house solution.",
+      tags: ["TypeScript", "Node.js", "React", "PostgreSQL", "RabbitMQ", "LLMs", "Docker"],
     },
     {
       period: "Mar 2025 — Present",
       title: "Researcher",
       org: "TRIL Lab · UFPB",
       description:
-        "Research, development and innovation with industry partners, focused on LLM-based agents, computer vision, OCR and business intelligence.",
-      tags: ["LLMs", "OCR", "Python", "BI"],
+        "Research, development and innovation with industry partners, focused on LLM-based agents, OCR and computer vision. Projects: Editora BP (May 2026 — present), an AI platform for producing annotated exams, with a 10-step LangGraph workflow, RAG over curated sources and expert review, which cut the first draft of an exam from one or two days to about ten minutes and the cost per question by 10x; and TutorIA (Dec 2025 — Mar 2026), ENEM tutoring on WhatsApp that solves questions from photos, grades essays and answers doubts with RAG.",
+      tags: ["LLMs", "LangGraph", "RAG", "FastAPI", "OCR", "Python"],
+    },
+    {
+      period: "Nov 2025 — Present",
+      title: "Computer Vision Researcher",
+      org: "TAIL",
+      description:
+        "At the Technology and Artificial Intelligence League, the first academic AI league in Paraíba, I joined as a trainee and now take part in the Computer Vision/Sports directorate. With the team, I develop an automated scouting system for 3x3 basketball that extracts player metrics from broadcast footage, adapting a 5x5 pipeline (detection, segmentation, court keypoints and pose) to half-court play and evaluating how well the models generalize. In progress.",
+      tags: ["Computer Vision", "PyTorch", "Python", "YOLO"],
     },
   ],
   past: [
     {
-      period: "Jan 2026 — Jun 2026",
-      title: "Data Engineer",
-      org: "LOTEP · Paraíba State Lottery",
+      period: "Nov 2025 — Jun 2026",
+      title: "Researcher, data engineering",
+      org: "ARIA · UFPB",
       description:
-        "Data engineering system that ingests heterogeneous reports from sports betting operators through a configurable pipeline: JSON metadata, vectorized cleaning and anti-fraud validation, loading everything into a PostgreSQL data warehouse. The flow is orchestrated by an event-driven architecture on Kafka, with a FastAPI gateway validated by JSON and compliant with the Brazilian data protection law.",
+        "On the LOTEP project (Paraíba State Lottery), I built the ingestion pipeline that detects new spreadsheets from every licensed operator in the state, matches them to a known layout or infers and registers a new one automatically, and runs vectorized auditing and cleaning up to the load into a PostgreSQL data warehouse. JSON metadata, anti-fraud validation, an event-driven architecture on Kafka and a FastAPI gateway validated by JSON, compliant with the Brazilian data protection law. It cut the data preparation consumed by the data team from 6 hours to 40 minutes.",
       tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
     },
     {
-      period: "Jan 2026 — Aug 2026",
-      title: "Software Engineer",
-      org: "Editora BP",
-      description:
-        "AI platform that cut the production of annotated exams from one or two days to roughly ten minutes. The system extracts data from PDFs automatically and uses RAG agents to write commentary grounded in curated material, with an interactive chat and expert review (human in the loop) feeding continuous improvement.",
-      tags: ["RAG", "Agents", "Python", "OCR"],
-    },
-    {
-      period: "Nov 2025 — Jul 2026",
-      title: "Researcher",
-      org: "ARIA · UFPB",
-      description:
-        "Research in applied artificial intelligence, contributing to the group's projects at the Informatics Center of UFPB.",
-    },
-    {
-      period: "Sep 2025 — Mar 2026",
-      title: "AI Engineer",
-      org: "LembreMe",
-      description:
-        "I led AI engineering at LembreMe, a conversational assistant that brings reminders, personal finance, goals, tasks and notes together in natural language, with calendar integration, in-house scraping for travel search, contextual recommendations and automated phone calls. The core uses LLMs for intent routing and response generation. In the same ecosystem, the meetings module transcribes in real time through Deepgram and extracts tasks, decisions, insights and open questions, delivering notes and an executive summary as soon as the call ends.",
-      tags: ["LLMs", "LangChain", "Deepgram", "Python", "FastAPI"],
-    },
-    {
-      period: "Jun 2025 — Nov 2025",
+      period: "Jun 2025 — Dec 2025",
       title: "AI Engineer (internship)",
       org: "Zoox Smart Data",
       description:
-        "Agent generator that solved a bottleneck in CrewAI: instead of writing code, the user defines the agent's role, goal and context through an interactive interface, and the application generates production-ready code and configuration.",
+        "Agent generator that solved a bottleneck in CrewAI: instead of writing code, the user defines the agent's role, goal and context through an interactive interface, and the application generates ready-to-use code and configuration.",
       tags: ["CrewAI", "Python", "LLMs"],
     },
     {
-      period: "Nov 2024 — Apr 2025",
-      title: "Trainee",
+      period: "Dec 2024 — Jun 2025",
+      title: "Participant (cohort 2025.1)",
       org: "Trilha · UFPB",
       description:
-        "Intensive in-person program in Computer Science, with workshops and mentoring in software development.",
+        "Free programming, projects and mentoring program at UFPB, run by students, with classes in Python, web and data.",
       highlight: "First place among six teams in the program hackathon, with PixelMind",
     },
   ],

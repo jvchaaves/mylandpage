@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   keywords: [
     "João Vitor Chaves",
     "Desenvolvedor Full-Stack",
+    "AI Engineer",
+    "RAG",
+    "LangGraph",
     "Inteligência Artificial",
     "Ciência de Dados",
     "LAVID",
@@ -65,7 +68,7 @@ const personSchema = {
   name: "João Vitor Chaves de Souza",
   alternateName: "João Vitor Chaves",
   url: SITE_URL,
-  jobTitle: "Desenvolvedor Full-Stack",
+  jobTitle: "Desenvolvedor Full-Stack e AI Engineer",
   description: dict.pt.meta.description,
   email: "mailto:joaovitorchavesdesouza@gmail.com",
   knowsLanguage: ["pt-BR", "en"],
