@@ -14,7 +14,7 @@ export const dict = {
     meta: {
       title: "João Vitor Chaves",
       description:
-        "Desenvolvedor full-stack no LAVID/UFPB, no V4H, plataforma de telessaúde utilizada no SUS, e pesquisador em IA aplicada no TRIL Lab. Graduando em Ciência de Dados e Inteligência Artificial na UFPB.",
+        "Desenvolvedor full-stack e AI engineer no LAVID/UFPB, no V4H, plataforma de telessaúde utilizada no SUS, e pesquisador em LLMs e visão computacional no TRIL Lab e na TAIL. Graduando em Ciência de Dados e Inteligência Artificial na UFPB.",
     },
     skipLink: "Pular para o conteúdo",
     macCorner: "Abrir a versão Mac OS",
@@ -28,13 +28,13 @@ export const dict = {
     hero: {
       location: "João Pessoa, Brasil",
       intro:
-        "Estudante de tecnologia, interessado em desenvolvimento de software e inteligência artificial. Gosto de aprender construindo, experimentar novas ideias e transformar conhecimento em projetos que resolvem problemas reais. Também sou apaixonado por esportes, competição e pelo processo de sempre buscar evoluir.",
+        "Desenvolvedor full-stack e AI engineer, graduando em Ciência de Dados e IA na UFPB. Construo sistemas com LLMs, RAG e agentes, de pipelines de dados a produtos em produção. Gosto de aprender construindo, experimentar novas ideias e transformar conhecimento em projetos que resolvem problemas reais. Também sou apaixonado por esportes, competição e pelo processo de sempre buscar evoluir.",
       now: [
         {
           org: "LAVID · UFPB",
-          role: "Desenvolvedor Full-Stack no V4H, telessaúde no SUS",
+          role: "Desenvolvedor Full-Stack e AI Engineer no V4H, telessaúde no SUS",
         },
-        { org: "TAIL", role: "Diretoria de Visão Computacional / Sports" },
+        { org: "TAIL", role: "Pesquisador em Visão Computacional (diretoria de Sports)" },
         {
           org: "TRIL Lab · UFPB",
           role: "Pesquisador em LLMs, visão computacional e OCR",
@@ -58,7 +58,7 @@ export const dict = {
         [
           { t: "Hoje faço parte do " },
           { t: "LAVID/UFPB", em: true },
-          { t: ", onde trabalho como desenvolvedor full-stack no " },
+          { t: ", onde trabalho como desenvolvedor full-stack e AI engineer no " },
           { t: "V4H", em: true },
           {
             t: ", plataforma de telessaúde da Wisecare utilizada no SUS. É onde tenho contato com desafios que vão além de simplesmente fazer uma aplicação funcionar: trabalho com um sistema real em produção, informações de saúde e integrações com serviços públicos, como o ",
@@ -81,11 +81,11 @@ export const dict = {
           { t: "Outra parte importante da minha trajetória é a " },
           { t: "TAIL", em: true },
           {
-            t: ", primeira liga acadêmica de Inteligência Artificial da Paraíba. Faço parte da diretoria de ",
+            t: ", primeira liga acadêmica de Inteligência Artificial da Paraíba. Entrei como trainee e hoje integro a diretoria de ",
           },
           { t: "Visão Computacional/Sports", em: true },
           {
-            t: ", onde conduzo projetos da área e ajudo na formação de novos membros. Essa frente também aproxima duas coisas que fazem parte de quem eu sou: ",
+            t: ", onde desenvolvemos, em equipe, um sistema de scouting automatizado para o basquete 3x3. Essa frente também aproxima duas coisas que fazem parte de quem eu sou: ",
           },
           { t: "tecnologia e esportes", em: true },
           { t: "." },
@@ -140,10 +140,10 @@ export const dict = {
       title: "Currículo",
       download: "Baixar PDF",
       print: "Salvar em PDF",
-      role: "Desenvolvedor Full-Stack e pesquisador em IA aplicada",
+      role: "Desenvolvedor Full-Stack e AI Engineer",
       summaryLabel: "Resumo",
       summary:
-        "Graduando em Ciência de Dados e Inteligência Artificial na UFPB. Desenvolvedor full-stack no LAVID/UFPB, atuando no V4H, plataforma de telessaúde da Wisecare utilizada no SUS, com sistema em produção, dados de saúde e integrações com serviços públicos. Pesquisador no TRIL Lab em projetos de P&D com empresas, com foco em agentes baseados em LLMs, visão computacional e OCR.",
+        "Graduando em Ciência de Dados e Inteligência Artificial na UFPB. Desenvolvedor full-stack e AI engineer no LAVID/UFPB, atuando no V4H, plataforma de telessaúde da Wisecare utilizada no SUS, com sistema em produção, dados de saúde e integrações com serviços públicos. Pesquisador no TRIL Lab em projetos de P&D com empresas (agentes com LLMs, RAG e OCR) e na TAIL em visão computacional aplicada ao esporte.",
       experienceLabel: "Experiência",
       projectsLabel: "Projetos selecionados",
       toolsLabel: "Ferramentas",
@@ -166,7 +166,7 @@ export const dict = {
     meta: {
       title: "João Vitor Chaves",
       description:
-        "Full-stack developer at LAVID/UFPB, working on V4H, a telehealth platform used by Brazil's public health system, and a researcher in applied AI at TRIL Lab. Undergraduate in Data Science and Artificial Intelligence at UFPB.",
+        "Full-stack developer and AI engineer at LAVID/UFPB, working on V4H, a telehealth platform used by Brazil's public health system, and a researcher in LLMs and computer vision at TRIL Lab and TAIL. Undergraduate in Data Science and Artificial Intelligence at UFPB.",
     },
     skipLink: "Skip to content",
     macCorner: "Open the Mac OS version",
@@ -180,13 +180,13 @@ export const dict = {
     hero: {
       location: "João Pessoa, Brazil",
       intro:
-        "Technology student, interested in software development and artificial intelligence. I learn by building, enjoy experimenting with new ideas, and like turning knowledge into projects that solve real problems. I am also passionate about sports, competition, and the process of always getting better.",
+        "Full-stack developer and AI engineer, undergraduate in Data Science and AI at UFPB. I build systems with LLMs, RAG and agents, from data pipelines to production products. I learn by building, enjoy experimenting with new ideas, and like turning knowledge into projects that solve real problems. I am also passionate about sports, competition, and the process of always getting better.",
       now: [
         {
           org: "LAVID · UFPB",
-          role: "Full-Stack Developer on V4H, telehealth for the public system",
+          role: "Full-Stack Developer and AI Engineer on V4H, telehealth for the public system",
         },
-        { org: "TAIL", role: "Computer Vision / Sports board member" },
+        { org: "TAIL", role: "Computer Vision Researcher (Sports directorate)" },
         {
           org: "TRIL Lab · UFPB",
           role: "Researcher in LLMs, computer vision and OCR",
@@ -213,7 +213,7 @@ export const dict = {
         [
           { t: "I am currently part of " },
           { t: "LAVID/UFPB", em: true },
-          { t: ", where I work as a full-stack developer on " },
+          { t: ", where I work as a full-stack developer and AI engineer on " },
           { t: "V4H", em: true },
           {
             t: ", Wisecare's telehealth platform used by SUS, Brazil's public health system. It is where I face problems that go beyond making an application run: a real system in production, health information, and integrations with public services such as ",
@@ -236,11 +236,11 @@ export const dict = {
           { t: "Another important part of my path is " },
           { t: "TAIL", em: true },
           {
-            t: ", the first academic AI league in Paraíba. I am on the board of ",
+            t: ", the first academic AI league in Paraíba. I joined as a trainee and now take part in the directorate of ",
           },
           { t: "Computer Vision and Sports", em: true },
           {
-            t: ", where I lead the projects in that area and help train new members. It also brings together two things that are part of who I am: ",
+            t: ", where we are building, as a team, an automated scouting system for 3x3 basketball. It also brings together two things that are part of who I am: ",
           },
           { t: "technology and sports", em: true },
           { t: "." },
@@ -295,7 +295,7 @@ export const dict = {
       title: "Resume",
       download: "Download PDF",
       print: "Save as PDF",
-      role: "Full-Stack Developer and applied AI researcher",
+      role: "Full-Stack Developer and AI Engineer",
       summaryLabel: "Summary",
       summary:
         "Undergraduate in Data Science and Artificial Intelligence at UFPB. Full-stack developer at LAVID/UFPB, working on V4H, Wisecare's telehealth platform used by Brazil's public health system, with a live production system, health data and integrations with public services. Researcher at TRIL Lab on R&D projects with industry partners, focused on LLM-based agents, computer vision and OCR.",
