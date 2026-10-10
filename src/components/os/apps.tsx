@@ -28,8 +28,9 @@ export function SobreEsteMac() {
       </dl>
 
       <p className="mt-4 text-left text-[12px] leading-[1.65] text-black/75">
-        Trabalho no LAVID/UFPB, no V4H — plataforma de telessaúde usada no SUS —
-        e pesquiso IA aplicada no TRIL Lab. Gosto de construir do zero e de
+        Sou desenvolvedor full-stack e AI engineer no LAVID/UFPB, no V4H —
+        plataforma de telessaúde usada no SUS — e pesquiso agentes com LLMs no
+        TRIL Lab. Gosto de construir do zero e de
         entender como as coisas quebram.
       </p>
 

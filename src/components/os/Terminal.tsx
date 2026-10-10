@@ -87,8 +87,8 @@ export default function Terminal({ onAbrirApp }: { onAbrirApp?: (id: string) => 
         case "whoami":
           return [
             "joão vitor chaves",
-            "desenvolvedor full-stack no LAVID/UFPB (V4H, telessaúde no SUS)",
-            "pesquisador em IA aplicada no TRIL Lab",
+            "desenvolvedor full-stack e AI engineer no LAVID/UFPB (V4H, telessaúde no SUS)",
+            "pesquisador em agentes com LLMs no TRIL Lab",
             "graduando em ciência de dados e IA — UFPB",
           ];
 
