@@ -55,7 +55,7 @@ const pt: { current: Role[]; past: Role[] } = {
       tags: ["CrewAI", "Python", "LLMs"],
     },
     {
-      period: "Dez 2024 — Jun 2025",
+      period: "Nov 2024 — Jun 2025",
       title: "Participante (turma 2025.1)",
       org: "Trilha · UFPB",
       description:
@@ -111,7 +111,7 @@ const en: { current: Role[]; past: Role[] } = {
       tags: ["CrewAI", "Python", "LLMs"],
     },
     {
-      period: "Dec 2024 — Jun 2025",
+      period: "Nov 2024 — Jun 2025",
       title: "Participant (cohort 2025.1)",
       org: "Trilha · UFPB",
       description:
