@@ -29,15 +29,23 @@ const pt: { current: Role[]; past: Role[] } = {
       tags: ["LLMs", "LangGraph", "RAG", "FastAPI", "OCR", "Python"],
     },
     {
-      period: "Nov 2025 — Presente",
+      period: "Ago 2026 — Presente",
       title: "Pesquisador em Visão Computacional",
       org: "TAIL",
       description:
-        "Na Technology and Artificial Intelligence League, primeira liga acadêmica de IA da Paraíba, entrei como trainee e hoje integro a diretoria de Visão Computacional/Sports. Em equipe, desenvolvo um sistema de scouting automatizado para o basquete 3x3 que extrai métricas de jogadores de vídeos de transmissão, adaptando para meia quadra um pipeline de 5x5 (detecção, segmentação, keypoints de quadra e pose) e avaliando a generalização dos modelos. Projeto em andamento.",
+        "Na Technology and Artificial Intelligence League, primeira liga acadêmica de IA da Paraíba, integro a diretoria de Visão Computacional/Sports. Em equipe, desenvolvo um sistema de scouting automatizado para o basquete 3x3 que extrai métricas de jogadores de vídeos de transmissão, adaptando para meia quadra um pipeline de 5x5 (detecção, segmentação, keypoints de quadra e pose) e avaliando a generalização dos modelos. Projeto em andamento.",
       tags: ["Computer Vision", "PyTorch", "Python", "YOLO"],
     },
   ],
   past: [
+    {
+      period: "Nov 2025 — Jul 2026",
+      title: "Trainee",
+      org: "TAIL",
+      description:
+        "Com a turma de trainees, construí o Pauta, plataforma de civic tech em que cidadãos reportam problemas urbanos com foto e localização. Um LLM de visão classifica cada relato (com revisão manual quando a confiança é baixa), os relatos viram pontos georreferenciados no PostgreSQL/PostGIS, exibidos em mapa e feed da comunidade, e as notificações rodam sobre um outbox de eventos consumido por workers Celery.",
+      tags: ["Next.js", "FastAPI", "PostGIS", "pgvector", "Celery", "Supabase"],
+    },
     {
       period: "Nov 2025 — Jun 2026",
       title: "Pesquisador, engenharia de dados",
@@ -85,15 +93,23 @@ const en: { current: Role[]; past: Role[] } = {
       tags: ["LLMs", "LangGraph", "RAG", "FastAPI", "OCR", "Python"],
     },
     {
-      period: "Nov 2025 — Present",
+      period: "Aug 2026 — Present",
       title: "Computer Vision Researcher",
       org: "TAIL",
       description:
-        "At the Technology and Artificial Intelligence League, the first academic AI league in Paraíba, I joined as a trainee and now take part in the Computer Vision/Sports directorate. With the team, I develop an automated scouting system for 3x3 basketball that extracts player metrics from broadcast footage, adapting a 5x5 pipeline (detection, segmentation, court keypoints and pose) to half-court play and evaluating how well the models generalize. In progress.",
+        "At the Technology and Artificial Intelligence League, the first academic AI league in Paraíba, I take part in the Computer Vision/Sports directorate. With the team, I develop an automated scouting system for 3x3 basketball that extracts player metrics from broadcast footage, adapting a 5x5 pipeline (detection, segmentation, court keypoints and pose) to half-court play and evaluating how well the models generalize. In progress.",
       tags: ["Computer Vision", "PyTorch", "Python", "YOLO"],
     },
   ],
   past: [
+    {
+      period: "Nov 2025 — Jul 2026",
+      title: "Trainee",
+      org: "TAIL",
+      description:
+        "With the trainee cohort, I built Pauta, a civic-tech platform where citizens report urban problems with a photo and location. A vision LLM classifies each report (with manual review when confidence is low), reports become geolocated points in PostgreSQL/PostGIS shown on a map and community feed, and notifications run on an event outbox consumed by Celery workers.",
+      tags: ["Next.js", "FastAPI", "PostGIS", "pgvector", "Celery", "Supabase"],
+    },
     {
       period: "Nov 2025 — Jun 2026",
       title: "Researcher, data engineering",
