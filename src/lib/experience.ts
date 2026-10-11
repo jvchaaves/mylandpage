@@ -29,21 +29,29 @@ const pt: { current: Role[]; past: Role[] } = {
       tags: ["LLMs", "LangGraph", "RAG", "FastAPI", "OCR", "Python"],
     },
     {
-      period: "Nov 2025 — Presente",
+      period: "Ago 2026 — Presente",
       title: "Pesquisador em Visão Computacional",
       org: "TAIL",
       description:
-        "Na Technology and Artificial Intelligence League, primeira liga acadêmica de IA da Paraíba, entrei como trainee e hoje integro a diretoria de Visão Computacional/Sports. Em equipe, desenvolvo um sistema de scouting automatizado para o basquete 3x3 que extrai métricas de jogadores de vídeos de transmissão, adaptando para meia quadra um pipeline de 5x5 (detecção, segmentação, keypoints de quadra e pose) e avaliando a generalização dos modelos. Projeto em andamento.",
+        "Na Technology and Artificial Intelligence League, primeira liga acadêmica de IA da Paraíba, integro a diretoria de Visão Computacional/Sports. Em equipe, desenvolvo um sistema de scouting automatizado para o basquete 3x3 que extrai métricas de jogadores de vídeos de transmissão, adaptando para meia quadra um pipeline de 5x5 (detecção, segmentação, keypoints de quadra e pose) e avaliando a generalização dos modelos. Projeto em andamento.",
       tags: ["Computer Vision", "PyTorch", "Python", "YOLO"],
     },
   ],
   past: [
     {
+      period: "Nov 2025 — Jul 2026",
+      title: "Trainee",
+      org: "TAIL",
+      description:
+        "Com a turma de trainees, construí o Pauta, plataforma de civic tech em que cidadãos reportam problemas urbanos com foto e localização. Um LLM de visão classifica cada relato (com revisão manual quando a confiança é baixa), os relatos viram pontos georreferenciados no PostgreSQL/PostGIS, exibidos em mapa e feed da comunidade, e as notificações rodam sobre um outbox de eventos consumido por workers Celery.",
+      tags: ["Next.js", "FastAPI", "PostGIS", "pgvector", "Celery", "Supabase"],
+    },
+    {
       period: "Nov 2025 — Jun 2026",
       title: "Pesquisador, engenharia de dados",
       org: "ARIA · UFPB",
       description:
-        "No projeto da LOTEP (Loteria do Estado da Paraíba), construí o pipeline de ingestão que detecta planilhas novas de todos os operadores legalizados do estado, identifica o padrão correspondente ou infere e registra um novo automaticamente, e executa auditoria e limpeza vetorizada até a carga em um data warehouse PostgreSQL. Metadados em JSON, validações antifraude, arquitetura event-driven em Kafka e gateway FastAPI validado por JSON, em conformidade com a LGPD. Reduziu de 6 horas para 40 minutos o preparo dos dados consumidos pelo time de dados.",
+        "Responsável pelo pipeline de ingestão automatizada da LOTEP, a Loteria do Estado da Paraíba: detecta planilhas novas de todos os operadores legalizados do estado, identifica o layout correspondente ou infere e registra um novo automaticamente, e executa auditoria e limpeza vetorizada até a carga em um data warehouse PostgreSQL, com mais de 20 GB de dados e milhões de registros de apostas. Configuração em JSON orientada a metadados, validações antifraude, arquitetura event-driven em Kafka e gateway FastAPI validado por schema, em conformidade com a LGPD. Reduziu de 6 horas para 40 minutos o preparo dos dados do time de analytics.",
       tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
     },
     {
@@ -55,13 +63,13 @@ const pt: { current: Role[]; past: Role[] } = {
       tags: ["CrewAI", "Python", "LLMs"],
     },
     {
-      period: "Nov 2024 — Jun 2025",
+      period: "Nov 2024 — Abr 2025",
       title: "Participante (turma 2024.2)",
       org: "Trilha · UFPB",
       description:
         "Programa gratuito de programação, projetos e mentoria da UFPB, feito por estudantes, com aulas de Python, web e dados.",
       highlight:
-        "1º lugar entre 6 equipes no hackathon do programa, com o PixelMind",
+        "1º lugar entre 6 equipes no hackathon do programa (mai–jun 2025), com o PixelMind",
     },
   ],
 };
@@ -85,21 +93,29 @@ const en: { current: Role[]; past: Role[] } = {
       tags: ["LLMs", "LangGraph", "RAG", "FastAPI", "OCR", "Python"],
     },
     {
-      period: "Nov 2025 — Present",
+      period: "Aug 2026 — Present",
       title: "Computer Vision Researcher",
       org: "TAIL",
       description:
-        "At the Technology and Artificial Intelligence League, the first academic AI league in Paraíba, I joined as a trainee and now take part in the Computer Vision/Sports directorate. With the team, I develop an automated scouting system for 3x3 basketball that extracts player metrics from broadcast footage, adapting a 5x5 pipeline (detection, segmentation, court keypoints and pose) to half-court play and evaluating how well the models generalize. In progress.",
+        "At the Technology and Artificial Intelligence League, the first academic AI league in Paraíba, I take part in the Computer Vision/Sports directorate. With the team, I develop an automated scouting system for 3x3 basketball that extracts player metrics from broadcast footage, adapting a 5x5 pipeline (detection, segmentation, court keypoints and pose) to half-court play and evaluating how well the models generalize. In progress.",
       tags: ["Computer Vision", "PyTorch", "Python", "YOLO"],
     },
   ],
   past: [
     {
+      period: "Nov 2025 — Jul 2026",
+      title: "Trainee",
+      org: "TAIL",
+      description:
+        "With the trainee cohort, I built Pauta, a civic-tech platform where citizens report urban problems with a photo and location. A vision LLM classifies each report (with manual review when confidence is low), reports become geolocated points in PostgreSQL/PostGIS shown on a map and community feed, and notifications run on an event outbox consumed by Celery workers.",
+      tags: ["Next.js", "FastAPI", "PostGIS", "pgvector", "Celery", "Supabase"],
+    },
+    {
       period: "Nov 2025 — Jun 2026",
       title: "Researcher, data engineering",
       org: "ARIA · UFPB",
       description:
-        "On the LOTEP project (Paraíba State Lottery), I built the ingestion pipeline that detects new spreadsheets from every licensed operator in the state, matches them to a known layout or infers and registers a new one automatically, and runs vectorized auditing and cleaning up to the load into a PostgreSQL data warehouse. JSON metadata, anti-fraud validation, an event-driven architecture on Kafka and a FastAPI gateway validated by JSON, compliant with the Brazilian data protection law. It cut the data preparation consumed by the data team from 6 hours to 40 minutes.",
+        "Owned the automated ingestion pipeline for LOTEP, the Paraíba state lottery: it detects new spreadsheets from every licensed operator in the state, matches each one to a known layout or infers and registers a new layout automatically, and runs vectorized auditing and cleaning up to the load into a PostgreSQL data warehouse, covering over 20 GB of data and millions of betting records. Metadata-driven JSON configuration, anti-fraud validations, event-driven architecture on Kafka and a FastAPI gateway validated by schema, LGPD-compliant. Cut data preparation for the analytics team from 6 hours to 40 minutes.",
       tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
     },
     {
@@ -111,12 +127,12 @@ const en: { current: Role[]; past: Role[] } = {
       tags: ["CrewAI", "Python", "LLMs"],
     },
     {
-      period: "Nov 2024 — Jun 2025",
+      period: "Nov 2024 — Apr 2025",
       title: "Participant (cohort 2024.2)",
       org: "Trilha · UFPB",
       description:
         "Free programming, projects and mentoring program at UFPB, run by students, with classes in Python, web and data.",
-      highlight: "First place among six teams in the program hackathon, with PixelMind",
+      highlight: "First place among six teams in the program hackathon (May–Jun 2025), with PixelMind",
     },
   ],
 };
