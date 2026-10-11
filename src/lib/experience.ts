@@ -51,7 +51,7 @@ const pt: { current: Role[]; past: Role[] } = {
       title: "Pesquisador, engenharia de dados",
       org: "ARIA · UFPB",
       description:
-        "No projeto da LOTEP (Loteria do Estado da Paraíba), construí o pipeline de ingestão que detecta planilhas novas de todos os operadores legalizados do estado, identifica o padrão correspondente ou infere e registra um novo automaticamente, e executa auditoria e limpeza vetorizada até a carga em um data warehouse PostgreSQL. Metadados em JSON, validações antifraude, arquitetura event-driven em Kafka e gateway FastAPI validado por JSON, em conformidade com a LGPD. Reduziu de 6 horas para 40 minutos o preparo dos dados consumidos pelo time de dados.",
+        "Responsável pelo pipeline de ingestão automatizada da LOTEP, a Loteria do Estado da Paraíba: detecta planilhas novas de todos os operadores legalizados do estado, identifica o layout correspondente ou infere e registra um novo automaticamente, e executa auditoria e limpeza vetorizada até a carga em um data warehouse PostgreSQL, com mais de 20 GB de dados e milhões de registros de apostas. Configuração em JSON orientada a metadados, validações antifraude, arquitetura event-driven em Kafka e gateway FastAPI validado por schema, em conformidade com a LGPD. Reduziu de 6 horas para 40 minutos o preparo dos dados do time de analytics.",
       tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
     },
     {
@@ -115,7 +115,7 @@ const en: { current: Role[]; past: Role[] } = {
       title: "Researcher, data engineering",
       org: "ARIA · UFPB",
       description:
-        "On the LOTEP project (Paraíba State Lottery), I built the ingestion pipeline that detects new spreadsheets from every licensed operator in the state, matches them to a known layout or infers and registers a new one automatically, and runs vectorized auditing and cleaning up to the load into a PostgreSQL data warehouse. JSON metadata, anti-fraud validation, an event-driven architecture on Kafka and a FastAPI gateway validated by JSON, compliant with the Brazilian data protection law. It cut the data preparation consumed by the data team from 6 hours to 40 minutes.",
+        "Owned the automated ingestion pipeline for LOTEP, the Paraíba state lottery: it detects new spreadsheets from every licensed operator in the state, matches each one to a known layout or infers and registers a new layout automatically, and runs vectorized auditing and cleaning up to the load into a PostgreSQL data warehouse, covering over 20 GB of data and millions of betting records. Metadata-driven JSON configuration, anti-fraud validations, event-driven architecture on Kafka and a FastAPI gateway validated by schema, LGPD-compliant. Cut data preparation for the analytics team from 6 hours to 40 minutes.",
       tags: ["Kafka", "FastAPI", "PostgreSQL", "Python", "LGPD"],
     },
     {
