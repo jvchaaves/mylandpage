@@ -63,13 +63,13 @@ const pt: { current: Role[]; past: Role[] } = {
       tags: ["CrewAI", "Python", "LLMs"],
     },
     {
-      period: "Nov 2024 — Jun 2025",
+      period: "Nov 2024 — Abr 2025",
       title: "Participante (turma 2024.2)",
       org: "Trilha · UFPB",
       description:
         "Programa gratuito de programação, projetos e mentoria da UFPB, feito por estudantes, com aulas de Python, web e dados.",
       highlight:
-        "1º lugar entre 6 equipes no hackathon do programa, com o PixelMind",
+        "1º lugar entre 6 equipes no hackathon do programa (mai–jun 2025), com o PixelMind",
     },
   ],
 };
@@ -127,12 +127,12 @@ const en: { current: Role[]; past: Role[] } = {
       tags: ["CrewAI", "Python", "LLMs"],
     },
     {
-      period: "Nov 2024 — Jun 2025",
+      period: "Nov 2024 — Apr 2025",
       title: "Participant (cohort 2024.2)",
       org: "Trilha · UFPB",
       description:
         "Free programming, projects and mentoring program at UFPB, run by students, with classes in Python, web and data.",
-      highlight: "First place among six teams in the program hackathon, with PixelMind",
+      highlight: "First place among six teams in the program hackathon (May–Jun 2025), with PixelMind",
     },
   ],
 };
